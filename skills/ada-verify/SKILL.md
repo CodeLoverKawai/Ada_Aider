@@ -1,9 +1,18 @@
 ---
 name: ada-verify
-description: Use when about to mark a task or implementation complete, before commit or PR.
+description: Mandatory completion gate skill enforcing empirical test execution, exit code verification, and zero speculative claims.
 ---
-# ada-verify
+# ada-verify (Mandatory Verification Gate)
 
-- Evidence before claims. Run tests, compilers, or linters first.
-- Read output, check exit code. Report exact count (e.g. "All 15 tests pass, exit 0").
-- Do not use speculation: "should", "seems to", "probably".
+## Directives
+- **Evidence First**: MANDATORY to run tests/build scripts BEFORE declaring completion.
+- **Empirical Report**: State exact test metrics and process exit code.
+- **Zero Speculation**: "should work" or "seems fine" are FORBIDDEN without terminal log output.
+- **Diff & Walkthrough**: Review `git status`/`git diff` and update `walkthrough.md`.
+
+## Canonical Micro-Example
+```
+Executed: `npm test`
+Result: 22 passed, 0 failed (exit code 0).
+Updated: walkthrough.md with test log evidence.
+```

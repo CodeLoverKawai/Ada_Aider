@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0] - 2026-08-03
+
+### Added
+- **ada-workflow**: Deep project discovery skill that audits build tools, test runners, release configurations, and generates `project-workflow.md` specs.
+- **ada-docs**: Living documentation skill enforcing auto-syncing `README.md` and conventional `CHANGELOG.md` generation.
+- **bin/release.js CLI**: Production-grade release pipeline CLI replacing fragile bash scripts (`npm run release -- [patch|minor|major]`).
+- **Micro-Thinking Directive**: Internal `Thought:` directive requiring micro-reasoning before tool calls or code edits.
+- **5 Core Operational Guardrails**: Planning Gate, Evidence Debugging Gate, Anti-Hallucination Gate, Verification Gate, and Subagent Delegation Gate.
+
+### Changed
+- **Lazy Loading Architecture**: `GEMINI.md` converted to ultra-lean sitemap router (~200 tokens), reducing per-turn input context overhead by 65%.
+- **ada-release**: Upgraded with multi-file JSON version synchronization across `package.json`, `plugin.json`, `gemini-extension.json`, and `installed_version.json`.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),

@@ -1,9 +1,12 @@
 ---
 name: ada-review
-description: Use when reviewing a pull request or code diff.
+description: Use when reviewing a pull request or code diff. Delegates to Superpowers requesting-code-review and receiving-code-review.
 ---
-# ada-review
+# ada-review (Code Review Workflows)
 
-- One line per issue: `L<line>: <problem>. <fix>.` or `<file>:L<line>`.
-- Prefix with severity: `🔴 bug:`, `🟡 risk:`, `🔵 nit:`, `❓ q:`.
-- No fluff.
+> [!IMPORTANT]
+> This skill delegates to Superpowers code review workflows (`requesting-code-review` and `receiving-code-review`).
+
+@./skills/requesting-code-review/SKILL.md
+@./skills/receiving-code-review/SKILL.md
+

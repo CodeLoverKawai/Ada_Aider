@@ -140,7 +140,13 @@ function processMostRecentLog() {
     ? path.join(configDir, 'projects') 
     : path.join(os.homedir(), '.claude', 'projects');
 
-  if (!fs.existsSync(projectsDir)) {
+  const antigravityDir = path.join(os.homedir(), '.gemini', 'antigravity', 'brain');
+
+  let searchDirs = [];
+  if (fs.existsSync(projectsDir)) searchDirs.push(projectsDir);
+  if (fs.existsSync(antigravityDir)) searchDirs.push(antigravityDir);
+
+  if (searchDirs.length === 0) {
     return {
       turns: 0,
       chars: 0,
@@ -149,7 +155,21 @@ function processMostRecentLog() {
     };
   }
 
-  const mostRecentFile = findMostRecentJsonl(projectsDir);
+  let mostRecentFile = null;
+  let mostRecentTime = 0;
+  for (const d of searchDirs) {
+    const candidate = findMostRecentJsonl(d);
+    if (candidate) {
+      try {
+        const stats = fs.statSync(candidate);
+        if (stats.mtimeMs > mostRecentTime) {
+          mostRecentTime = stats.mtimeMs;
+          mostRecentFile = candidate;
+        }
+      } catch (e) {}
+    }
+  }
+
   if (!mostRecentFile) {
     return {
       turns: 0,

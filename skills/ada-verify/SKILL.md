@@ -1,18 +1,11 @@
 ---
 name: ada-verify
-description: Mandatory completion gate skill enforcing empirical test execution, exit code verification, and zero speculative claims.
+description: Mandatory completion gate skill enforcing empirical test execution, exit code verification, and zero speculative claims. Delegates to Superpowers verification-before-completion.
 ---
-# ada-verify (Mandatory Verification Gate)
+# ada-verify (Verification Before Completion)
 
-## Directives
-- **Evidence First**: MANDATORY to run tests/build scripts BEFORE declaring completion.
-- **Empirical Report**: State exact test metrics and process exit code.
-- **Zero Speculation**: "should work" or "seems fine" are FORBIDDEN without terminal log output.
-- **Diff & Walkthrough**: Review `git status`/`git diff` and update `walkthrough.md`.
+> [!IMPORTANT]
+> This skill delegates to Superpowers Verification (`verification-before-completion`).
 
-## Canonical Micro-Example
-```
-Executed: `npm test`
-Result: 22 passed, 0 failed (exit code 0).
-Updated: walkthrough.md with test log evidence.
-```
+@./skills/verification-before-completion/SKILL.md
+

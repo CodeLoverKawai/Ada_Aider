@@ -4,26 +4,38 @@ description: Automated release engine managing semantic versioning, multi-file v
 ---
 # ada-release (Automated Release Engine)
 
+<EXTREMELY-IMPORTANT>
+Release operations MUST be executed only when git working tree is clean and all unit tests pass with exit code 0.
+</EXTREMELY-IMPORTANT>
+
 ## Pre-Release Verification Protocol
-1. **Clean Git Tree**: Verify no uncommitted changes (`git status --porcelain`).
-2. **Automated Test Gate**: Run full test suite (`npm test`). Must pass cleanly with exit code 0.
-3. **Semantic Bump Calculation**: Determine version type:
-   - `patch`: Bug fixes, minor patches (1.3.0 -> 1.3.1)
-   - `minor`: New features, backward-compatible additions (1.3.0 -> 1.4.0)
-   - `major`: Breaking changes (1.3.0 -> 2.0.0)
+
+1. **Clean Git Tree Check**:
+   - Run `git status --porcelain` to verify zero uncommitted changes.
+2. **Automated Test Gate**:
+   - Run full test suite (`npm test`). All tests MUST pass with exit code 0.
+3. **Semantic Version Bump Calculation**:
+   - `patch`: Bug fixes, non-breaking patches (e.g., 1.4.0 -> 1.4.1).
+   - `minor`: New backward-compatible features (e.g., 1.4.0 -> 1.5.0).
+   - `major`: Breaking changes (e.g., 1.4.0 -> 2.0.0).
 
 ## Version Sync & Release Pipeline
-1. **Multi-File Version Bump**: Update version string in:
-   - `package.json`
-   - `plugin.json`
-   - `gemini-extension.json`
-   - `installed_version.json`
-2. **CHANGELOG Generation**: Invoke `ada-docs` to prepend release notes under `CHANGELOG.md`.
+
+1. **Multi-File Version Bump**:
+   - Update version string simultaneously in:
+     - `package.json`
+     - `plugin.json`
+     - `gemini-extension.json`
+     - `installed_version.json`
+2. **CHANGELOG Generation (`ada-docs`)**:
+   - Invoke `ada-docs` to prepend a new release section under `CHANGELOG.md`.
 3. **Git Release & Tagging**:
    - Create commit: `chore(release): vX.Y.Z`
-   - Create git tag: `vX.Y.Z` (`git tag -a vX.Y.Z -m "Release vX.Y.Z"`)
+   - Create git tag: `git tag -a vX.Y.Z -m "Release vX.Y.Z"`
 
 ## Canonical Release Command
+
 ```bash
 npm run release -- minor
 ```
+

@@ -112,9 +112,14 @@ process.stdin.on('end', () => {
         promptLower.includes('/specs/') ||
         promptLower.includes('docs/specs/');
 
-      const additionalContext = mentionsClarityFiles
-        ? `ADA-AGENT ACTIVE (mode: ${activeMode}). Target involves design/plan/task files. SUSPEND COMPRESSION for this turn. Respond in standard, clear language.`
-        : `ADA-AGENT ACTIVE (mode: ${activeMode}). Keep responses concise, remove pleasantries, write code normally.`;
+      let additionalContext = '';
+      if (mentionsClarityFiles) {
+        additionalContext = `ADA-AGENT ACTIVE (mode: ${activeMode}). Target involves design/plan/task files. SUSPEND COMPRESSION for this turn. Respond in standard, clear language.`;
+      } else if (activeMode === 'ultra') {
+        additionalContext = `ADA-AGENT ACTIVE (mode: ULTRA). MAX TOKEN SAVINGS MODE: Eliminate all filler, greetings, and explanations. Do NOT reprint file contents or code in chat. Return only 1-sentence summaries and clickable markdown links (file:///).`;
+      } else {
+        additionalContext = `ADA-AGENT ACTIVE (mode: ${activeMode}). Keep responses concise, remove pleasantries, write code normally, do not duplicate file contents in chat.`;
+      }
 
       data.hookSpecificOutput = {
         hookEventName: "UserPromptSubmit",

@@ -38,3 +38,25 @@ When handling specific domains or workflows, read the corresponding skill file v
 | **Git Commits** | `@./skills/ada-commit/SKILL.md` |
 | **Proactive Background Loops** | `@./skills/ada-proactive/SKILL.md` |
 
+### Academic, Research & Engineering Growth Skills (Ada System)
+| Domain / Trigger | Skill File Path |
+| :--- | :--- |
+| **Scientific & Technical Research** | `@./skills/ada-research/SKILL.md` |
+| **Project Decomposition & WBS** | `@./skills/ada-breakdown/SKILL.md` |
+| **Systems Thinking & Engineering Root-Cause** | `@./skills/ada-engineer/SKILL.md` |
+| **First Principles Pedagogy & Feynman Method** | `@./skills/ada-feynman/SKILL.md` |
+| **Applied Mathematics for Engineering** | `@./skills/ada-math/SKILL.md` |
+| **Active Recall & Exam Preparation** | `@./skills/ada-study/SKILL.md` |
+| **Advanced Data Structures & Algorithms** | `@./skills/ada-algo/SKILL.md` |
+| **System Design, C4 Modeling & ADRs** | `@./skills/ada-arch/SKILL.md` |
+| **Engineering Portfolio, RFCs & Open Source** | `@./skills/ada-career/SKILL.md` |
+| **Soft Skills, Team Dynamics & Communication** | `@./skills/ada-collab/SKILL.md` |
+| **Operating Systems, Concurrency & Kernel** | `@./skills/ada-os/SKILL.md` |
+| **Computer Networks, Sockets & Protocols** | `@./skills/ada-net/SKILL.md` |
+| **Containers, CI/CD & Linux Hardening** | `@./skills/ada-devops/SKILL.md` |
+| **Machine Learning, Neural Networks & AI** | `@./skills/ada-ai/SKILL.md` |
+| **Compilers, Automata & Formal Languages** | `@./skills/ada-compiler/SKILL.md` |
+| **University Physics & Simulation** | `@./skills/ada-physics/SKILL.md` |
+| **Data Science, Statistics & Visualization** | `@./skills/ada-data/SKILL.md` |
+| **Engineering Economics & Financial TCO** | `@./skills/ada-econ/SKILL.md` |
+| **Portainer & Docker Compose Stacks** | `@./skills/ada-portainer/SKILL.md` |

@@ -24,12 +24,33 @@ Fusiona la **disciplina procedimental estricta de Superpowers** (diseño paso a 
 - ⚡ **Embebidos & Hardware (`ada-hardware`)**: Memoria estática en C/C++ (ESP-IDF, Zephyr), ISRs ultra-cortas y diseño Verilog/VHDL sintetizable con testbenches reproducibles (`verilator`/`iverilog`).
 - 📊 **Observabilidad & Telemetría (`ada-telemetry`)**: Logs JSON estructurados con Trace IDs, instrumentación OpenTelemetry/Sentry y seguimiento de tokens/costo de llamadas LLM.
 
-### 3. Ahorro de Tokens y Eficiencia de Contexto
+### 3. Habilidades de Ingeniería, Academia y Dinámicas de Equipo (Engineering Growth Suite)
+- 🔬 **Investigación Científica y Técnica (`ada-research`)**: Formulación de hipótesis falsables ($H_0/H_1$), estado del arte en IEEE/ACM/arXiv, aislamiento de variables y plantillas `RESEARCH_PLAN.md`.
+- 📊 **Desglose de Proyectos WBS (`ada-breakdown`)**: Desglose jerárquico de entregables en 4 niveles, análisis de ruta crítica (CPM/PERT) y matrices de riesgo técnico.
+- ⚙️ **Pensamiento en Sistemas (`ada-engineer`)**: Dinámica de sistemas (bucles de realimentación), análisis de causa raíz (5 Whys, Ishikawa) y matrices formales de trade-offs de arquitectura.
+- 💡 **Pedagogía de Primeros Principios (`ada-feynman`)**: Explicación conceptual multinivel (de analogía sin jerga a formalismo matemático y código) conectada al currículo de ingeniería.
+- 📐 **Matemáticas Aplicadas (`ada-math`)**: Cálculo multivariable, álgebra lineal computacional (SVD, eigenvalores), métodos numéricos (RK4) y matemáticas discretas.
+- 📝 **Preparación de Exámenes y Active Recall (`ada-study`)**: Simulador interactivo de exámenes graduados, rúbricas de corrección y flashcards atómicas tipo Anki.
+- ⚡ **Estructuras de Datos y Algoritmos (`ada-algo`)**: Análisis asintótico riguroso ($O, \Omega, \Theta$), invariantes de bucle, algoritmos avanzados y preparación para competencias/entrevistas técnicas.
+- 🏛️ **Diseño de Sistemas y C4 (`ada-arch`)**: Diagramas C4 (Contexto, Contenedor, Componente, Código), resiliencia distribuida y registros de decisión arquitectónica (`ADR-001.md`).
+- 🚀 **Portafolio y Carrera Técnica (`ada-career`)**: Proyectos de ingeniería de impacto profundo con benchmarks, redacción de RFCs técnicos y estrategia de contribución a Open Source.
+- 🤝 **Soft Skills y Trabajo en Equipo (`ada-collab`)**: Comunicación con stakeholders vía BLUF, cultura de code review sin ego (`[blocking]`, `[suggestion]`, `[nit]`), resolución de desacuerdos ("Disagree & Commit") y post-mortems sin culpa.
+- 🐧 **Sistemas Operativos y Kernel (`ada-os`)**: Concurrencia de bajo nivel (mutex, atomics, lock-free CAS), memoria virtual/paginación, `epoll`/`io_uring` y diagnósticos con `gdb`/`strace`/`perf`.
+- 📡 **Redes de Computadoras (`ada-net`)**: Protocolos TCP/IP, sockets BSD no bloqueantes, análisis con `tcpdump`, HTTP/2, HTTP/3 (QUIC), WebSockets y TLS 1.3.
+- 🐳 **Contenedores y CI/CD (`ada-devops`)**: Dockerfiles multi-stage de mínima superficie, aislamiento cgroups/namespaces, pipelines GitHub Actions y hardening Linux.
+- 🤖 **Inteligencia Artificial y ML (`ada-ai`)**: Matemáticas de redes neuronales (backpropagation, loss functions), arquitecturas Transformers (Self-Attention) e inferencia local ONNX.
+- ⚙️ **Compiladores y Autómatas (`ada-compiler`)**: Jerarquía de Chomsky (DFA/NFA), gramáticas BNF/EBNF, parsers de descenso recursivo, ASTs, SSA IR y diseño de DSLs.
+- ⚡ **Física y Simulación (`ada-physics`)**: Mecánica clásica, electromagnetismo (Maxwell), circuitos RLC, termodinámica e integración numérica simpléctica (Verlet).
+- 📊 **Ciencia de Datos y Estadística (`ada-data`)**: Análisis exploratorio (EDA), pruebas de hipótesis ($t$-test, ANOVA, $p$-values), regresión multivariada y visualización científica.
+- 💰 **Ingeniería Económica (`ada-econ`)**: Valor Presente Neto (VPN/NPV), Tasa Interna de Retorno (TIR/IRR), análisis TCO de nube vs On-Premises y viabilidad financiera.
+- 🚢 **Portainer y Stacks Docker Compose (`ada-portainer`)**: Orquestación de stacks, resolución de permisos de volúmenes UID/GID, webhooks de auto-actualización, redes aisladas y hardening de Docker Socket.
+
+### 4. Ahorro de Tokens y Eficiencia de Contexto
 - ⚡ **Arquitectura Lazy Loading (`GEMINI.md`)**: Carga dinámica de skills que reduce entre un **65% y 85% los Input Tokens** por turno de conversación.
 - 🔕 **Directiva de Cero Duplicación**: Prohíbe re-imprimir bloques de código completos o re-sumarizar artifacts (`implementation_plan.md`, `walkthrough.md`) en la ventana de chat cuando ya fueron guardados en disco.
 - ⛏️ **Compresión Conversacional (Caveman Mode)**: Modos de brevedad sin relleno conversacional (`lite`, `full`, `ultra`, `off`).
 
-### 4. Automatización de Repositorios y Releases
+### 5. Automatización de Repositorios y Releases
 - **Auto-Documentación (`ada-docs`)**: Sincroniza `README.md`, aplica alertas estructuradas de GitHub (`> [!NOTE]`, `> [!IMPORTANT]`) y antepone notas ordenadas en `CHANGELOG.md`.
 - **Commits Convencionales (`ada-commit`)**: Mensajes bajo el estándar *Conventional Commits* (`feat`, `fix`, `docs`, `refactor`, `perf`, `chore`) limitados a ≤50 caracteres.
 - **Motor de Lanzamiento (`ada-release` / `npm run release`)**: Bump semántico multideclarativo (`package.json`, `plugin.json`, `gemini-extension.json`, `installed_version.json`), verificación de test gate y etiquetado `git tag`.
@@ -85,7 +106,29 @@ Ada-Aider/
 │   ├── ada-release/          # Despliegues automatizados y motor de lanzamientos
 │   ├── ada-db/               # Diseño de bases de datos 3NF, ERD Mermaid y EXPLAIN ANALYZE
 │   ├── ada-proactive/        # Tareas proactivas y monitoreo en segundo plano
-│   └── ada-hardware/         # C/C++ embebido estático, ISRs y sintesis Verilog/VHDL
+│   ├── ada-hardware/         # C/C++ embebido estático, ISRs y sintesis Verilog/VHDL
+│   ├── ada-research/         # Metodología de investigación, hipótesis y estado del arte
+│   ├── ada-breakdown/        # Desglose de proyectos WBS, dependencias y ruta crítica
+│   ├── ada-engineer/         # Pensamiento en sistemas, RCA 5 Whys y trade-offs
+│   ├── ada-feynman/          # Pedagogía de primeros principios multinivel y materias
+│   ├── ada-math/             # Matemáticas aplicadas, cálculo, álgebra lineal y solvers
+│   ├── ada-study/            # Active recall, generador de exámenes y flashcards
+│   ├── ada-algo/             # Estructuras de datos, invariantes y análisis asintótico
+│   ├── ada-arch/             # Diseño de sistemas, modelo C4 y plantillas ADR
+│   ├── ada-career/           # Portafolio de ingeniería de impacto, RFCs y Open Source
+│   ├── ada-collab/           # Soft skills, comunicación BLUF, code review y post-mortems
+│   ├── ada-os/               # Sistemas operativos, concurrencia, memoria virtual y syscalls
+│   ├── ada-net/              # Redes de computadoras, protocolos TCP/IP, sockets y TLS 1.3
+│   ├── ada-devops/           # Contenedores multi-stage, CI/CD, cgroups y hardening Linux
+│   ├── ada-ai/               # Machine learning, backprop, Transformers y optimización ONNX
+│   ├── ada-compiler/         # Compiladores, teoría de autómatas, ASTs, SSA y DSLs
+│   ├── ada-physics/          # Física clásica, electromagnetismo Maxwell y simulación Verlet
+│   ├── ada-data/             # Ciencia de datos, EDA, estadística inferencial y tests de hipótesis
+│   ├── ada-econ/             # Ingeniería económica, evaluación VPN/TIR y análisis TCO cloud
+│   └── ada-portainer/        # Orquestación Portainer, stacks Compose, volúmenes y webhooks
+
+
+
 │
 ├── src/
 │   └── hooks/                # Integraciones nativas de Claude Code y Antigravity

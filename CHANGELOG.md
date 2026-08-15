@@ -1,5 +1,30 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+- **Academic, Research & Engineering Growth Skills Suite**:
+  - **ada-research**: Scientific & technical research methodology, hypothesis formulation ($H_0/H_1$), and `RESEARCH_PLAN.md`.
+  - **ada-breakdown**: Hierarchical project decomposition (WBS), critical path analysis (CPM/PERT), and risk matrices.
+  - **ada-engineer**: Systems thinking, root-cause analysis (5 Whys/Ishikawa), and formal architectural trade-off evaluations.
+  - **ada-feynman**: 4-tier conceptual explanation framework (analogy $\rightarrow$ concept $\rightarrow$ rigor $\rightarrow$ code) and curriculum mapping.
+  - **ada-math**: Applied mathematics for engineering (multivariable calculus, linear algebra SVD/eigenvalues, ODEs, RK4).
+  - **ada-study**: Active recall exam preparation, graduated problem generation, and atomic flashcards.
+  - **ada-algo**: Advanced data structures, loop invariants, and formal asymptotic analysis ($O, \Omega, \Theta$).
+  - **ada-arch**: System design, C4 architecture modeling diagrams, and Architectural Decision Records (`ADR-001.md`).
+  - **ada-career**: High-impact engineering portfolio design with benchmarks, RFC technical proposals, and open-source strategies.
+  - **ada-collab**: Soft skills, BLUF communication, ego-free code reviews (`[blocking]`, `[suggestion]`, `[nit]`), and blameless post-mortems.
+  - **ada-os**: Operating systems, low-level concurrency (mutex, atomics, lock-free CAS), virtual memory, syscalls (`epoll`/`io_uring`), and profiling toolchain (`gdb`, `strace`, `perf`).
+  - **ada-net**: Computer networking, non-blocking BSD sockets, packet inspection (`tcpdump`), HTTP/2, HTTP/3 (QUIC), and TLS 1.3.
+  - **ada-devops**: Minimal multi-stage Dockerfiles, Linux cgroups/namespaces, GitHub Actions CI/CD pipelines, and server hardening.
+  - **ada-ai**: Neural network mathematics, backpropagation derivations, Transformer architectures (Self-Attention), and ONNX export.
+  - **ada-compiler**: Chomsky automata hierarchy (DFA/NFA), BNF/EBNF grammars, recursive descent AST parsers, and DSL engineering.
+  - **ada-physics**: Classical mechanics, Maxwell's electromagnetism, RLC circuits, and Verlet symplectic simulation.
+  - **ada-data**: Exploratory data analysis (EDA), statistical hypothesis testing ($t$-test, ANOVA, $p$-values), and scientific visualization.
+  - **ada-econ**: Engineering economics, NPV/IRR capital budgeting, cloud vs on-prem TCO models, and financial decision analysis.
+  - **ada-portainer**: Portainer stack design (Docker Compose v3), UID/GID volume mount permissions, webhook auto-updates, and Docker socket hardening.
+- Integrated all 19 skills into `GEMINI.md` dynamic lazy-loading index and updated `README.md`.
+
 ## [1.4.0] - 2026-08-03
 
 ### Added

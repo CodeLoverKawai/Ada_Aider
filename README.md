@@ -20,10 +20,10 @@ El sistema fusiona la **disciplina procedimental estricta de Superpowers** (dise
    - [Mapeo de Herramientas CLI (Antigravity & Claude Code)](#2-mapeo-de-herramientas-cli-antigravity--claude-code)
    - [Aislamiento por Subagentes Dedicados](#3-aislamiento-por-subagentes-dedicados)
    - [Directivas de Eficiencia y Guardrails Anti-Relleno](#4-directivas-de-eficiencia-y-guardrails-anti-relleno)
-3. [Catálogo Exhaustivo de Habilidades (52 Skills)](#-catálogo-exhaustivo-de-habilidades-52-skills)
+3. [Catálogo Exhaustivo de Habilidades (53 Skills)](#-catálogo-exhaustivo-de-habilidades-53-skills)
    - [A. Habilidades de Proceso Central (Superpowers Engine - 14 Skills)](#a-habilidades-de-proceso-central-superpowers-engine---14-skills)
    - [B. Habilidades Puente y Enrutamiento Maestro (Ada Bridges - 8 Skills)](#b-habilidades-puente-y-enrutamiento-maestro-ada-bridges---8-skills)
-   - [C. Habilidades de Dominio y Automatización (Ada System - 12 Skills)](#c-habilidades-de-dominio-y-automatización-ada-system---12-skills)
+   - [C. Habilidades de Dominio y Automatización (Ada System - 13 Skills)](#c-habilidades-de-dominio-y-automatización-ada-system---13-skills)
    - [D. Habilidades Académicas, Investigación e Ingeniería (Ada Suite - 18 Skills)](#d-habilidades-académicas-investigación-e-ingeniería-ada-suite---18-skills)
 4. [Flujos de Trabajo Prácticos de Extremo a Extremo](#-flujos-de-trabajo-prácticos-de-extremo-a-extremo)
    - [Flujo 1: Desarrollo de Nueva Característica con TDD y Subagentes](#flujo-1-desarrollo-de-nueva-característica-con-tdd-y-subagentes)
@@ -119,9 +119,9 @@ Para tareas complejas de múltiples pasos (como la ejecución de un plan de 10 t
 
 ---
 
-## 📚 Catálogo Exhaustivo de Habilidades (52 Skills)
+## 📚 Catálogo Exhaustivo de Habilidades (53 Skills)
 
-A continuación se detalla **cada una de las 52 habilidades del sistema**, especificando:
+A continuación se detalla **cada una de las 53 habilidades del sistema**, especificando:
 - **Propósito**: Qué problema resuelve y cuándo aplica.
 - **Cómo se Ejecuta**: Flujo paso a paso, herramientas involucradas y comandos.
 - **Entradas y Salidas**: Archivos leídos, artefactos generados y pruebas ejecutadas.
@@ -338,7 +338,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
 
 ---
 
-### C. Habilidades de Dominio y Automatización (Ada System - 12 Skills)
+### C. Habilidades de Dominio y Automatización (Ada System - 13 Skills)
 
 #### 23. `ada-taste`
 - **Ubicación**: [skills/ada-taste/SKILL.md](skills/ada-taste/SKILL.md)
@@ -474,11 +474,21 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
      - Prohíbe exponer `/var/run/docker.sock` directamente a la red; utiliza proxies de solo lectura como `docker-socket-proxy`.
 - **Salida**: Archivos `docker-compose.yml` seguros, optimizados y configuraciones de despliegue en Portainer.
 
+#### 35. `ada-affinite-note`
+- **Ubicación**: [skills/ada-affinite-note/SKILL.md](skills/ada-affinite-note/SKILL.md)
+- **Propósito**: Generador de notas estructuradas de estudio, matemáticas, investigación y arquitectura de software optimizadas para importación directa en el editor de bloques (**BlockSuite**) de **AFFiNITe**.
+- **Cómo se Ejecuta**:
+  1. Identifica el dominio temático (Matemáticas, Física, Ingeniería de Software, Investigación o General).
+  2. Aplica la plantilla correspondiente con fórmulas centradas en KaTeX (`$$...$$`), diagramas Mermaid, callouts GitHub/BlockSuite (`> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`), tablas GFM y checklists interactivos (`- [ ]`).
+  3. Guarda automáticamente el archivo `.md` en la ruta accesible `~/Documents/Affinite_Notes/<Categoria>/<nombre_nota>.md`.
+  4. Devuelve la ruta absoluta lista para ser seleccionada en el diálogo **Import → Markdown files (.md)** de AFFiNITe.
+- **Salida**: Archivo Markdown de alta fidelidad listo para 1-click import en AFFiNITe.
+
 ---
 
 ### D. Habilidades Académicas, Investigación e Ingeniería (Ada Suite - 18 Skills)
 
-#### 35. `ada-research`
+#### 36. `ada-research`
 - **Ubicación**: [skills/ada-research/SKILL.md](skills/ada-research/SKILL.md)
 - **Propósito**: Metodología de investigación científica y técnica rigurosa. Formulación de hipótesis falsables, revisión de literatura en fuentes académicas (IEEE, ACM, arXiv) y diseño de experimentos reproducibles.
 - **Cómo se Ejecuta**:
@@ -488,7 +498,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Conduce experimentos cuantitativos con métricas estadísticas reproducibles.
 - **Salida**: Documento `RESEARCH_PLAN.md` con hipótesis, metodología, análisis de resultados y referencias bibliográficas.
 
-#### 36. `ada-breakdown`
+#### 37. `ada-breakdown`
 - **Ubicación**: [skills/ada-breakdown/SKILL.md](skills/ada-breakdown/SKILL.md)
 - **Propósito**: Desglose jerárquico de proyectos de ingeniería (Work Breakdown Structure - WBS), estimación de complejidad técnica y cálculo de ruta crítica (CPM / PERT).
 - **Cómo se Ejecuta**:
@@ -498,7 +508,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Construye una matriz de riesgos técnicos con probabilidad, impacto y planes de mitigación.
 - **Salida**: Estructura WBS detallada, cronograma de ruta crítica y matriz de gestión de riesgos.
 
-#### 37. `ada-engineer`
+#### 38. `ada-engineer`
 - **Ubicación**: [skills/ada-engineer/SKILL.md](skills/ada-engineer/SKILL.md)
 - **Propósito**: Pensamiento en sistemas, análisis de bucles de realimentación, análisis de causa raíz en ingeniería (5 Porqués, Diagrama de Ishikawa / Espina de Pescado) y matrices formales de trade-offs.
 - **Cómo se Ejecuta**:
@@ -508,7 +518,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Evalúa alternativas de diseño mediante matrices ponderadas de trade-offs (rendimiento, costo, complejidad, resiliencia).
 - **Salida**: Análisis de causa raíz riguroso y decisiones de ingeniería justificadas matemáticamente.
 
-#### 38. `ada-feynman`
+#### 39. `ada-feynman`
 - **Ubicación**: [skills/ada-feynman/SKILL.md](skills/ada-feynman/SKILL.md)
 - **Propósito**: Pedagogía de primeros principios y técnica de Feynman para explicar conceptos complejos de ingeniería y ciencias de la computación, conectando la teoría abstracta con código ejecutable.
 - **Cómo se Ejecuta**:
@@ -518,7 +528,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. **Nivel 4 (Casos límite y anti-patrones)**: Análisis de fallos, límites asintóticos y condiciones de carrera.
 - **Salida**: Explicaciones claras, profundas y estructuradas en 4 niveles pedagógicos.
 
-#### 39. `ada-math`
+#### 40. `ada-math`
 - **Ubicación**: [skills/ada-math/SKILL.md](skills/ada-math/SKILL.md)
 - **Propósito**: Matemáticas aplicadas para ingeniería: cálculo multivariable, álgebra lineal computacional, matemáticas discretas, probabilidad y métodos numéricos.
 - **Cómo se Ejecuta**:
@@ -527,7 +537,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   3. Implementa algoritmos numéricos de optimización (Descenso de Gradiente, Newton-Raphson) y resolución de ecuaciones diferenciales (Euler, Runge-Kutta RK4).
 - **Salida**: Formulaciones matemáticas rigurosas acompañadas de implementaciones computacionales verificables.
 
-#### 40. `ada-study`
+#### 41. `ada-study`
 - **Ubicación**: [skills/ada-study/SKILL.md](skills/ada-study/SKILL.md)
 - **Propósito**: Preparación para exámenes universitarios, Active Recall, simulación de evaluaciones técnicas graduadas y generación de flashcards atómicas tipo Anki.
 - **Cómo se Ejecuta**:
@@ -536,7 +546,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   3. Produce paquetes de flashcards atómicas (Pregunta/Respuesta concisas) optimizadas para sistemas de repetición espaciada.
 - **Salida**: Sesiones de estudio activo de alto rendimiento y baterías de preguntas de examen.
 
-#### 41. `ada-algo`
+#### 42. `ada-algo`
 - **Ubicación**: [skills/ada-algo/SKILL.md](skills/ada-algo/SKILL.md)
 - **Propósito**: Estructuras de datos avanzadas, diseño de algoritmos, análisis de complejidad asintótica ($O, \Omega, \Theta$) y demostraciones formales de invariantes de bucle.
 - **Cómo se Ejecuta**:
@@ -545,7 +555,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   3. Implementa estructuras avanzadas (Árboles Rojo-Negro, Tries, Grafos con Dijkstra/A*, Union-Find, Segment Trees) y patrones de programación dinámica.
 - **Salida**: Algoritmos óptimos con demostración matemática de correctitud y benchmarks asintóticos.
 
-#### 42. `ada-arch`
+#### 43. `ada-arch`
 - **Ubicación**: [skills/ada-arch/SKILL.md](skills/ada-arch/SKILL.md)
 - **Propósito**: Arquitectura de software y sistemas distribuidos, modelado visual bajo el enfoque C4 y redacción de Registros de Decisión Arquitectónica (ADRs).
 - **Cómo se Ejecuta**:
@@ -554,7 +564,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   3. Redacta documentos de decisión arquitectónica bajo la plantilla estándar `ADR-XXX.md` (Contexto, Opciones consideradas, Decisión tomada y Consecuencias).
 - **Salida**: Diagramas C4 completos y registros ADR versionados en el repositorio.
 
-#### 43. `ada-career`
+#### 44. `ada-career`
 - **Ubicación**: [skills/ada-career/SKILL.md](skills/ada-career/SKILL.md)
 - **Propósito**: Desarrollo de carrera en ingeniería de software, construcción de proyectos de portafolio de alto impacto técnico, redacción de RFCs de ingeniería y estrategias de contribución a proyectos Open Source.
 - **Cómo se Ejecuta**:
@@ -563,7 +573,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   3. Establece estrategias para auditar bases de código abiertas, localizar issues prioritarios y redactar Pull Requests de alta calidad.
 - **Salida**: Documentos RFC, especificaciones de proyectos de portafolio y guías de contribución.
 
-#### 44. `ada-collab`
+#### 45. `ada-collab`
 - **Ubicación**: [skills/ada-collab/SKILL.md](skills/ada-collab/SKILL.md)
 - **Propósito**: Habilidades interpersonales de ingeniería, comunicación ejecutiva mediante la técnica BLUF (*Bottom Line Up Front*), cultura de revisión de código constructiva, resolución de desacuerdos técnicos ("Disagree and Commit") y conducción de post-mortems sin culpa (*Blameless Post-Mortems*).
 - **Cómo se Ejecuta**:
@@ -573,7 +583,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Redacta informes post-mortem post-incidente enfocados en fallos de procesos y sistemas, nunca en culpar a personas.
 - **Salida**: Comunicaciones ejecutivas claras y reportes post-mortem constructivos.
 
-#### 45. `ada-os`
+#### 46. `ada-os`
 - **Ubicación**: [skills/ada-os/SKILL.md](skills/ada-os/SKILL.md)
 - **Propósito**: Ingeniería de sistemas operativos, bajo nivel y kernel de Linux: concurrencia y primitivas de sincronización (mutex, semáforos, spinlocks, CAS sin bloqueos), gestión de memoria virtual/paginación, llamadas al sistema (`epoll`, `io_uring`) y perfilado de rendimiento con `gdb`, `strace` y `perf`.
 - **Cómo se Ejecuta**:
@@ -583,7 +593,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Diagnostica cuellos de botella mediante trazas de llamadas al sistema (`strace -c`) y perfilado de instrucciones de CPU (`perf record / report`).
 - **Salida**: Módulos de sistema de bajo nivel, libres de fugas de memoria y optimizados a nivel de kernel.
 
-#### 46. `ada-net`
+#### 47. `ada-net`
 - **Ubicación**: [skills/ada-net/SKILL.md](skills/ada-net/SKILL.md)
 - **Propósito**: Redes de computadoras y protocolos de comunicación: arquitectura OSI / TCP-IP, programación de sockets BSD en bajo nivel, análisis de paquetes (`tcpdump`, `wireshark`), protocolos de aplicación (HTTP/2, HTTP/3 QUIC, WebSockets, gRPC) y seguridad TLS 1.3.
 - **Cómo se Ejecuta**:
@@ -593,7 +603,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Diseña protocolos binarios personalizados sobre framing TCP/WebSockets con sumas de verificación (CRC32/SHA-256).
 - **Salida**: Servicios de red de alta concurrencia, diagnósticos de paquetes y arquitecturas seguras de transporte.
 
-#### 47. `ada-devops`
+#### 48. `ada-devops`
 - **Ubicación**: [skills/ada-devops/SKILL.md](skills/ada-devops/SKILL.md)
 - **Propósito**: Contenedores, automatización de integración y entrega continua (CI/CD), aislamiento de procesos en Linux (namespaces, cgroups, seccomp), configuración de reverse proxies (Nginx, Caddy) y hardening de servidores Linux.
 - **Cómo se Ejecuta**:
@@ -603,7 +613,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Aplica endurecimiento de servidores Linux (desactivación de autenticación SSH por password, cortafuegos UFW/iptables, Fail2Ban).
 - **Salida**: Pipelines de CI/CD automatizados e imágenes de contenedor ultraligeras y seguras.
 
-#### 48. `ada-ai`
+#### 49. `ada-ai`
 - **Ubicación**: [skills/ada-ai/SKILL.md](skills/ada-ai/SKILL.md)
 - **Propósito**: Inteligencia artificial y aprendizaje automático: fundamentos matemáticos de redes neuronales (derivación analítica de retropropagación / backpropagation, funciones de pérdida), arquitecturas Transformer (mecanismos de atención multi-cabeza / Self-Attention) y despliegue de inferencia optimizada local con ONNX Runtime.
 - **Cómo se Ejecuta**:
@@ -613,7 +623,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   3. Exporta modelos entrenados a formato universal ONNX (`torch.onnx.export`) y optimiza grafos de computación para inferencia acelerada en CPU/GPU.
 - **Salida**: Modelos de IA matemáticamente fundamentados y pipelines de inferencia de baja latencia.
 
-#### 49. `ada-compiler`
+#### 50. `ada-compiler`
 - **Ubicación**: [skills/ada-compiler/SKILL.md](skills/ada-compiler/SKILL.md)
 - **Propósito**: Teoría de compiladores, lenguajes formales y autómatas: Jerarquía de Chomsky (Autómatas Finitos DFA/NFA), gramáticas libres de contexto (BNF / EBNF), analizadores léxicos (lexers), parsers de descenso recursivo, árboles de sintaxis abstracta (AST), representación intermedia SSA (Static Single Assignment) y lenguajes de dominio específico (DSLs).
 - **Cómo se Ejecuta**:
@@ -623,7 +633,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Genera código intermedio (IR) o evalúa directamente mediante un intérprete de árbol o máquina virtual basada en stack/registros.
 - **Salida**: Compiladores, parsers o intérpretes funcionales para lenguajes personalizados o DSLs.
 
-#### 50. `ada-physics`
+#### 51. `ada-physics`
 - **Ubicación**: [skills/ada-physics/SKILL.md](skills/ada-physics/SKILL.md)
 - **Propósito**: Física para ingeniería y simulación computacional: mecánica clásica newtoniana y lagrangiana, ecuaciones de Maxwell para electromagnetismo, dinámica de circuitos RLC, termodinámica e integración numérica simpléctica (algoritmos de Verlet / Runge-Kutta).
 - **Cómo se Ejecuta**:
@@ -632,7 +642,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   3. Implementa simuladores numéricos conservativos utilizando integración de Verlet para preservar la energía en sistemas mecánicos/orbitales a largo plazo.
 - **Salida**: Modelos matemáticos de física y simulaciones computacionales con conservación de energía verificada.
 
-#### 51. `ada-data`
+#### 52. `ada-data`
 - **Ubicación**: [skills/ada-data/SKILL.md](skills/ada-data/SKILL.md)
 - **Propósito**: Ciencia de datos y estadística inferencial: análisis exploratorio de datos (EDA), limpieza y transformación de datos, pruebas de hipótesis estadísticas (prueba $t$ de Student, ANOVA, test de Chi-cuadrado, valores $p$), regresión lineal multivariada y visualización científica.
 - **Cómo se Ejecuta**:
@@ -642,7 +652,7 @@ A continuación se detalla **cada una de las 52 habilidades del sistema**, espec
   4. Genera visualizaciones informativas (histogramas, diagramas de dispersión, heatmaps de correlación).
 - **Salida**: Informes estadísticos concluyentes y pipelines de análisis de datos reproducibles.
 
-#### 52. `ada-econ`
+#### 53. `ada-econ`
 - **Ubicación**: [skills/ada-econ/SKILL.md](skills/ada-econ/SKILL.md)
 - **Propósito**: Ingeniería económica, evaluación financiera de proyectos de software y hardware, flujos de efectivo descontados, cálculo del Valor Presente Neto (VPN / NPV), Tasa Interna de Retorno (TIR / IRR), periodo de recuperación de la inversión (*Payback Period*) y análisis de Costo Total de Propiedad (TCO) Nube vs. On-Premises.
 - **Cómo se Ejecuta**:
@@ -783,6 +793,7 @@ Ada-Aider/
 │   ├── ada-release/          # Motor de lanzamientos y sincronización multi-archivo
 │   ├── ada-proactive/        # Tareas proactivas y monitoreo en segundo plano
 │   ├── ada-portainer/        # Stacks Portainer, Compose, permisos UID/GID y webhooks
+│   ├── ada-affinite-note/    # Generador de notas Markdown para AFFiNITe BlockSuite
 │   ├── ada-research/         # Metodología científica, hipótesis H0/H1 y estado del arte
 │   ├── ada-breakdown/        # Desglose WBS en 4 niveles, ruta crítica CPM y matrices de riesgo
 │   ├── ada-engineer/         # Pensamiento en sistemas, 5 Porqués, Ishikawa y trade-offs

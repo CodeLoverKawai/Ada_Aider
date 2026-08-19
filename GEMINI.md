@@ -37,6 +37,7 @@ When handling specific domains or workflows, read the corresponding skill file v
 | **Automated Release Engine** | `@./skills/ada-release/SKILL.md` |
 | **Git Commits** | `@./skills/ada-commit/SKILL.md` |
 | **Proactive Background Loops** | `@./skills/ada-proactive/SKILL.md` |
+| **AFFiNITe BlockSuite Notes** | `@./skills/ada-affinite-note/SKILL.md` |
 
 ### Academic, Research & Engineering Growth Skills (Ada System)
 | Domain / Trigger | Skill File Path |

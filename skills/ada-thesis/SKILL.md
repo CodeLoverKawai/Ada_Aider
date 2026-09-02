@@ -50,7 +50,53 @@ graph TD
 
 ---
 
-## 📝 Ejemplo de Entrada BibTeX Válida
+## 📖 Guía Exhaustiva de Normas APA (7ma Edición)
+
+### 1. Citas en el Texto (Autor - Año)
+
+| Tipo de Autor | Cita Parentética (entre paréntesis) | Cita Narrativa (en el texto) |
+| :--- | :--- | :--- |
+| **1 Autor** | `(Stewart, 2020)` | `Stewart (2020)` |
+| **2 Autores** | `(Stewart & Watson, 2020)` | `Stewart y Watson (2020)` |
+| **3 o más Autores** | `(Vaswani et al., 2017)` | `Vaswani et al. (2017)` *(desde la 1ra cita)* |
+| **Autor Corporativo con Sigla** | 1ra: `(Instituto de Ingenieros Eléctricos y Electrónicos [IEEE], 2023)`<br>Siguientes: `(IEEE, 2023)` | 1ra: `Instituto de Ingenieros Eléctricos y Electrónicos (IEEE, 2023)`<br>Siguientes: `IEEE (2023)` |
+
+### 2. Citas Textuales Directas
+* **Cita Corta (< 40 palabras)**: Se incorpora en el párrafo entre comillas dobles, finalizando con la página:  
+  *Ejemplo:* Según Tanenbaum (2014), "un sistema operativo es un programa que actúa como intermediario" (p. 25).
+* **Cita en Bloque (≥ 40 palabras)**: Párrafo independiente sin comillas, con **sangría izquierda de 1.27 cm (0.5 pulgadas)** e interlineado doble:
+  > En los sistemas distribuidos contemporáneos, la replicación de estados mediante algoritmos de consenso como Raft garantiza que la información permanezca consistente y disponible ante particiones de red transitorias, asegurando una experiencia transparente para el usuario final. (Ongaro & Ousterhout, 2014, p. 305)
+
+### 3. Estructura de Referencias Bibliográficas APA 7
+* **Libro**:  
+  `Apellido, N. (Año). Título del libro en cursiva (N° ed.). Editorial. https://doi.org/...`  
+  *Ejemplo:* Stewart, J., Clegg, D., & Watson, S. (2020). *Calculus: Early Transcendentals* (9th ed.). Cengage Learning.
+* **Artículo de Revista Científica (Journal)**:  
+  `Apellido, N., & Apellido, N. (Año). Título del artículo. Nombre de la Revista en Cursiva, volumen(número), páginas. https://doi.org/...`  
+  *Ejemplo:* Vaswani, A., Shazeer, N., & Parmar, N. (2017). Attention is all you need. *Advances in Neural Information Processing Systems*, 30, 5998–6008.
+* **Tesis o Disertación**:  
+  `Apellido, N. (Año). Título de la tesis en cursiva [Tesis de pregrado/maestría/doctorado, Nombre de la Universidad]. Repositorio Institucional. URL`
+* **Software o Repositorio de Código**:  
+  `Apellido, N. o Entidad. (Año). Título del software en cursiva (Versión X.X) [Software / Código fuente]. Nombre del Host. URL`
+
+### 4. Jerarquía de Títulos APA 7 (5 Niveles)
+1. **Nivel 1**: **Encabezado Centrado en Negrita, Mayúsculas y Minúsculas**
+2. **Nivel 2**: **Alineado a la Izquierda en Negrita, Mayúsculas y Minúsculas**
+3. **Nivel 3**: ***Alineado a la Izquierda en Negrita Cursiva, Mayúsculas y Minúsculas***
+4. **Nivel 4**: &nbsp;&nbsp;&nbsp;&nbsp;**Con sangría (1.27 cm), Negrita, con punto final.** El texto comienza en la misma línea.
+5. **Nivel 5**: &nbsp;&nbsp;&nbsp;&nbsp;***Con sangría (1.27 cm), Negrita Cursiva, con punto final.*** El texto comienza en la misma línea.
+
+### 5. Formato de Tablas y Figuras en APA 7
+* **Número**: `Tabla 1` o `Figura 1` en **Negrita** arriba del elemento.
+* **Título**: En *Cursiva*, línea siguiente, descripción breve y precisa.
+* **Contenido**: Solo líneas horizontales en el encabezado y al final de la tabla (sin líneas verticales).
+* **Nota al pie**: `Nota.` en *Cursiva*, explicando abreviaturas, fuentes y nivel de significancia estadística ($*p < .05$).
+
+---
+
+## 📝 Formato IEEE Transactions (Para Artículos y Papers de Ingeniería)
+
+### Ejemplo de Entrada BibTeX Válida (IEEE / LaTeX)
 
 ```bibtex
 @article{stewart2020calculus,

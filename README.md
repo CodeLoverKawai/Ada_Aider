@@ -480,8 +480,9 @@ A continuación se detalla **cada una de las 53 habilidades del sistema**, espec
 - **Cómo se Ejecuta**:
   1. Identifica el dominio temático (Matemáticas, Física, Ingeniería de Software, Investigación o General).
   2. Aplica la plantilla correspondiente con fórmulas centradas en KaTeX (`$$...$$`), diagramas Mermaid, callouts GitHub/BlockSuite (`> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`), tablas GFM y checklists interactivos (`- [ ]`).
-  3. Guarda automáticamente el archivo `.md` en la ruta accesible `~/Documents/Affinite_Notes/<Categoria>/<nombre_nota>.md`.
-  4. Devuelve la ruta absoluta lista para ser seleccionada en el diálogo **Import → Markdown files (.md)** de AFFiNITe.
+  3. Resuelve el destino prioritario (`$AFFINITE_NOTES_DIR` -> `~/Documents/GitHub/Universidad/Affinite_Notes/<Categoria>/` -> fallback `~/Documents/Affinite_Notes/<Categoria>/`).
+  4. Guarda automáticamente el archivo `.md` con estampa de tiempo: `<nombre_nota> (YYYY-MM-DD).md`.
+  5. Devuelve la ruta absoluta lista para ser seleccionada en el diálogo **Import → Markdown files (.md)** de AFFiNITe.
 - **Salida**: Archivo Markdown de alta fidelidad listo para 1-click import en AFFiNITe.
 
 ---

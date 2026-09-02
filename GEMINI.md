@@ -61,3 +61,4 @@ When handling specific domains or workflows, read the corresponding skill file v
 | **Data Science, Statistics & Visualization** | `@./skills/ada-data/SKILL.md` |
 | **Engineering Economics & Financial TCO** | `@./skills/ada-econ/SKILL.md` |
 | **Portainer & Docker Compose Stacks** | `@./skills/ada-portainer/SKILL.md` |
+| **Orthodox Theology, Patristics & Spiritual Guidance** | `@./skills/ada-orthodox/SKILL.md` |

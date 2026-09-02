@@ -20,11 +20,11 @@ El sistema fusiona la **disciplina procedimental estricta de Superpowers** (dise
    - [Mapeo de Herramientas CLI (Antigravity & Claude Code)](#2-mapeo-de-herramientas-cli-antigravity--claude-code)
    - [Aislamiento por Subagentes Dedicados](#3-aislamiento-por-subagentes-dedicados)
    - [Directivas de Eficiencia y Guardrails Anti-Relleno](#4-directivas-de-eficiencia-y-guardrails-anti-relleno)
-3. [Catálogo Exhaustivo de Habilidades (53 Skills)](#-catálogo-exhaustivo-de-habilidades-53-skills)
+3. [Catálogo Exhaustivo de Habilidades (54 Skills)](#-catálogo-exhaustivo-de-habilidades-54-skills)
    - [A. Habilidades de Proceso Central (Superpowers Engine - 14 Skills)](#a-habilidades-de-proceso-central-superpowers-engine---14-skills)
    - [B. Habilidades Puente y Enrutamiento Maestro (Ada Bridges - 8 Skills)](#b-habilidades-puente-y-enrutamiento-maestro-ada-bridges---8-skills)
    - [C. Habilidades de Dominio y Automatización (Ada System - 13 Skills)](#c-habilidades-de-dominio-y-automatización-ada-system---13-skills)
-   - [D. Habilidades Académicas, Investigación e Ingeniería (Ada Suite - 18 Skills)](#d-habilidades-académicas-investigación-e-ingeniería-ada-suite---18-skills)
+   - [D. Habilidades Académicas, Investigación e Ingeniería (Ada Suite - 19 Skills)](#d-habilidades-académicas-investigación-e-ingeniería-ada-suite---19-skills)
 4. [Flujos de Trabajo Prácticos de Extremo a Extremo](#-flujos-de-trabajo-prácticos-de-extremo-a-extremo)
    - [Flujo 1: Desarrollo de Nueva Característica con TDD y Subagentes](#flujo-1-desarrollo-de-nueva-característica-con-tdd-y-subagentes)
    - [Flujo 2: Depuración Sistemática de un Error en Producción](#flujo-2-depuración-sistemática-de-un-error-en-producción)
@@ -119,9 +119,9 @@ Para tareas complejas de múltiples pasos (como la ejecución de un plan de 10 t
 
 ---
 
-## 📚 Catálogo Exhaustivo de Habilidades (53 Skills)
+## 📚 Catálogo Exhaustivo de Habilidades (54 Skills)
 
-A continuación se detalla **cada una de las 53 habilidades del sistema**, especificando:
+A continuación se detalla **cada una de las 54 habilidades del sistema**, especificando:
 - **Propósito**: Qué problema resuelve y cuándo aplica.
 - **Cómo se Ejecuta**: Flujo paso a paso, herramientas involucradas y comandos.
 - **Entradas y Salidas**: Archivos leídos, artefactos generados y pruebas ejecutadas.
@@ -487,7 +487,7 @@ A continuación se detalla **cada una de las 53 habilidades del sistema**, espec
 
 ---
 
-### D. Habilidades Académicas, Investigación e Ingeniería (Ada Suite - 18 Skills)
+### D. Habilidades Académicas, Investigación, Ingeniería y Humanidades (Ada Suite - 19 Skills)
 
 #### 36. `ada-research`
 - **Ubicación**: [skills/ada-research/SKILL.md](skills/ada-research/SKILL.md)
@@ -664,6 +664,16 @@ A continuación se detalla **cada una de las 53 habilidades del sistema**, espec
   4. Realiza comparaciones de TCO a 3 y 5 años entre arquitecturas cloud (AWS/GCP/Azure) frente a servidores locales On-Premises.
 - **Salida**: Evaluaciones de viabilidad financiera y modelos cuantitativos de justificación de inversión técnica.
 
+#### 54. `ada-orthodox`
+- **Ubicación**: [skills/ada-orthodox/SKILL.md](skills/ada-orthodox/SKILL.md)
+- **Propósito**: Teología cristiana ortodoxa, hermenéutica bíblica patrística (Septuaginta y texto bizantino), camino de la *Theosis* (deificación por gracia increada), oración del corazón (**Hesicasmo** / Oración de Jesús), sobriedad interior (*Nepsis*) y guía espiritual para recordar el norte en el Amor Divino (*Ágape*) y la vida diaria.
+- **Cómo se Ejecuta**:
+  1. Ancla cualquier análisis bíblico, teológico o existencial en el principio de que **Dios es Amor** (*1 Juan 4:8*) y la comunión trinitaria.
+  2. Ilumina el pasaje o dilema mediante los Santos Padres (Atanasio, Capadocios, Crisóstomo, Máximo el Confesor, Palamas, Filocalia, Santos de Athos y Sarov).
+  3. Aplica herramientas espirituales prácticas para la custodia del corazón frente a los pensamientos (*logismoi*) y la *acedia*.
+  4. Genera apuntes estructurados para AFFiNE BlockSuite en `~/Documents/GitHub/Universidad/Affinite_Notes/Investigacion/` o `General/` con formato `<tema> (YYYY-MM-DD).md`.
+- **Salida**: Orientación teológica/espiritual profunda y notas estructuradas para estudio y oración.
+
 ---
 
 ## 🚀 Flujos de Trabajo Prácticos de Extremo a Extremo
@@ -812,7 +822,8 @@ Ada-Aider/
 │   ├── ada-compiler/         # Compiladores, teoría de autómatas, ASTs, SSA y DSLs
 │   ├── ada-physics/          # Física clásica, Maxwell, dinámica RLC e integración Verlet
 │   ├── ada-data/             # Ciencia de datos, EDA, estadística inferencial y pruebas de hipótesis
-│   └── ada-econ/             # Ingeniería económica, cálculo VPN/TIR y análisis TCO de nube
+│   ├── ada-econ/             # Ingeniería económica, cálculo VPN/TIR y análisis TCO de nube
+│   └── ada-orthodox/         # Teología cristiana ortodoxa, patrística, hesicasmo y guía espiritual
 │
 ├── src/
 │   └── hooks/                # Hooks nativos de integración para Claude Code y Antigravity

@@ -62,3 +62,16 @@ When handling specific domains or workflows, read the corresponding skill file v
 | **Engineering Economics & Financial TCO** | `@./skills/ada-econ/SKILL.md` |
 | **Portainer & Docker Compose Stacks** | `@./skills/ada-portainer/SKILL.md` |
 | **Orthodox Theology, Patristics & Spiritual Guidance** | `@./skills/ada-orthodox/SKILL.md` |
+| **Discrete Mathematics, Logic & Combinatorics** | `@./skills/ada-discrete/SKILL.md` |
+| **Probability & Stochastic Processes** | `@./skills/ada-prob/SKILL.md` |
+| **Signals & Linear Systems** | `@./skills/ada-signals/SKILL.md` |
+| **Digital Logic & Computer Architecture** | `@./skills/ada-circuits/SKILL.md` |
+| **Internet of Things (IoT) & Embedded Telemetry** | `@./skills/ada-iot/SKILL.md` |
+| **Requirements Engineering, UML & BPMN** | `@./skills/ada-req/SKILL.md` |
+| **Software Quality Assurance & Advanced QA** | `@./skills/ada-qa/SKILL.md` |
+| **Human-Computer Interaction & WCAG Usability** | `@./skills/ada-hci/SKILL.md` |
+| **Distributed Systems, Consensus & Cloud** | `@./skills/ada-distrib/SKILL.md` |
+| **Applied Cryptography & Security Protocols** | `@./skills/ada-crypto/SKILL.md` |
+| **Operations Research, Simplex & Queueing Theory** | `@./skills/ada-or/SKILL.md` |
+| **University Thesis & IEEE/APA Academic Writing** | `@./skills/ada-thesis/SKILL.md` |
+| **Engineering Ethics, Deontology & Tech Law** | `@./skills/ada-ethics/SKILL.md` |

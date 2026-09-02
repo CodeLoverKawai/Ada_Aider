@@ -20,11 +20,11 @@ El sistema fusiona la **disciplina procedimental estricta de Superpowers** (dise
    - [Mapeo de Herramientas CLI (Antigravity & Claude Code)](#2-mapeo-de-herramientas-cli-antigravity--claude-code)
    - [Aislamiento por Subagentes Dedicados](#3-aislamiento-por-subagentes-dedicados)
    - [Directivas de Eficiencia y Guardrails Anti-Relleno](#4-directivas-de-eficiencia-y-guardrails-anti-relleno)
-3. [Catálogo Exhaustivo de Habilidades (54 Skills)](#-catálogo-exhaustivo-de-habilidades-54-skills)
+3. [Catálogo Exhaustivo de Habilidades (67 Skills)](#-catálogo-exhaustivo-de-habilidades-67-skills)
    - [A. Habilidades de Proceso Central (Superpowers Engine - 14 Skills)](#a-habilidades-de-proceso-central-superpowers-engine---14-skills)
    - [B. Habilidades Puente y Enrutamiento Maestro (Ada Bridges - 8 Skills)](#b-habilidades-puente-y-enrutamiento-maestro-ada-bridges---8-skills)
    - [C. Habilidades de Dominio y Automatización (Ada System - 13 Skills)](#c-habilidades-de-dominio-y-automatización-ada-system---13-skills)
-   - [D. Habilidades Académicas, Investigación e Ingeniería (Ada Suite - 19 Skills)](#d-habilidades-académicas-investigación-e-ingeniería-ada-suite---19-skills)
+   - [D. Habilidades Académicas, Investigación, Ingeniería y Humanidades (Ada Suite - 32 Skills)](#d-habilidades-académicas-investigación-ingeniería-y-humanidades-ada-suite---32-skills)
 4. [Flujos de Trabajo Prácticos de Extremo a Extremo](#-flujos-de-trabajo-prácticos-de-extremo-a-extremo)
    - [Flujo 1: Desarrollo de Nueva Característica con TDD y Subagentes](#flujo-1-desarrollo-de-nueva-característica-con-tdd-y-subagentes)
    - [Flujo 2: Depuración Sistemática de un Error en Producción](#flujo-2-depuración-sistemática-de-un-error-en-producción)
@@ -119,9 +119,9 @@ Para tareas complejas de múltiples pasos (como la ejecución de un plan de 10 t
 
 ---
 
-## 📚 Catálogo Exhaustivo de Habilidades (54 Skills)
+## 📚 Catálogo Exhaustivo de Habilidades (67 Skills)
 
-A continuación se detalla **cada una de las 54 habilidades del sistema**, especificando:
+A continuación se detalla **cada una de las 67 habilidades del sistema**, especificando:
 - **Propósito**: Qué problema resuelve y cuándo aplica.
 - **Cómo se Ejecuta**: Flujo paso a paso, herramientas involucradas y comandos.
 - **Entradas y Salidas**: Archivos leídos, artefactos generados y pruebas ejecutadas.
@@ -674,6 +674,123 @@ A continuación se detalla **cada una de las 54 habilidades del sistema**, espec
   4. Genera apuntes estructurados para AFFiNE BlockSuite en `~/Documents/GitHub/Universidad/Affinite_Notes/Investigacion/` o `General/` con formato `<tema> (YYYY-MM-DD).md`.
 - **Salida**: Orientación teológica/espiritual profunda y notas estructuradas para estudio y oración.
 
+#### 55. `ada-discrete`
+- **Ubicación**: [skills/ada-discrete/SKILL.md](skills/ada-discrete/SKILL.md)
+- **Propósito**: Matemáticas discretas, lógica proposicional/predicados, demostraciones por inducción matemática, teoría de conjuntos, relaciones de equivalencia, combinatoria, grafos y álgebras de Boole.
+- **Cómo se Ejecuta**:
+  1. Formaliza proposiciones lógicas y tablas de verdad.
+  2. Desarrolla demostraciones rigurosas paso a paso (Directa, Contraposición, Reducción al Absurdo, Inducción Débil y Fuerte).
+  3. Modela problemas con teoría de grafos (árboles, planaridad con fórmula de Euler $|V| - |E| + |F| = 2$, Handshaking Lemma).
+- **Salida**: Demostraciones formales y apuntes matemáticos para AFFiNE.
+
+#### 56. `ada-prob`
+- **Ubicación**: [skills/ada-prob/SKILL.md](skills/ada-prob/SKILL.md)
+- **Propósito**: Probabilidad, variables aleatorias discretas/continuas, distribuciones conjuntas, esperanza, varianza, Teorema de Bayes, Teorema del Límite Central y cadenas de Markov.
+- **Cómo se Ejecuta**:
+  1. Aplica los axiomas de Kolmogorov y Teorema de Bayes.
+  2. Modela variables aleatorias (Binomial, Poisson, Normal, Exponencial) calculando CDF, PDF/PMF y momentos.
+  3. Analiza matrices de transición de cadenas de Markov y distribuciones estacionarias $\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}$.
+- **Salida**: Modelos estocásticos resueltos y notas para AFFiNE.
+
+#### 57. `ada-signals`
+- **Ubicación**: [skills/ada-signals/SKILL.md](skills/ada-signals/SKILL.md)
+- **Propósito**: Señales y sistemas lineales e invariantes en el tiempo (LTI), convolución continua/discreta, respuesta al impulso, Fourier (CTFT/DTFT/FFT), Laplace y Transformada Z.
+- **Cómo se Ejecuta**:
+  1. Resuelve integrales y sumas de convolución $y(t) = x(t) * h(t)$.
+  2. Determina causalidad y estabilidad BIBO mediante polos/ceros y Región de Convergencia (ROC).
+  3. Aplica Transformadas de Laplace y Z para funciones de transferencia $H(s)$ y $H(z)$.
+- **Salida**: Análisis de frecuencia, polos/ceros y desarrollos matemáticos.
+
+#### 58. `ada-circuits`
+- **Ubicación**: [skills/ada-circuits/SKILL.md](skills/ada-circuits/SKILL.md)
+- **Propósito**: Lógica digital, minimización con Mapas de Karnaugh, circuitos combinacionales/secuenciales (Flip-Flops D/JK/T), Máquinas de Estados Finitos (FSM Mealy/Moore) y arquitectura de la CPU (Pipeline de 5 etapas, hazards).
+- **Cómo se Ejecuta**:
+  1. Minimiza funciones booleanas mediante mapas de Karnaugh con código Gray.
+  2. Sintetiza circuitos secuenciales síncronos con tablas de excitación.
+  3. Modela FSMs y analiza hazards en pipelines de procesador.
+- **Salida**: Tablas de verdad, diagramas de estado FSM y especificaciones de hardware.
+
+#### 59. `ada-iot`
+- **Ubicación**: [skills/ada-iot/SKILL.md](skills/ada-iot/SKILL.md)
+- **Propósito**: Internet de las Cosas (IoT), arquitectura de 4 capas, sensores e interfaces (I2C, SPI, UART, ADC), protocolos telemétricos (MQTT con QoS 0/1/2, CoAP, BLE, LoRaWAN), ESP32 y Edge Computing.
+- **Cómo se Ejecuta**:
+  1. Diseña la topología de red y protocolos de transporte ligero.
+  2. Configura tópicos y suscripciones MQTT con garantías de entrega.
+  3. Optimiza consumo energético con modos Deep Sleep en microcontroladores.
+- **Salida**: Diagramas de arquitectura IoT, firmware C++/ESP-IDF y configuración telemétrica.
+
+#### 60. `ada-req`
+- **Ubicación**: [skills/ada-req/SKILL.md](skills/ada-req/SKILL.md)
+- **Propósito**: Ingeniería de requisitos, clasificación FURPS+, historias de usuario INVEST con formato Gherkin, Casos de Uso formales, modelado UML 2.5 y procesos de negocio BPMN 2.0.
+- **Cómo se Ejecuta**:
+  1. Elicita y clasifica requisitos funcionales y no funcionales con MoSCoW.
+  2. Redacta historias de usuario con criterios de aceptación Gherkin (Dado-Cuando-Entonces).
+  3. Modela diagramas de secuencia UML y flujos BPMN 2.0.
+- **Salida**: Especificación de Requisitos de Software (SRS) y matrices de trazabilidad (RTM).
+
+#### 61. `ada-qa`
+- **Ubicación**: [skills/ada-qa/SKILL.md](skills/ada-qa/SKILL.md)
+- **Propósito**: Aseguramiento de calidad de software (QA), pirámide de pruebas, pruebas de carga y estrés con k6/JMeter, pruebas de mutación, Complejidad Ciclomática de McCabe y métricas SonarQube / ISO 25010.
+- **Cómo se Ejecuta**:
+  1. Calcula la complejidad ciclomática $V(G) = E - V + 2P$ para cobertura de caminos básica.
+  2. Escribe scripts de prueba de carga en k6 con umbrales P95 y tasa de fallos.
+  3. Audita deuda técnica y cobertura de ramas.
+- **Salida**: Planes de prueba, scripts de k6 e informes de calidad.
+
+#### 62. `ada-hci`
+- **Ubicación**: [skills/ada-hci/SKILL.md](skills/ada-hci/SKILL.md)
+- **Propósito**: Interacción Humano-Computador (HCI), 10 heurísticas de usabilidad de Nielsen, accesibilidad web universal WCAG 2.2 (POUR), leyes cognitivas (Fitts, Hick, Miller) y métricas SUS.
+- **Cómo se Ejecuta**:
+  1. Conduce evaluaciones heurísticas clasificando severidad de fallos (0 a 4).
+  2. Audita accesibilidad Nivel AA/AAA (contraste > 4.5:1, navegación por teclado, ARIA).
+  3. Diseña protocolos de pruebas de usabilidad Think-Aloud y calcula el SUS Score.
+- **Salida**: Informes de auditoría UX/HCI y recomendaciones de accesibilidad.
+
+#### 63. `ada-distrib`
+- **Ubicación**: [skills/ada-distrib/SKILL.md](skills/ada-distrib/SKILL.md)
+- **Propósito**: Sistemas distribuidos, teorema CAP/PACELC, algoritmo de consenso Raft, estructuras de datos CRDTs (Yjs/Automerge), gRPC/Protobuf, event streaming (Kafka/RabbitMQ) y patrón Saga.
+- **Cómo se Ejecuta**:
+  1. Evalúa compromisos de consistencia vs. disponibilidad bajo el teorema CAP.
+  2. Modela estados de consenso Raft y contratos RPC tipados en `.proto`.
+  3. Diseña transacciones distribuidas con el patrón Saga y transacciones compensatorias.
+- **Salida**: Arquitecturas distribuidas tolerantes a fallos y especificaciones gRPC.
+
+#### 64. `ada-crypto`
+- **Ubicación**: [skills/ada-crypto/SKILL.md](skills/ada-crypto/SKILL.md)
+- **Propósito**: Criptografía aplicada, cifrado simétrico autenticado (AES-256-GCM, ChaCha20-Poly1305), clave pública (RSA, ECC Curve25519/Ed25519), hashing (SHA-256/3, Argon2id), árboles de Merkle y PKI.
+- **Cómo se Ejecuta**:
+  1. Selecciona primitivas criptográficas seguras y resistentes a ataques clásicos.
+  2. Diseña protocolos de intercambio de claves ECDHE y firmas digitales.
+  3. Construye pruebas de inclusión con árboles de Merkle ($O(\log N)$).
+- **Salida**: Especificaciones de seguridad criptográfica y modelos matemáticos.
+
+#### 65. `ada-or`
+- **Ubicación**: [skills/ada-or/SKILL.md](skills/ada-or/SKILL.md)
+- **Propósito**: Investigación de operaciones, Programación Lineal con Método Simplex, teoría de la dualidad y precios sombra, modelos de transporte/asignación, Teoría de Colas ($M/M/1$, $M/M/c$) y simulación Monte Carlo.
+- **Cómo se Ejecuta**:
+  1. Formula modelos de optimización con variables de decisión y restricciones.
+  2. Resuelve tablas Simplex identificando columnas y filas pivote.
+  3. Modela sistemas de colas con fórmulas de Little para tiempos de espera y utilización.
+- **Salida**: Modelos matemáticos de optimización y análisis de sensibilidad.
+
+#### 66. `ada-thesis`
+- **Ubicación**: [skills/ada-thesis/SKILL.md](skills/ada-thesis/SKILL.md)
+- **Propósito**: Metodología de investigación para proyectos de grado, redacción científica en formatos IEEE / APA 7, gestión bibliográfica BibTeX/Zotero, taxonomía de Bloom y preparación de sustentación.
+- **Cómo se Ejecuta**:
+  1. Formula el árbol de problemas, objetivos medibles y matriz de congruencia.
+  2. Estructura revisiones sistemáticas de literatura (RSL) en bases científicas.
+  3. Redacta capítulos y gestiona citas en formato BibTeX estándar.
+- **Salida**: Anteproyectos, monografías y artículos en formato IEEE.
+
+#### 67. `ada-ethics`
+- **Ubicación**: [skills/ada-ethics/SKILL.md](skills/ada-ethics/SKILL.md)
+- **Propósito**: Ética profesional en ingeniería (código ACM/IEEE-CS), compatibilidad de licencias Open Source (MIT, Apache 2.0, GPLv3, AGPLv3), legislación de privacidad (Habeas Data, GDPR) y ética de la IA.
+- **Cómo se Ejecuta**:
+  1. Evalúa dilemas éticos y deontológicos en el desarrollo de software.
+  2. Audita matrices de licencias de dependencias externas para evitar incompatibilidades.
+  3. Aplica principios de Privacidad por Diseño y minimización de datos.
+- **Salida**: Dictámenes éticos, auditorías de licencias y cumplimiento legal.
+
 ---
 
 ## 🚀 Flujos de Trabajo Prácticos de Extremo a Extremo
@@ -823,7 +940,20 @@ Ada-Aider/
 │   ├── ada-physics/          # Física clásica, Maxwell, dinámica RLC e integración Verlet
 │   ├── ada-data/             # Ciencia de datos, EDA, estadística inferencial y pruebas de hipótesis
 │   ├── ada-econ/             # Ingeniería económica, cálculo VPN/TIR y análisis TCO de nube
-│   └── ada-orthodox/         # Teología cristiana ortodoxa, patrística, hesicasmo y guía espiritual
+│   ├── ada-orthodox/         # Teología cristiana ortodoxa, patrística, hesicasmo y guía espiritual
+│   ├── ada-discrete/         # Matemáticas discretas, lógica, inducción, combinatoria y grafos
+│   ├── ada-prob/             # Probabilidad, variables aleatorias y procesos estocásticos
+│   ├── ada-signals/          # Señales y sistemas LTI, Fourier (FFT), Laplace y Transformada Z
+│   ├── ada-circuits/         # Lógica digital, mapas de Karnaugh, FSM y microarquitectura CPU
+│   ├── ada-iot/              # Internet de las cosas, sensores, microcontroladores y MQTT
+│   ├── ada-req/              # Ingeniería de requisitos, FURPS+, historias INVEST, UML y BPMN
+│   ├── ada-qa/               # Aseguramiento de calidad, pruebas de carga k6, McCabe y SonarQube
+│   ├── ada-hci/              # Interacción humano-computador, heurísticas de Nielsen y WCAG 2.2
+│   ├── ada-distrib/          # Sistemas distribuidos, teorema CAP, consenso Raft, CRDTs y gRPC
+│   ├── ada-crypto/           # Criptografía aplicada, AES, RSA, ECC, hashing y PKI
+│   ├── ada-or/               # Investigación de operaciones, Método Simplex y Teoría de Colas
+│   ├── ada-thesis/           # Metodología de proyectos de grado, formato IEEE/APA 7 y BibTeX
+│   └── ada-ethics/           # Ética profesional, licencias Open Source, privacidad y GDPR
 │
 ├── src/
 │   └── hooks/                # Hooks nativos de integración para Claude Code y Antigravity

@@ -8,7 +8,7 @@ description: Use when generating, structuring, or exporting rich study notes, ma
 ## Overview
 Generates high-fidelity academic, mathematical, scientific, and software engineering notes formatted in clean GitHub Flavored Markdown (GFM) strictly optimized for **AFFiNITe** and its **BlockSuite** editor engine.
 
-Every note is automatically structured into modular blocks, rendered with pedagogical clarity (Feynman Technique), enriched with native KaTeX scientific macros, and saved directly into `~/Documents/Affinite_Notes/<Categoria>/` ready for immediate import via **Import → Markdown files (.md)** in AFFiNITe.
+Every note is automatically structured into modular blocks, rendered with pedagogical clarity (Feynman Technique), enriched with native KaTeX scientific macros, and saved directly into the user's active notes workspace `~/Documents/GitHub/Universidad/Affinite_Notes/<Categoria>/` with standardized timestamp filenames (`<nombre> (YYYY-MM-DD).md`), ready for immediate import via **Import → Markdown files (.md)** in AFFiNITe.
 
 ---
 
@@ -24,17 +24,26 @@ When NOT to use:
 
 ---
 
-## Target Directory Structure
+## Target Directory Structure & Multi-Platform Resolution
 
-All notes are saved into the user's local notes directory:
+### Resolution Priority
+When saving notes, resolve the base directory in the following order:
+1. **Environment Variable**: `$AFFINITE_NOTES_DIR` (if defined).
+2. **Standard University Workspace**:
+   - **Linux / macOS**: `~/Documents/GitHub/Universidad/Affinite_Notes/` (expanding `$HOME`)
+   - **Windows**: `%USERPROFILE%\Documents\GitHub\Universidad\Affinite_Notes\` (or `~/Documents/GitHub/Universidad/Affinite_Notes/`)
+3. **Fallback Directory**: `~/Documents/Affinite_Notes/` (if the GitHub repository is not found).
+
+### Category Structure:
 ```
-~/Documents/Affinite_Notes/
+~/Documents/GitHub/Universidad/Affinite_Notes/
 ├── Matematicas/            # Precálculo, Álgebra Lineal, Lógica, Cálculo, Probabilidad
 ├── Ciencias_Fisica/        # Física Clásica, Termodinámica, Electromagnetismo, Mecánica
 ├── Ingenieria_Software/    # Arquitectura, Algoritmos, Redes, Linux, Docker, Rust, React
 ├── Investigacion/          # Metodología, Estado del Arte, Papers, Resúmenes Académicos
 └── General/                # Planes de estudio, proyectos personales, productividad
 ```
+*(Auto-create target directory and category folder if they do not exist)*
 
 ---
 
@@ -214,11 +223,14 @@ def ejemplo_implementacion():
 ## Procedimiento de Ejecución al Invocar la Skill
 
 1. **Analizar el Tema**: Identificar si pertenece a Matemáticas, Física, Ingeniería, Investigación o General.
-2. **Determinar la Ruta de Guardado**:
-   - `~/Documents/Affinite_Notes/<Categoria>/<nombre-en-kebab-case>.md`
+2. **Determinar la Ruta y Nombre de Archivo**:
+   - Resolver el directorio base (`$AFFINITE_NOTES_DIR` -> `~/Documents/GitHub/Universidad/Affinite_Notes/` -> fallback `~/Documents/Affinite_Notes/`).
+   - Construir el nombre del archivo con estampa de tiempo: `<nombre-en-kebab-case> (YYYY-MM-DD).md`.
+   - Ruta completa: `<DirectorioBase>/<Categoria>/<nombre-en-kebab-case> (YYYY-MM-DD).md`.
 3. **Generar la Nota**: Aplicar la plantilla correspondiente con máximo rigor pedagógico, fórmulas LaTeX completas utilizando las macros científicas de AFFiNITe (`\R`, `\bm`, `\diff`, `\pdiff`, `\d`, `\norm`), diagramas Mermaid y Callouts.
 4. **Guardar el Archivo**: Utilizar `write_to_file` para escribir el archivo directamente en la ruta especificada.
 5. **Respuesta al Usuario**:
    - Notificar que la nota ha sido creada.
-   - Proporcionar la ruta absoluta en un enlace markdown clicable: `[nombre_nota.md](file:///home/rousseau/Documents/Affinite_Notes/.../nombre_nota.md)`.
+   - Proporcionar la ruta absoluta en un enlace markdown clicable codificado: `[nombre_nota (YYYY-MM-DD).md](file:///ruta/absoluta/nombre_nota%20(YYYY-MM-DD).md)`.
    - Recordar los atajos nativos: *"Para abrir o editar en AFFiNITe: Importa la nota vía Menú Import → Markdown files (.md), y recuerda que puedes editar fórmulas con `/greq` (Visual Builder) o `/eq` (Code Mode)."*
+

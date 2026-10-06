@@ -37,41 +37,12 @@ When handling specific domains or workflows, read the corresponding skill file v
 | **Automated Release Engine** | `@./skills/ada-release/SKILL.md` |
 | **Git Commits** | `@./skills/ada-commit/SKILL.md` |
 | **Proactive Background Loops** | `@./skills/ada-proactive/SKILL.md` |
-| **AFFiNITe BlockSuite Notes** | `@./skills/ada-affinite-note/SKILL.md` |
 
-### Academic, Research & Engineering Growth Skills (Ada System)
-| Domain / Trigger | Skill File Path |
+### Concilio de Polímatas & Forja Intelectual (Ada System)
+| Dominio / Arquetipo | Skill File Path |
 | :--- | :--- |
-| **Scientific & Technical Research** | `@./skills/ada-research/SKILL.md` |
-| **Project Decomposition & WBS** | `@./skills/ada-breakdown/SKILL.md` |
-| **Systems Thinking & Engineering Root-Cause** | `@./skills/ada-engineer/SKILL.md` |
-| **First Principles Pedagogy & Feynman Method** | `@./skills/ada-feynman/SKILL.md` |
-| **Applied Mathematics for Engineering** | `@./skills/ada-math/SKILL.md` |
-| **Active Recall & Exam Preparation** | `@./skills/ada-study/SKILL.md` |
-| **Advanced Data Structures & Algorithms** | `@./skills/ada-algo/SKILL.md` |
-| **System Design, C4 Modeling & ADRs** | `@./skills/ada-arch/SKILL.md` |
-| **Engineering Portfolio, RFCs & Open Source** | `@./skills/ada-career/SKILL.md` |
-| **Soft Skills, Team Dynamics & Communication** | `@./skills/ada-collab/SKILL.md` |
-| **Operating Systems, Concurrency & Kernel** | `@./skills/ada-os/SKILL.md` |
-| **Computer Networks, Sockets & Protocols** | `@./skills/ada-net/SKILL.md` |
-| **Containers, CI/CD & Linux Hardening** | `@./skills/ada-devops/SKILL.md` |
-| **Machine Learning, Neural Networks & AI** | `@./skills/ada-ai/SKILL.md` |
-| **Compilers, Automata & Formal Languages** | `@./skills/ada-compiler/SKILL.md` |
-| **University Physics & Simulation** | `@./skills/ada-physics/SKILL.md` |
-| **Data Science, Statistics & Visualization** | `@./skills/ada-data/SKILL.md` |
-| **Engineering Economics & Financial TCO** | `@./skills/ada-econ/SKILL.md` |
-| **Portainer & Docker Compose Stacks** | `@./skills/ada-portainer/SKILL.md` |
-| **Orthodox Theology, Patristics & Spiritual Guidance** | `@./skills/ada-orthodox/SKILL.md` |
-| **Discrete Mathematics, Logic & Combinatorics** | `@./skills/ada-discrete/SKILL.md` |
-| **Probability & Stochastic Processes** | `@./skills/ada-prob/SKILL.md` |
-| **Signals & Linear Systems** | `@./skills/ada-signals/SKILL.md` |
-| **Digital Logic & Computer Architecture** | `@./skills/ada-circuits/SKILL.md` |
-| **Internet of Things (IoT) & Embedded Telemetry** | `@./skills/ada-iot/SKILL.md` |
-| **Requirements Engineering, UML & BPMN** | `@./skills/ada-req/SKILL.md` |
-| **Software Quality Assurance & Advanced QA** | `@./skills/ada-qa/SKILL.md` |
-| **Human-Computer Interaction & WCAG Usability** | `@./skills/ada-hci/SKILL.md` |
-| **Distributed Systems, Consensus & Cloud** | `@./skills/ada-distrib/SKILL.md` |
-| **Applied Cryptography & Security Protocols** | `@./skills/ada-crypto/SKILL.md` |
-| **Operations Research, Simplex & Queueing Theory** | `@./skills/ada-or/SKILL.md` |
-| **University Thesis & IEEE/APA Academic Writing** | `@./skills/ada-thesis/SKILL.md` |
-| **Engineering Ethics, Deontology & Tech Law** | `@./skills/ada-ethics/SKILL.md` |
+| **Gimnasio Cognitivo, Mayéutica & Exámenes** | `@./skills/ada-socrates/SKILL.md` |
+| **Investigación, Notas AFFiNE & APA 7** | `@./skills/ada-davinci/SKILL.md` |
+| **Cálculo Stewart, Matemáticas & Física** | `@./skills/ada-newton/SKILL.md` |
+| **Algoritmia, Complejidad & Computación** | `@./skills/ada-turing/SKILL.md` |
+| **Linux Btrfs, Redes, Docker & IoT** | `@./skills/ada-neumann/SKILL.md` |

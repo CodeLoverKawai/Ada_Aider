@@ -2,7 +2,7 @@
 
 **Ada-Aider** es un sistema agente unificado, modular y de máxima eficiencia en el consumo de tokens diseñado para asistentes de codificación con Inteligencia Artificial (Google Antigravity, Claude Code, Cursor, Windsurf y agentes basados en Gemini / Claude). Su nombre rinde homenaje a **Ada Lovelace**, la matemática británica pionera reconocida universalmente como la primera programadora de computadoras de la historia.
 
-El sistema fusiona la **disciplina procedimental estricta de Superpowers** (diseño paso a paso con hard-gates, planificación atómica, TDD riguroso, depuración basada en evidencia, subagentes aislados y verificación empírica) con las **habilidades de dominio e ingeniería avanzada de Ada** (diseño UI/UX premium, bases de datos SQL, seguridad y auditoría de secretos, MCP, telemetría, hardware/firmware, academia y ciencias de la ingeniería) y una **arquitectura de ahorro de tokens** de alto rendimiento.
+El sistema fusiona la **disciplina procedimental estricta de Superpowers** (diseño paso a paso con hard-gates, planificación atómica, TDD riguroso, depuración basada en evidencia, subagentes aislados y verificación empírica) con las **habilidades de dominio e ingeniería avanzada de Ada** (diseño UI/UX premium, bases de datos SQL, seguridad y auditoría de secretos, MCP, telemetría, hardware/firmware), el **Concilio de Polímatas & Forja Intelectual** (entrenamiento cognitivo socrático de alta fricción, síntesis polímata humanista, física y cálculo Stewart sin pasos mágicos, ciencias de la computación puras e ingeniería de sistemas e infraestructura Linux) y una **arquitectura de ahorro de tokens** de alto rendimiento.
 
 ---
 
@@ -20,11 +20,11 @@ El sistema fusiona la **disciplina procedimental estricta de Superpowers** (dise
    - [Mapeo de Herramientas CLI (Antigravity & Claude Code)](#2-mapeo-de-herramientas-cli-antigravity--claude-code)
    - [Aislamiento por Subagentes Dedicados](#3-aislamiento-por-subagentes-dedicados)
    - [Directivas de Eficiencia y Guardrails Anti-Relleno](#4-directivas-de-eficiencia-y-guardrails-anti-relleno)
-3. [Catálogo Exhaustivo de Habilidades (67 Skills)](#-catálogo-exhaustivo-de-habilidades-67-skills)
+3. [Catálogo Exhaustivo de Habilidades (38 Skills)](#-catálogo-exhaustivo-de-habilidades-38-skills)
    - [A. Habilidades de Proceso Central (Superpowers Engine - 14 Skills)](#a-habilidades-de-proceso-central-superpowers-engine---14-skills)
    - [B. Habilidades Puente y Enrutamiento Maestro (Ada Bridges - 8 Skills)](#b-habilidades-puente-y-enrutamiento-maestro-ada-bridges---8-skills)
-   - [C. Habilidades de Dominio y Automatización (Ada System - 13 Skills)](#c-habilidades-de-dominio-y-automatización-ada-system---13-skills)
-   - [D. Habilidades Académicas, Investigación, Ingeniería y Humanidades (Ada Suite - 32 Skills)](#d-habilidades-académicas-investigación-ingeniería-y-humanidades-ada-suite---32-skills)
+   - [C. Habilidades de Dominio y Automatización (Ada System - 11 Skills)](#c-habilidades-de-dominio-y-automatización-ada-system---11-skills)
+   - [D. Concilio de Polímatas & Forja Intelectual (Ada Polymath Council - 5 Skills)](#d-concilio-de-polímatas--forja-intelectual-ada-polymath-council---5-skills)
 4. [Flujos de Trabajo Prácticos de Extremo a Extremo](#-flujos-de-trabajo-prácticos-de-extremo-a-extremo)
    - [Flujo 1: Desarrollo de Nueva Característica con TDD y Subagentes](#flujo-1-desarrollo-de-nueva-característica-con-tdd-y-subagentes)
    - [Flujo 2: Depuración Sistemática de un Error en Producción](#flujo-2-depuración-sistemática-de-un-error-en-producción)
@@ -54,7 +54,7 @@ Ada-Aider resuelve esto mediante una **Arquitectura de Enrutamiento Dinámico co
                                          ▼
                   ┌──────────────────────────────────────────────┐
                   │    GEMINI.md (Router Maestro Compacto)       │
-                  │   ~60 líneas / Tabla de Despacho Dinámica    │
+                  │   ~49 líneas / Tabla de Despacho Dinámica    │
                   └──────────────────────┬───────────────────────┘
                                          │
                    Dispara la lectura bajo demanda (view_file)
@@ -63,13 +63,14 @@ Ada-Aider resuelve esto mediante una **Arquitectura de Enrutamiento Dinámico co
                  ▼                                               ▼
 ┌─────────────────────────────────┐             ┌─────────────────────────────────┐
 │ Habilidades de Proceso          │             │ Habilidades Especializadas      │
-│ (brainstorming, writing-plans,  │             │ (ada-taste, ada-db, ada-ai,     │
-│  test-driven-development, etc.) │             │  ada-os, ada-security, etc.)    │
+│ (brainstorming, writing-plans,  │             │ (ada-taste, ada-db, ada-mcp,    │
+│  test-driven-development, etc.) │             │  ada-socrates, ada-turing, etc.)│
 └─────────────────────────────────┘             └─────────────────────────────────┘
 ```
 
 ### Resultados de Eficiencia:
 - **Reducción del 65% al 85% de tokens de entrada** en cada interacción.
+- **Consolidación del Concilio Polímata**: Reducción radical del catálogo de 33 habilidades dispersas a los 5 Grandes Arquetipos Polímatas (`ada-socrates`, `ada-davinci`, `ada-newton`, `ada-turing`, `ada-neumann`), eliminando la degradación de atención (*Lost in the Middle*) y optimizando el contexto de entrada.
 - **Cero código re-impreso en el chat**: Las ediciones se guardan directamente en archivos y en el chat solo se envía un enlace navegable `[archivo.ts](file:///...)`.
 - **Cero resumen redundante de artefactos**: Los planes (`implementation_plan.md`) y walkthroughs (`walkthrough.md`) se persisten como artefactos nativos en disco sin duplicar su contenido en la conversación.
 
@@ -119,9 +120,9 @@ Para tareas complejas de múltiples pasos (como la ejecución de un plan de 10 t
 
 ---
 
-## 📚 Catálogo Exhaustivo de Habilidades (67 Skills)
+## 📚 Catálogo Exhaustivo de Habilidades (38 Skills)
 
-A continuación se detalla **cada una de las 67 habilidades del sistema**, especificando:
+A continuación se detalla **cada una de las 38 habilidades del sistema**, especificando:
 - **Propósito**: Qué problema resuelve y cuándo aplica.
 - **Cómo se Ejecuta**: Flujo paso a paso, herramientas involucradas y comandos.
 - **Entradas y Salidas**: Archivos leídos, artefactos generados y pruebas ejecutadas.
@@ -338,7 +339,7 @@ A continuación se detalla **cada una de las 67 habilidades del sistema**, espec
 
 ---
 
-### C. Habilidades de Dominio y Automatización (Ada System - 13 Skills)
+### C. Habilidades de Dominio y Automatización (Ada System - 11 Skills)
 
 #### 23. `ada-taste`
 - **Ubicación**: [skills/ada-taste/SKILL.md](skills/ada-taste/SKILL.md)
@@ -456,340 +457,76 @@ A continuación se detalla **cada una de las 67 habilidades del sistema**, espec
   3. Notifica hallazgos relevantes de forma no intrusiva.
 - **Salida**: Mantenimiento preventivo continuo del repositorio.
 
-#### 34. `ada-portainer`
-- **Ubicación**: [skills/ada-portainer/SKILL.md](skills/ada-portainer/SKILL.md)
-- **Propósito**: Orquestación y diseño de stacks de Docker Compose listos para producción en Portainer, resolución de permisos de volúmenes en Linux (UID/GID), webhooks de auto-despliegue y protección del Docker Socket.
-- **Cómo se Ejecuta**:
-  1. **Diseño de Stacks Compose**:
-     - Declara valores por defecto para variables de entorno (`${DATABASE_PORT:-5432}`).
-     - Aplica cuotas estrictas de recursos de CPU y memoria (`deploy.resources.limits`) para evitar saturación del nodo anfitrión.
-     - Crea redes tipo bridge privadas (`driver: bridge`) para aislar bases de datos y backends de la red pública.
-     - Configura sondas de salud (`healthcheck`) con reintentos e intervalos para auto-recuperación de contenedores.
-  2. **Permisos de Volúmenes (UID/GID)**:
-     - Configura usuarios explícitos (`user: "1000:1000"` o variables `PUID=1000`/`PGID=1000`) para evitar errores `EACCES / Permission Denied` en montajes bind de Linux.
-     - Prefiere volúmenes nombrados gestionados por Docker para almacenamiento de bases de datos.
-  3. **Auto-Redespliegue con Webhooks**:
-     - Configura webhooks en Portainer y genera pasos en GitHub Actions para invocar `curl -X POST "$PORTAINER_WEBHOOK_URL"` tras la compilación de nuevas imágenes.
-  4. **Seguridad del Docker Socket**:
-     - Prohíbe exponer `/var/run/docker.sock` directamente a la red; utiliza proxies de solo lectura como `docker-socket-proxy`.
-- **Salida**: Archivos `docker-compose.yml` seguros, optimizados y configuraciones de despliegue en Portainer.
-
-#### 35. `ada-affinite-note`
-- **Ubicación**: [skills/ada-affinite-note/SKILL.md](skills/ada-affinite-note/SKILL.md)
-- **Propósito**: Generador de notas estructuradas de estudio, matemáticas, investigación y arquitectura de software optimizadas para importación directa en el editor de bloques (**BlockSuite**) de **AFFiNITe**.
-- **Cómo se Ejecuta**:
-  1. Identifica el dominio temático (Matemáticas, Física, Ingeniería de Software, Investigación o General).
-  2. Aplica la plantilla correspondiente con fórmulas centradas en KaTeX (`$$...$$`), diagramas Mermaid, callouts GitHub/BlockSuite (`> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`), tablas GFM y checklists interactivos (`- [ ]`).
-  3. Resuelve el destino prioritario (`$AFFINITE_NOTES_DIR` -> `~/Documents/GitHub/Universidad/Affinite_Notes/<Categoria>/` -> fallback `~/Documents/Affinite_Notes/<Categoria>/`).
-  4. Guarda automáticamente el archivo `.md` con estampa de tiempo: `<nombre_nota> (YYYY-MM-DD).md`.
-  5. Devuelve la ruta absoluta lista para ser seleccionada en el diálogo **Import → Markdown files (.md)** de AFFiNITe.
-- **Salida**: Archivo Markdown de alta fidelidad listo para 1-click import en AFFiNITe.
-
 ---
 
-### D. Habilidades Académicas, Investigación, Ingeniería y Humanidades (Ada Suite - 19 Skills)
+### D. Concilio de Polímatas & Forja Intelectual (Ada Polymath Council - 5 Skills)
 
-#### 36. `ada-research`
-- **Ubicación**: [skills/ada-research/SKILL.md](skills/ada-research/SKILL.md)
-- **Propósito**: Metodología de investigación científica y técnica rigurosa. Formulación de hipótesis falsables, revisión de literatura en fuentes académicas (IEEE, ACM, arXiv) y diseño de experimentos reproducibles.
-- **Cómo se Ejecuta**:
-  1. Formula formalmente la hipótesis nula ($H_0$) y la hipótesis alternativa ($H_1$).
-  2. Diseña un plan de investigación estructurado plasmado en `RESEARCH_PLAN.md`.
-  3. Define variables independientes, dependientes y de control para aislar el fenómeno a evaluar.
-  4. Conduce experimentos cuantitativos con métricas estadísticas reproducibles.
-- **Salida**: Documento `RESEARCH_PLAN.md` con hipótesis, metodología, análisis de resultados y referencias bibliográficas.
+El **Concilio de Polímatas** es la consolidación y evolución arquitectónica de las 33 habilidades académicas previas en 5 Grandes Arquetipos de élite. Diseñado para erradicar la trampa de la fluidez pasiva (*passive fluency*) y el andamiaje vacío (*empty scaffolding*), transforma el asistente en una **forja cognitiva rigurosa** que exige pensamiento crítico, deducción desde primeros principios y maestría técnica integral.
 
-#### 37. `ada-breakdown`
-- **Ubicación**: [skills/ada-breakdown/SKILL.md](skills/ada-breakdown/SKILL.md)
-- **Propósito**: Desglose jerárquico de proyectos de ingeniería (Work Breakdown Structure - WBS), estimación de complejidad técnica y cálculo de ruta crítica (CPM / PERT).
-- **Cómo se Ejecuta**:
-  1. Descompone el proyecto en 4 niveles jerárquicos: Proyecto -> Fase -> Entregable -> Paquete de Trabajo (*Work Package*).
-  2. Aplica la regla del 100% (el WBS abarca la totalidad del alcance sin duplicaciones).
-  3. Modela el grafo de dependencias y calcula la ruta crítica identificando holguras y cuellos de botella.
-  4. Construye una matriz de riesgos técnicos con probabilidad, impacto y planes de mitigación.
-- **Salida**: Estructura WBS detallada, cronograma de ruta crítica y matriz de gestión de riesgos.
+#### 34. `ada-socrates` (El Forjador Intelectual & Gimnasio Cognitivo)
+- **Ubicación**: [skills/ada-socrates/SKILL.md](skills/ada-socrates/SKILL.md)
+- **Propósito**: Máxima fricción cognitiva productiva para erradicar la dependencia pasiva de la IA. Entrena el razonamiento autónomo, pensamiento crítico y resolución desde primeros principios en estudiantes e ingenieros.
+- **Guardrails Cognitivos**:
+  - **Friction First**: Cero soluciones masticadas o código regalado prematuramente; el entendimiento se construye peldaño a peldaño.
+  - **Anti-Sycophancy**: Cero halagos vacíos o validación complaciente de errores lógicos y matemáticos.
+  - **Calibración Epistemológica (Bloom)**: Audita el nivel cognitivo del usuario (Recordar $\to$ Comprender $\to$ Aplicar $\to$ Analizar $\to$ Evaluar $\to$ Crear) para romper la falsa ilusión de competencia.
+  - **Articulación Feynman Obligatoria**: Exige al usuario explicar los conceptos con sus propias palabras antes de validar el razonamiento.
+- **Modos de Intensidad y Comandos Slash**:
+  1. **Modo Mayéutica Guiada (Por defecto)**: Regla de la **pregunta única estratégica** por turno, descomposición axiomática y analogías del mundo real.
+  2. **Modo Simulador de Parcial (`/socrates exam`)**: Simulación rigurosa de exámenes universitarios reales (orientado al currículo UNIMINUTO: Precálculo Stewart, Algoritmia Python, Lógica). Plantea 1 problema formal con tiempo sugerido, **apagón pedagógico total** (cero pistas) y calificación cuantitativa estricta en escala 0.0 a 5.0 con desglose por rúbrica oficial (Rigor Formal 40%, Casos Borde 30%, Eficiencia 30%).
+  3. **Modo Sparring Dialéctico (`/socrates sparring`)**: *Adversarial Red-Teaming* intelectual. Asume el rol de crítico y auditor implacable, cazando falacias lógicas, sesgos de confirmación y supuestos frágiles en ensayos, código o arquitecturas.
+- **Salida**: Deducciones autónomas verificadas, informes de examen con calificación cuantitativa (0.0 a 5.0) y auditorías dialécticas exhaustivas.
 
-#### 38. `ada-engineer`
-- **Ubicación**: [skills/ada-engineer/SKILL.md](skills/ada-engineer/SKILL.md)
-- **Propósito**: Pensamiento en sistemas, análisis de bucles de realimentación, análisis de causa raíz en ingeniería (5 Porqués, Diagrama de Ishikawa / Espina de Pescado) y matrices formales de trade-offs.
-- **Cómo se Ejecuta**:
-  1. Modela el sistema identificando bucles de refuerzo ($R$) y de balance ($B$).
-  2. Aplica los 5 Porqués estructurados para perforar los síntomas superficiales hasta alcanzar el fallo de diseño fundamental.
-  3. Construye diagramas de causa-efecto Ishikawa organizados por categorías (Método, Máquina, Material, Mano de obra, Medición, Medio ambiente).
-  4. Evalúa alternativas de diseño mediante matrices ponderadas de trade-offs (rendimiento, costo, complejidad, resiliencia).
-- **Salida**: Análisis de causa raíz riguroso y decisiones de ingeniería justificadas matemáticamente.
+#### 35. `ada-davinci` (El Polímata, Humanista e Investigador)
+- **Ubicación**: [skills/ada-davinci/SKILL.md](skills/ada-davinci/SKILL.md)
+- **Propósito**: Síntesis polímata integradora de ciencias de la computación, metodología científica, redacción académica de posgrado, planificación de proyectos y humanismo.
+- **Absorbe**: `ada-research`, `ada-breakdown`, `ada-thesis`, `ada-career`, `ada-collab`, `ada-ethics`, `ada-orthodox`, `ada-affinite-note`.
+- **Módulos Principales**:
+  - **Motor BlockSuite para AFFiNE**: Generación de notas maestras en Markdown enriquecido con KaTeX (`$$...$$`), diagramas Mermaid, callouts GitHub y resolución automática en `$AFFINITE_NOTES_DIR`.
+  - **Normas APA 7ma Edición (UNIMINUTO) e IEEE**: Estructuración reglamentaria de monografías, anteproyectos, citas parentéticas/narrativas y referencias bibliográficas estándar.
+  - **Estructuración WBS & Ruta Crítica (CPM/PERT)**: Descomposición jerárquica de proyectos en 4 niveles, cálculo de holguras y matrices de riesgo cuantitativo.
+  - **Portafolios Tier-1, RFCs & Open Source**: Especificaciones técnicas formales de solicitud de comentarios y proyectos de ingeniería de sistemas con benchmarks.
+  - **Comunicación BLUF & Deontología**: Técnica *Bottom Line Up Front*, code reviews libres de ego (`[blocking]`, `[suggestion]`), post-mortems sin culpa, compatibilidad de licencias (GPLv3, MIT, Apache) y discernimiento patrístico/espiritual.
+- **Salida**: Notas maestras BlockSuite (`.md`), documentos académicos normalizados en APA 7/IEEE, especificaciones WBS y dictámenes deontológicos.
 
-#### 39. `ada-feynman`
-- **Ubicación**: [skills/ada-feynman/SKILL.md](skills/ada-feynman/SKILL.md)
-- **Propósito**: Pedagogía de primeros principios y técnica de Feynman para explicar conceptos complejos de ingeniería y ciencias de la computación, conectando la teoría abstracta con código ejecutable.
-- **Cómo se Ejecuta**:
-  1. **Nivel 1 (Intuición sin jerga)**: Explicación conceptual mediante analogías cotidianas accesibles para un principiante.
-  2. **Nivel 2 (Implementación en código)**: Traducción de la intuición a un bloque de código ejecutable mínimo y limpio.
-  3. **Nivel 3 (Formalismo matemático / Rigor)**: Demostración formal con notación matemática, teoremas o diagramas de estado.
-  4. **Nivel 4 (Casos límite y anti-patrones)**: Análisis de fallos, límites asintóticos y condiciones de carrera.
-- **Salida**: Explicaciones claras, profundas y estructuradas en 4 niveles pedagógicos.
+#### 36. `ada-newton` (El Físico-Matemático & Ciencias Cuantitativas)
+- **Ubicación**: [skills/ada-newton/SKILL.md](skills/ada-newton/SKILL.md)
+- **Propósito**: Dominio axiomático de las matemáticas y la física sin atajos ni omisiones analíticas.
+- **Absorbe**: `ada-math`, `ada-discrete`, `ada-prob`, `ada-or`, `ada-physics`.
+- **Módulos Principales**:
+  - **Currículo Stewart Completo**: Precálculo, funciones algebraicas/trascendentes, límites rigurosos ($\epsilon$-$\delta$), derivadas, integrales por sustitución/partes/fracciones parciales, cálculo multivariable y series de potencias.
+  - **Regla de Oro de Cero Pasos Mágicos (*Zero Skipped Steps*)**: Prohibido omitir transformaciones intermedias; cada renglón debe justificar explícitamente el axioma, teorema o propiedad algebraica aplicada (PJR).
+  - **Física Clásica con Diagramas de Cuerpo Libre (DCL)**: Cinemática, leyes de Newton, conservación de energía/momento, electromagnetismo, termodinámica y simulación numérica simpléctica con algoritmo de Verlet.
+  - **Matemáticas Discretas**: Lógica proposicional y de predicados, inducción matemática débil y fuerte, teoría de conjuntos, combinatoria y grafos.
+  - **Probabilidad & Procesos Estocásticos**: Axiomas de Kolmogorov, Teorema de Bayes, variables aleatorias continuas/discretas y cadenas de Markov.
+  - **Investigación de Operaciones**: Programación lineal canónica/estándar, resolución de tablas Simplex paso a paso con pivoteo de Gauss-Jordan, dualidad y Teoría de Colas ($M/M/1$).
+- **Salida**: Demostraciones analíticas completas sin pasos omitidos, simulaciones físicas simplécticas y tablas Simplex auditables.
 
-#### 40. `ada-math`
-- **Ubicación**: [skills/ada-math/SKILL.md](skills/ada-math/SKILL.md)
-- **Propósito**: Matemáticas aplicadas para ingeniería: cálculo multivariable, álgebra lineal computacional, matemáticas discretas, probabilidad y métodos numéricos.
-- **Cómo se Ejecuta**:
-  1. Formula demostraciones y modelos utilizando notación matemática estándar en LaTeX (`$...$` y `$$...$$`).
-  2. Resuelve sistemas lineales, factorizaciones matriciales (LU, QR, SVD) y problemas de eigenvalores/eigenvectores.
-  3. Implementa algoritmos numéricos de optimización (Descenso de Gradiente, Newton-Raphson) y resolución de ecuaciones diferenciales (Euler, Runge-Kutta RK4).
-- **Salida**: Formulaciones matemáticas rigurosas acompañadas de implementaciones computacionales verificables.
+#### 37. `ada-turing` (El Teórico de la Computación & Algoritmia)
+- **Ubicación**: [skills/ada-turing/SKILL.md](skills/ada-turing/SKILL.md)
+- **Propósito**: Fundamentación formal en ciencias de la computación teóricas, análisis algorítmico asintótico, teoría de lenguajes formales y criptografía.
+- **Absorbe**: `ada-algo`, `ada-ai`, `ada-crypto`, `ada-compiler`.
+- **Módulos Principales**:
+  - **Transición Algorítmica Trilingüe**: Acompañamiento pedagógico continuo desde pseudocódigo estricto en **PSeInt** hacia **Python 3** idiomático/fuertemente tipado y **Go** de alto rendimiento concurrente.
+  - **Análisis Asintótico Formal**: Demostraciones matemáticas rigurosas en $\mathcal{O}$, $\Omega$ y $\Theta$, Teorema Maestro y análisis de invariantes de bucle (Inicialización, Mantenimiento, Terminación).
+  - **Estructuras de Datos Avanzadas**: Árboles autobalanceados (AVL, Red-Black), Heaps, DSU (Union-Find), Segment Trees, Grafos (Dijkstra, Tarjan) y programación dinámica.
+  - **Autómatas & Teoría de Compiladores**: Jerarquía de Chomsky, autómatas finitos (DFA/NFA), gramáticas EBNF, parsers de descenso recursivo, ASTs tipados y representación SSA.
+  - **Fundamentos Matemáticos de IA & Redes Neuronales**: Derivación analítica matricial de retropropagación (backpropagation), mecanismos de autoatención escalada (Transformers) y funciones de activación/pérdida analíticas.
+  - **Criptografía Moderna Aplicada**: Cifrado simétrico autenticado (AES-256-GCM, ChaCha20-Poly1305), curvas elípticas (Curve25519, Ed25519), hashing (SHA-256, Argon2id) y Árboles de Merkle con pruebas $O(\log N)$.
+- **Salida**: Algoritmos matemáticamente demostrados, especificaciones de gramáticas/compiladores y formulaciones criptográficas verificadas.
 
-#### 41. `ada-study`
-- **Ubicación**: [skills/ada-study/SKILL.md](skills/ada-study/SKILL.md)
-- **Propósito**: Preparación para exámenes universitarios, Active Recall, simulación de evaluaciones técnicas graduadas y generación de flashcards atómicas tipo Anki.
-- **Cómo se Ejecuta**:
-  1. Genera cuestionarios interactivos clasificados según la Taxonomía de Bloom (Recordar, Comprender, Aplicar, Analizar, Evaluar, Crear).
-  2. Aplica rúbricas de corrección analíticas con retroalimentación detallada sobre respuestas incorrectas.
-  3. Produce paquetes de flashcards atómicas (Pregunta/Respuesta concisas) optimizadas para sistemas de repetición espaciada.
-- **Salida**: Sesiones de estudio activo de alto rendimiento y baterías de preguntas de examen.
-
-#### 42. `ada-algo`
-- **Ubicación**: [skills/ada-algo/SKILL.md](skills/ada-algo/SKILL.md)
-- **Propósito**: Estructuras de datos avanzadas, diseño de algoritmos, análisis de complejidad asintótica ($O, \Omega, \Theta$) y demostraciones formales de invariantes de bucle.
-- **Cómo se Ejecuta**:
-  1. Analiza formalmente la complejidad temporal y espacial en el peor, promedio y mejor caso.
-  2. Formula demostraciones de corrección algorítmica utilizando invariantes de bucle (Inicialización, Mantenimiento, Terminación).
-  3. Implementa estructuras avanzadas (Árboles Rojo-Negro, Tries, Grafos con Dijkstra/A*, Union-Find, Segment Trees) y patrones de programación dinámica.
-- **Salida**: Algoritmos óptimos con demostración matemática de correctitud y benchmarks asintóticos.
-
-#### 43. `ada-arch`
-- **Ubicación**: [skills/ada-arch/SKILL.md](skills/ada-arch/SKILL.md)
-- **Propósito**: Arquitectura de software y sistemas distribuidos, modelado visual bajo el enfoque C4 y redacción de Registros de Decisión Arquitectónica (ADRs).
-- **Cómo se Ejecuta**:
-  1. Modela la arquitectura en los 4 niveles de C4 mediante diagramas Mermaid: Contexto de Sistema, Contenedores, Componentes y Código.
-  2. Diseña patrones de resiliencia distribuida: Circuit Breaker, Rate Limiting, Retry con Backoff Exponencial, Saga Pattern y Event Sourcing.
-  3. Redacta documentos de decisión arquitectónica bajo la plantilla estándar `ADR-XXX.md` (Contexto, Opciones consideradas, Decisión tomada y Consecuencias).
-- **Salida**: Diagramas C4 completos y registros ADR versionados en el repositorio.
-
-#### 44. `ada-career`
-- **Ubicación**: [skills/ada-career/SKILL.md](skills/ada-career/SKILL.md)
-- **Propósito**: Desarrollo de carrera en ingeniería de software, construcción de proyectos de portafolio de alto impacto técnico, redacción de RFCs de ingeniería y estrategias de contribución a proyectos Open Source.
-- **Cómo se Ejecuta**:
-  1. Diseña especificaciones de proyectos que demuestran dominio profundo de sistemas (con métricas de rendimiento, benchmarks y pruebas de estrés).
-  2. Estructura documentos técnicos formales de solicitud de comentarios (RFCs) para cambios de gran escala.
-  3. Establece estrategias para auditar bases de código abiertas, localizar issues prioritarios y redactar Pull Requests de alta calidad.
-- **Salida**: Documentos RFC, especificaciones de proyectos de portafolio y guías de contribución.
-
-#### 45. `ada-collab`
-- **Ubicación**: [skills/ada-collab/SKILL.md](skills/ada-collab/SKILL.md)
-- **Propósito**: Habilidades interpersonales de ingeniería, comunicación ejecutiva mediante la técnica BLUF (*Bottom Line Up Front*), cultura de revisión de código constructiva, resolución de desacuerdos técnicos ("Disagree and Commit") y conducción de post-mortems sin culpa (*Blameless Post-Mortems*).
-- **Cómo se Ejecuta**:
-  1. Estructura comunicaciones con stakeholders colocando la conclusión y acción requerida en la primera línea (BLUF).
-  2. Clasifica comentarios de code review mediante etiquetas explícitas: `[blocking]`, `[suggestion]`, `[question]`, `[nit]`.
-  3. Facilita consensos basados en datos empíricos ante debates arquitectónicos.
-  4. Redacta informes post-mortem post-incidente enfocados en fallos de procesos y sistemas, nunca en culpar a personas.
-- **Salida**: Comunicaciones ejecutivas claras y reportes post-mortem constructivos.
-
-#### 46. `ada-os`
-- **Ubicación**: [skills/ada-os/SKILL.md](skills/ada-os/SKILL.md)
-- **Propósito**: Ingeniería de sistemas operativos, bajo nivel y kernel de Linux: concurrencia y primitivas de sincronización (mutex, semáforos, spinlocks, CAS sin bloqueos), gestión de memoria virtual/paginación, llamadas al sistema (`epoll`, `io_uring`) y perfilado de rendimiento con `gdb`, `strace` y `perf`.
-- **Cómo se Ejecuta**:
-  1. Diseña algoritmos concurrentes libres de condiciones de carrera y deadlocks (usando operaciones atómicas y barreras de memoria).
-  2. Modela el espacio de direcciones de procesos (Stack, Heap, BSS, Data, Text) y tablas de páginas.
-  3. Implementa I/O no bloqueante de alto rendimiento con multiplexación de eventos de Linux (`epoll_wait`, `io_uring_enter`).
-  4. Diagnostica cuellos de botella mediante trazas de llamadas al sistema (`strace -c`) y perfilado de instrucciones de CPU (`perf record / report`).
-- **Salida**: Módulos de sistema de bajo nivel, libres de fugas de memoria y optimizados a nivel de kernel.
-
-#### 47. `ada-net`
-- **Ubicación**: [skills/ada-net/SKILL.md](skills/ada-net/SKILL.md)
-- **Propósito**: Redes de computadoras y protocolos de comunicación: arquitectura OSI / TCP-IP, programación de sockets BSD en bajo nivel, análisis de paquetes (`tcpdump`, `wireshark`), protocolos de aplicación (HTTP/2, HTTP/3 QUIC, WebSockets, gRPC) y seguridad TLS 1.3.
-- **Cómo se Ejecuta**:
-  1. Implementa servidores y clientes mediante sockets TCP/UDP no bloqueantes con manejo de buffers circulares.
-  2. Analiza capturas de tráfico de red diagnosticando retransmisiones TCP, ventanas de congestión y latencias RTT.
-  3. Modela el handshake criptográfico de TLS 1.3 (ECDHE, intercambio de certificados, derivación de claves de sesión).
-  4. Diseña protocolos binarios personalizados sobre framing TCP/WebSockets con sumas de verificación (CRC32/SHA-256).
-- **Salida**: Servicios de red de alta concurrencia, diagnósticos de paquetes y arquitecturas seguras de transporte.
-
-#### 48. `ada-devops`
-- **Ubicación**: [skills/ada-devops/SKILL.md](skills/ada-devops/SKILL.md)
-- **Propósito**: Contenedores, automatización de integración y entrega continua (CI/CD), aislamiento de procesos en Linux (namespaces, cgroups, seccomp), configuración de reverse proxies (Nginx, Caddy) y hardening de servidores Linux.
-- **Cómo se Ejecuta**:
-  1. Diseña Dockerfiles multi-stage de mínima superficie basados en Alpine o Distroless, ejecutando bajo usuarios no-root.
-  2. Configura pipelines de GitHub Actions optimizados con caché de capas, matrices de prueba y escaneos de vulnerabilidades.
-  3. Implementa configuraciones de proxy inverso con terminación TLS automática, compresión Brotli/Gzip y encabezados de seguridad (HSTS, CSP).
-  4. Aplica endurecimiento de servidores Linux (desactivación de autenticación SSH por password, cortafuegos UFW/iptables, Fail2Ban).
-- **Salida**: Pipelines de CI/CD automatizados e imágenes de contenedor ultraligeras y seguras.
-
-#### 49. `ada-ai`
-- **Ubicación**: [skills/ada-ai/SKILL.md](skills/ada-ai/SKILL.md)
-- **Propósito**: Inteligencia artificial y aprendizaje automático: fundamentos matemáticos de redes neuronales (derivación analítica de retropropagación / backpropagation, funciones de pérdida), arquitecturas Transformer (mecanismos de atención multi-cabeza / Self-Attention) y despliegue de inferencia optimizada local con ONNX Runtime.
-- **Cómo se Ejecuta**:
-  1. Formula la matemática de optimización: funciones de coste (Cross-Entropy, MSE), gradientes y algoritmos de optimización (Adam, SGD con Momentum).
-  2. Modela arquitecturas neuronales: Perceptrón Multicapa (MLP), Convolucionales (CNN) y mecanismos de atención:
-     $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
-  3. Exporta modelos entrenados a formato universal ONNX (`torch.onnx.export`) y optimiza grafos de computación para inferencia acelerada en CPU/GPU.
-- **Salida**: Modelos de IA matemáticamente fundamentados y pipelines de inferencia de baja latencia.
-
-#### 50. `ada-compiler`
-- **Ubicación**: [skills/ada-compiler/SKILL.md](skills/ada-compiler/SKILL.md)
-- **Propósito**: Teoría de compiladores, lenguajes formales y autómatas: Jerarquía de Chomsky (Autómatas Finitos DFA/NFA), gramáticas libres de contexto (BNF / EBNF), analizadores léxicos (lexers), parsers de descenso recursivo, árboles de sintaxis abstracta (AST), representación intermedia SSA (Static Single Assignment) y lenguajes de dominio específico (DSLs).
-- **Cómo se Ejecuta**:
-  1. Diseña la gramática formal del lenguaje en notación EBNF sin ambigüedades (eliminando recursión izquierda si aplica).
-  2. Implementa el lexer generador de tokens y el parser de descenso recursivo con recuperación elegante de errores de sintaxis.
-  3. Construye el AST con nodos fuertemente tipados y ejecuta pases de verificación semántica (tabla de símbolos, inferencia de tipos).
-  4. Genera código intermedio (IR) o evalúa directamente mediante un intérprete de árbol o máquina virtual basada en stack/registros.
-- **Salida**: Compiladores, parsers o intérpretes funcionales para lenguajes personalizados o DSLs.
-
-#### 51. `ada-physics`
-- **Ubicación**: [skills/ada-physics/SKILL.md](skills/ada-physics/SKILL.md)
-- **Propósito**: Física para ingeniería y simulación computacional: mecánica clásica newtoniana y lagrangiana, ecuaciones de Maxwell para electromagnetismo, dinámica de circuitos RLC, termodinámica e integración numérica simpléctica (algoritmos de Verlet / Runge-Kutta).
-- **Cómo se Ejecuta**:
-  1. Modela sistemas físicos mediante diagramas de cuerpo libre y ecuaciones diferenciales de movimiento.
-  2. Formula las leyes físicas fundamentales (Leyes de Newton, Conservación de Energía y Momento, Leyes de Kirchhoff).
-  3. Implementa simuladores numéricos conservativos utilizando integración de Verlet para preservar la energía en sistemas mecánicos/orbitales a largo plazo.
-- **Salida**: Modelos matemáticos de física y simulaciones computacionales con conservación de energía verificada.
-
-#### 52. `ada-data`
-- **Ubicación**: [skills/ada-data/SKILL.md](skills/ada-data/SKILL.md)
-- **Propósito**: Ciencia de datos y estadística inferencial: análisis exploratorio de datos (EDA), limpieza y transformación de datos, pruebas de hipótesis estadísticas (prueba $t$ de Student, ANOVA, test de Chi-cuadrado, valores $p$), regresión lineal multivariada y visualización científica.
-- **Cómo se Ejecuta**:
-  1. Conduce análisis exploratorios calculando estadísticas descriptivas (media, mediana, varianza, cuartiles, correlaciones de Pearson/Spearman).
-  2. Limpia anomalías, valores atípicos (*outliers*) e imputa datos faltantes con justificación metodológica.
-  3. Formula pruebas estadísticas definiendo el nivel de significancia ($\alpha = 0.05$), calculando estadísticas de prueba y comparando valores $p$.
-  4. Genera visualizaciones informativas (histogramas, diagramas de dispersión, heatmaps de correlación).
-- **Salida**: Informes estadísticos concluyentes y pipelines de análisis de datos reproducibles.
-
-#### 53. `ada-econ`
-- **Ubicación**: [skills/ada-econ/SKILL.md](skills/ada-econ/SKILL.md)
-- **Propósito**: Ingeniería económica, evaluación financiera de proyectos de software y hardware, flujos de efectivo descontados, cálculo del Valor Presente Neto (VPN / NPV), Tasa Interna de Retorno (TIR / IRR), periodo de recuperación de la inversión (*Payback Period*) y análisis de Costo Total de Propiedad (TCO) Nube vs. On-Premises.
-- **Cómo se Ejecuta**:
-  1. Modela los flujos de caja del proyecto: Costos de capital (CapEx), costos operativos (OpEx), ahorros e ingresos proyectados.
-  2. Calcula el VPN descontando flujos futuros a una tasa de oportunidad ($i$):
-     $$\text{VPN} = \sum_{t=0}^{n} \frac{R_t}{(1 + i)^t}$$
-  3. Determina la TIR resolviendo la tasa de descuento donde $\text{VPN} = 0$.
-  4. Realiza comparaciones de TCO a 3 y 5 años entre arquitecturas cloud (AWS/GCP/Azure) frente a servidores locales On-Premises.
-- **Salida**: Evaluaciones de viabilidad financiera y modelos cuantitativos de justificación de inversión técnica.
-
-#### 54. `ada-orthodox`
-- **Ubicación**: [skills/ada-orthodox/SKILL.md](skills/ada-orthodox/SKILL.md)
-- **Propósito**: Teología cristiana ortodoxa, hermenéutica bíblica patrística (Septuaginta y texto bizantino), camino de la *Theosis* (deificación por gracia increada), oración del corazón (**Hesicasmo** / Oración de Jesús), sobriedad interior (*Nepsis*) y guía espiritual para recordar el norte en el Amor Divino (*Ágape*) y la vida diaria.
-- **Cómo se Ejecuta**:
-  1. Ancla cualquier análisis bíblico, teológico o existencial en el principio de que **Dios es Amor** (*1 Juan 4:8*) y la comunión trinitaria.
-  2. Ilumina el pasaje o dilema mediante los Santos Padres (Atanasio, Capadocios, Crisóstomo, Máximo el Confesor, Palamas, Filocalia, Santos de Athos y Sarov).
-  3. Aplica herramientas espirituales prácticas para la custodia del corazón frente a los pensamientos (*logismoi*) y la *acedia*.
-  4. Genera apuntes estructurados para AFFiNE BlockSuite en `~/Documents/GitHub/Universidad/Affinite_Notes/Investigacion/` o `General/` con formato `<tema> (YYYY-MM-DD).md`.
-- **Salida**: Orientación teológica/espiritual profunda y notas estructuradas para estudio y oración.
-
-#### 55. `ada-discrete`
-- **Ubicación**: [skills/ada-discrete/SKILL.md](skills/ada-discrete/SKILL.md)
-- **Propósito**: Matemáticas discretas, lógica proposicional/predicados, demostraciones por inducción matemática, teoría de conjuntos, relaciones de equivalencia, combinatoria, grafos y álgebras de Boole.
-- **Cómo se Ejecuta**:
-  1. Formaliza proposiciones lógicas y tablas de verdad.
-  2. Desarrolla demostraciones rigurosas paso a paso (Directa, Contraposición, Reducción al Absurdo, Inducción Débil y Fuerte).
-  3. Modela problemas con teoría de grafos (árboles, planaridad con fórmula de Euler $|V| - |E| + |F| = 2$, Handshaking Lemma).
-- **Salida**: Demostraciones formales y apuntes matemáticos para AFFiNE.
-
-#### 56. `ada-prob`
-- **Ubicación**: [skills/ada-prob/SKILL.md](skills/ada-prob/SKILL.md)
-- **Propósito**: Probabilidad, variables aleatorias discretas/continuas, distribuciones conjuntas, esperanza, varianza, Teorema de Bayes, Teorema del Límite Central y cadenas de Markov.
-- **Cómo se Ejecuta**:
-  1. Aplica los axiomas de Kolmogorov y Teorema de Bayes.
-  2. Modela variables aleatorias (Binomial, Poisson, Normal, Exponencial) calculando CDF, PDF/PMF y momentos.
-  3. Analiza matrices de transición de cadenas de Markov y distribuciones estacionarias $\boldsymbol{\pi}\mathbf{P} = \boldsymbol{\pi}$.
-- **Salida**: Modelos estocásticos resueltos y notas para AFFiNE.
-
-#### 57. `ada-signals`
-- **Ubicación**: [skills/ada-signals/SKILL.md](skills/ada-signals/SKILL.md)
-- **Propósito**: Señales y sistemas lineales e invariantes en el tiempo (LTI), convolución continua/discreta, respuesta al impulso, Fourier (CTFT/DTFT/FFT), Laplace y Transformada Z.
-- **Cómo se Ejecuta**:
-  1. Resuelve integrales y sumas de convolución $y(t) = x(t) * h(t)$.
-  2. Determina causalidad y estabilidad BIBO mediante polos/ceros y Región de Convergencia (ROC).
-  3. Aplica Transformadas de Laplace y Z para funciones de transferencia $H(s)$ y $H(z)$.
-- **Salida**: Análisis de frecuencia, polos/ceros y desarrollos matemáticos.
-
-#### 58. `ada-circuits`
-- **Ubicación**: [skills/ada-circuits/SKILL.md](skills/ada-circuits/SKILL.md)
-- **Propósito**: Lógica digital, minimización con Mapas de Karnaugh, circuitos combinacionales/secuenciales (Flip-Flops D/JK/T), Máquinas de Estados Finitos (FSM Mealy/Moore) y arquitectura de la CPU (Pipeline de 5 etapas, hazards).
-- **Cómo se Ejecuta**:
-  1. Minimiza funciones booleanas mediante mapas de Karnaugh con código Gray.
-  2. Sintetiza circuitos secuenciales síncronos con tablas de excitación.
-  3. Modela FSMs y analiza hazards en pipelines de procesador.
-- **Salida**: Tablas de verdad, diagramas de estado FSM y especificaciones de hardware.
-
-#### 59. `ada-iot`
-- **Ubicación**: [skills/ada-iot/SKILL.md](skills/ada-iot/SKILL.md)
-- **Propósito**: Internet de las Cosas (IoT), arquitectura de 4 capas, sensores e interfaces (I2C, SPI, UART, ADC), protocolos telemétricos (MQTT con QoS 0/1/2, CoAP, BLE, LoRaWAN), ESP32 y Edge Computing.
-- **Cómo se Ejecuta**:
-  1. Diseña la topología de red y protocolos de transporte ligero.
-  2. Configura tópicos y suscripciones MQTT con garantías de entrega.
-  3. Optimiza consumo energético con modos Deep Sleep en microcontroladores.
-- **Salida**: Diagramas de arquitectura IoT, firmware C++/ESP-IDF y configuración telemétrica.
-
-#### 60. `ada-req`
-- **Ubicación**: [skills/ada-req/SKILL.md](skills/ada-req/SKILL.md)
-- **Propósito**: Ingeniería de requisitos, clasificación FURPS+, historias de usuario INVEST con formato Gherkin, Casos de Uso formales, modelado UML 2.5 y procesos de negocio BPMN 2.0.
-- **Cómo se Ejecuta**:
-  1. Elicita y clasifica requisitos funcionales y no funcionales con MoSCoW.
-  2. Redacta historias de usuario con criterios de aceptación Gherkin (Dado-Cuando-Entonces).
-  3. Modela diagramas de secuencia UML y flujos BPMN 2.0.
-- **Salida**: Especificación de Requisitos de Software (SRS) y matrices de trazabilidad (RTM).
-
-#### 61. `ada-qa`
-- **Ubicación**: [skills/ada-qa/SKILL.md](skills/ada-qa/SKILL.md)
-- **Propósito**: Aseguramiento de calidad de software (QA), pirámide de pruebas, pruebas de carga y estrés con k6/JMeter, pruebas de mutación, Complejidad Ciclomática de McCabe y métricas SonarQube / ISO 25010.
-- **Cómo se Ejecuta**:
-  1. Calcula la complejidad ciclomática $V(G) = E - V + 2P$ para cobertura de caminos básica.
-  2. Escribe scripts de prueba de carga en k6 con umbrales P95 y tasa de fallos.
-  3. Audita deuda técnica y cobertura de ramas.
-- **Salida**: Planes de prueba, scripts de k6 e informes de calidad.
-
-#### 62. `ada-hci`
-- **Ubicación**: [skills/ada-hci/SKILL.md](skills/ada-hci/SKILL.md)
-- **Propósito**: Interacción Humano-Computador (HCI), 10 heurísticas de usabilidad de Nielsen, accesibilidad web universal WCAG 2.2 (POUR), leyes cognitivas (Fitts, Hick, Miller) y métricas SUS.
-- **Cómo se Ejecuta**:
-  1. Conduce evaluaciones heurísticas clasificando severidad de fallos (0 a 4).
-  2. Audita accesibilidad Nivel AA/AAA (contraste > 4.5:1, navegación por teclado, ARIA).
-  3. Diseña protocolos de pruebas de usabilidad Think-Aloud y calcula el SUS Score.
-- **Salida**: Informes de auditoría UX/HCI y recomendaciones de accesibilidad.
-
-#### 63. `ada-distrib`
-- **Ubicación**: [skills/ada-distrib/SKILL.md](skills/ada-distrib/SKILL.md)
-- **Propósito**: Sistemas distribuidos, teorema CAP/PACELC, algoritmo de consenso Raft, estructuras de datos CRDTs (Yjs/Automerge), gRPC/Protobuf, event streaming (Kafka/RabbitMQ) y patrón Saga.
-- **Cómo se Ejecuta**:
-  1. Evalúa compromisos de consistencia vs. disponibilidad bajo el teorema CAP.
-  2. Modela estados de consenso Raft y contratos RPC tipados en `.proto`.
-  3. Diseña transacciones distribuidas con el patrón Saga y transacciones compensatorias.
-- **Salida**: Arquitecturas distribuidas tolerantes a fallos y especificaciones gRPC.
-
-#### 64. `ada-crypto`
-- **Ubicación**: [skills/ada-crypto/SKILL.md](skills/ada-crypto/SKILL.md)
-- **Propósito**: Criptografía aplicada, cifrado simétrico autenticado (AES-256-GCM, ChaCha20-Poly1305), clave pública (RSA, ECC Curve25519/Ed25519), hashing (SHA-256/3, Argon2id), árboles de Merkle y PKI.
-- **Cómo se Ejecuta**:
-  1. Selecciona primitivas criptográficas seguras y resistentes a ataques clásicos.
-  2. Diseña protocolos de intercambio de claves ECDHE y firmas digitales.
-  3. Construye pruebas de inclusión con árboles de Merkle ($O(\log N)$).
-- **Salida**: Especificaciones de seguridad criptográfica y modelos matemáticos.
-
-#### 65. `ada-or`
-- **Ubicación**: [skills/ada-or/SKILL.md](skills/ada-or/SKILL.md)
-- **Propósito**: Investigación de operaciones, Programación Lineal con Método Simplex, teoría de la dualidad y precios sombra, modelos de transporte/asignación, Teoría de Colas ($M/M/1$, $M/M/c$) y simulación Monte Carlo.
-- **Cómo se Ejecuta**:
-  1. Formula modelos de optimización con variables de decisión y restricciones.
-  2. Resuelve tablas Simplex identificando columnas y filas pivote.
-  3. Modela sistemas de colas con fórmulas de Little para tiempos de espera y utilización.
-- **Salida**: Modelos matemáticos de optimización y análisis de sensibilidad.
-
-#### 66. `ada-thesis`
-- **Ubicación**: [skills/ada-thesis/SKILL.md](skills/ada-thesis/SKILL.md)
-- **Propósito**: Metodología de investigación para proyectos de grado, redacción científica en formatos IEEE / APA 7, gestión bibliográfica BibTeX/Zotero, taxonomía de Bloom y preparación de sustentación.
-- **Cómo se Ejecuta**:
-  1. Formula el árbol de problemas, objetivos medibles y matriz de congruencia.
-  2. Estructura revisiones sistemáticas de literatura (RSL) en bases científicas.
-  3. Redacta capítulos y gestiona citas en formato BibTeX estándar.
-- **Salida**: Anteproyectos, monografías y artículos en formato IEEE.
-
-#### 67. `ada-ethics`
-- **Ubicación**: [skills/ada-ethics/SKILL.md](skills/ada-ethics/SKILL.md)
-- **Propósito**: Ética profesional en ingeniería (código ACM/IEEE-CS), compatibilidad de licencias Open Source (MIT, Apache 2.0, GPLv3, AGPLv3), legislación de privacidad (Habeas Data, GDPR) y ética de la IA.
-- **Cómo se Ejecuta**:
-  1. Evalúa dilemas éticos y deontológicos en el desarrollo de software.
-  2. Audita matrices de licencias de dependencias externas para evitar incompatibilidades.
-  3. Aplica principios de Privacidad por Diseño y minimización de datos.
-- **Salida**: Dictámenes éticos, auditorías de licencias y cumplimiento legal.
+#### 38. `ada-neumann` (El Arquitecto de Sistemas, Linux & Hardware)
+- **Ubicación**: [skills/ada-neumann/SKILL.md](skills/ada-neumann/SKILL.md)
+- **Propósito**: Arquitectura física de computadores, ingeniería de sistemas operativos de bajo nivel (Linux Arch/CachyOS), redes de datos, Internet de las Cosas (IoT) e infraestructura en producción con contenedores.
+- **Absorbe**: `ada-os`, `ada-net`, `ada-circuits`, `ada-distrib`, `ada-devops`, `ada-portainer`, `ada-iot`, `ada-hardware`, `ada-req`, `ada-qa`, `ada-hci`, `ada-engineer`, `ada-data`, `ada-econ`.
+- **Módulos Principales**:
+  - **Microarquitectura & Lógica Digital**: Modelo Von Neumann vs Harvard, ciclo Fetch-Decode-Execute, mapas de Karnaugh, Flip-Flops, Máquinas de Estados Finitos (FSM) y pipelining con hazards.
+  - **Linux Avanzado & Kernel (Arch / CachyOS)**: Gestión de sistemas de archivos transaccionales Btrfs (subvolúmenes `@`, compresión Zstd, snapshots atómicos, scrubbing), aislamiento con namespaces y cgroups v2, y multiplexación de syscalls (`epoll`, `io_uring`).
+  - **Redes & Telecomunicaciones**: Sockets BSD no bloqueantes, control de congestión TCP (BBR, CUBIC), captura y análisis de paquetes, TLS 1.3 y redes privadas overlay (WireGuard, Tailscale).
+  - **Internet de las Cosas (IoT) & Telemetría**: Microcontroladores (ESP32, STM32), buses serie (I2C, SPI, UART), modos Deep Sleep y protocolo MQTT (Mosquitto, QoS 0/1/2, LWT) hacia bases de datos TSDB.
+  - **Homelab & Contenedores de Producción**: Stacks declarativos seguros de Docker Compose (rootless, redes privadas, healthchecks), orquestación con Portainer y webhooks de despliegue continuo.
+  - **Ingeniería de Software & Calidad**: Requisitos bajo FURPS+, historias INVEST, BPMN 2.0, pruebas de carga k6, complejidad ciclomática de McCabe y análisis económico TCO (Homelab vs Cloud).
+- **Salida**: Stacks de Docker Compose reforzados, scripts de administración Linux Btrfs, especificaciones de firmware IoT y auditorías de arquitectura de sistemas.
 
 ---
 
@@ -886,7 +623,7 @@ Ada-Aider/
 │   ├── install.js            # Instalador idempotente y seguro contra symlinks
 │   └── release.js            # CLI de release automatizado para SemVer, changelog y tagging
 │
-├── skills/                   # Catálogo completo de las 52 habilidades
+├── skills/                   # Catálogo completo de las 38 habilidades
 │   ├── using-superpowers/    # Regla maestra de invocación y tabla de 12 Red Flags
 │   ├── brainstorming/        # Fase de diseño obligatorio y aprobación de spec (<HARD-GATE>)
 │   ├── writing-plans/        # Redacción de planes atómicos con tareas TDD (2-5 min)
@@ -920,40 +657,11 @@ Ada-Aider/
 │   ├── ada-commit/           # Commits convencionales sin firmas automáticas de IA
 │   ├── ada-release/          # Motor de lanzamientos y sincronización multi-archivo
 │   ├── ada-proactive/        # Tareas proactivas y monitoreo en segundo plano
-│   ├── ada-portainer/        # Stacks Portainer, Compose, permisos UID/GID y webhooks
-│   ├── ada-affinite-note/    # Generador de notas Markdown para AFFiNITe BlockSuite
-│   ├── ada-research/         # Metodología científica, hipótesis H0/H1 y estado del arte
-│   ├── ada-breakdown/        # Desglose WBS en 4 niveles, ruta crítica CPM y matrices de riesgo
-│   ├── ada-engineer/         # Pensamiento en sistemas, 5 Porqués, Ishikawa y trade-offs
-│   ├── ada-feynman/          # Pedagogía en 4 niveles (Intuición -> Código -> Matemáticas -> Bordes)
-│   ├── ada-math/             # Matemáticas aplicadas, cálculo, álgebra lineal y solvers
-│   ├── ada-study/            # Active recall, generador de exámenes y flashcards Anki
-│   ├── ada-algo/             # Estructuras de datos, invariantes y análisis asintótico
-│   ├── ada-arch/             # Diseño de sistemas, modelo C4 y plantillas ADR
-│   ├── ada-career/           # Portafolio técnico, redacción de RFCs y Open Source
-│   ├── ada-collab/           # Soft skills, comunicación BLUF, code review y post-mortems
-│   ├── ada-os/               # Sistemas operativos, concurrencia, memoria virtual y syscalls
-│   ├── ada-net/              # Redes de computadoras, sockets BSD, análisis de paquetes y TLS 1.3
-│   ├── ada-devops/           # Dockerfiles multi-stage, CI/CD, cgroups y hardening Linux
-│   ├── ada-ai/               # Redes neuronales, backprop, Transformers e inferencia ONNX
-│   ├── ada-compiler/         # Compiladores, teoría de autómatas, ASTs, SSA y DSLs
-│   ├── ada-physics/          # Física clásica, Maxwell, dinámica RLC e integración Verlet
-│   ├── ada-data/             # Ciencia de datos, EDA, estadística inferencial y pruebas de hipótesis
-│   ├── ada-econ/             # Ingeniería económica, cálculo VPN/TIR y análisis TCO de nube
-│   ├── ada-orthodox/         # Teología cristiana ortodoxa, patrística, hesicasmo y guía espiritual
-│   ├── ada-discrete/         # Matemáticas discretas, lógica, inducción, combinatoria y grafos
-│   ├── ada-prob/             # Probabilidad, variables aleatorias y procesos estocásticos
-│   ├── ada-signals/          # Señales y sistemas LTI, Fourier (FFT), Laplace y Transformada Z
-│   ├── ada-circuits/         # Lógica digital, mapas de Karnaugh, FSM y microarquitectura CPU
-│   ├── ada-iot/              # Internet de las cosas, sensores, microcontroladores y MQTT
-│   ├── ada-req/              # Ingeniería de requisitos, FURPS+, historias INVEST, UML y BPMN
-│   ├── ada-qa/               # Aseguramiento de calidad, pruebas de carga k6, McCabe y SonarQube
-│   ├── ada-hci/              # Interacción humano-computador, heurísticas de Nielsen y WCAG 2.2
-│   ├── ada-distrib/          # Sistemas distribuidos, teorema CAP, consenso Raft, CRDTs y gRPC
-│   ├── ada-crypto/           # Criptografía aplicada, AES, RSA, ECC, hashing y PKI
-│   ├── ada-or/               # Investigación de operaciones, Método Simplex y Teoría de Colas
-│   ├── ada-thesis/           # Metodología de proyectos de grado, formato IEEE/APA 7 y BibTeX
-│   └── ada-ethics/           # Ética profesional, licencias Open Source, privacidad y GDPR
+│   ├── ada-socrates/         # Forjador intelectual, mayéutica, simulador de parcial y sparring
+│   ├── ada-davinci/          # Síntesis polímata, notas AFFiNE BlockSuite, APA 7, WBS y ética
+│   ├── ada-newton/           # Rigor cuantitativo, cálculo Stewart, física clásica y cero pasos mágicos
+│   ├── ada-turing/           # Ciencias de la computación teóricas, algoritmia formal, autómatas e IA
+│   └── ada-neumann/          # Arquitectura de sistemas, Linux Btrfs/cgroups, redes, IoT y Docker
 │
 ├── src/
 │   └── hooks/                # Hooks nativos de integración para Claude Code y Antigravity
@@ -1000,6 +708,8 @@ Ada-Aider incluye un subsistema de compresión conversacional para minimizar el 
 - `/ada ultra`: Modo ultra-comprimido con máxima densidad de información por token.
 - `/ada stats`: Muestra turnos analizados, caracteres procesados y el total de tokens ahorrados.
 - `/ada off`: Desactiva la compresión y regresa al estilo conversacional estándar.
+- `/socrates exam`: Activa el modo **Simulador de Parcial** en `ada-socrates` para evaluaciones universitarias con apagón pedagógico y calificación por rúbrica (0.0 a 5.0).
+- `/socrates sparring`: Activa el modo **Sparring Dialéctico** en `ada-socrates` (*adversarial red-teaming*) para auditar críticamente código, ensayos o arquitecturas.
 
 > [!NOTE]
 > **Regla de Claridad en Artefactos**:

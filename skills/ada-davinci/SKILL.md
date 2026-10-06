@@ -342,15 +342,81 @@ Tanenbaum, A. S., & Bos, H. (2023). Sistemas operativos modernos (5.ª ed.). Pea
 
 ---
 
-## 6. Procedimiento de Ejecución al Invocar la Skill
+## 5. Módulo de Ingesta Antidistracción (Conferencias de YouTube & Artículos)
+
+Escudo cognitivo contra la sobreestimulación y la adicción al feed de algoritmos de video. Permite estudiar conferencias de primer nivel (MIT OpenCourseWare, Stanford CS, 3Blue1Brown, charlas del kernel de Linux) extrayendo el contenido puro sin abrir YouTube ni exponerse a recomendaciones o anuncios.
+
+### 5.1 Pipeline de Extracción de Transcripción con `yt-dlp`
+Cuando el usuario proporciona una URL de YouTube para estudiar:
+
+1. **Inspección y Descarga de Subtítulos**:
+   ```bash
+   # Intentar primero subtítulos manuales (máxima calidad humana)
+   yt-dlp --write-sub --skip-download --output "/tmp/yt_lecture" "YOUTUBE_URL" 2>/dev/null || \
+   # Fallback a subtítulos autogenerados
+   yt-dlp --write-auto-sub --skip-download --output "/tmp/yt_lecture" "YOUTUBE_URL"
+   ```
+
+2. **Deduplicación y Purificación WebVTT**:
+   Los subtítulos autogenerados de YouTube repiten líneas en cascada temporal. Purificar el texto ejecutando:
+   ```bash
+   python3 -c "
+   import sys, re
+   seen = set()
+   vtt_path = '/tmp/yt_lecture.es.vtt' # o .en.vtt según corresponda
+   with open(vtt_path, 'r', encoding='utf-8', errors='ignore') as f:
+       for line in f:
+           line = line.strip()
+           if line and not line.startswith(('WEBVTT', 'Kind:', 'Language:')) and '-->' not in line:
+               clean = re.sub(r'<[^>]*>', '', line)
+               clean = clean.replace('&amp;', '&').replace('&gt;', '>').replace('&lt;', '<')
+               if clean and clean not in seen:
+                   print(clean)
+                   seen.add(clean)
+   " > /tmp/lecture_clean.txt
+   ```
+
+3. **Purificación de Artículos Web**:
+   Para artículos o papers en línea, leer el contenido con `read_url_content`, extraer el cuerpo argumental y eliminar anuncios, menús de navegación y rastreadores.
+
+### 5.2 Compilación Automática a Nota BlockSuite
+Transformar la transcripción o artículo puro directamente en una **Nota Maestra para AFFiNE**, guardada en `$AFFINITE_NOTES_DIR/<Categoria>/`:
+- **Metadatos**: Título de la conferencia, ponente/canal, fecha y URL original.
+- **Tesis Central & Marco Teórico**: Resumen formal de la propuesta.
+- **Desglose de Conceptos**: Definiciones axiomáticas con fórmulas matemáticas en KaTeX (`$$ ... $$`).
+- **Arquitectura / Mapa Conceptual**: Diagrama Mermaid que vincule los conceptos clave.
+- **Resumen Feynman**: Explicación en lenguaje cristalino de los puntos más difíciles.
+- **Batería de Preguntas de Autoevaluación (*Active Recall*)**: 5 preguntas para que el estudiante evalúe su comprensión.
+
+---
+
+## 6. Módulo Grounded Source Verification (Anclaje a Fuentes Primarias)
+
+Inspirado en la arquitectura de verificación estricta de NotebookLM. Su objetivo es erradicar la alucinación cuando se estudia un libro guía o documentación formal.
+
+### 6.1 Reglas de Anclaje Epistémico
+1. **Prioridad Absoluta de la Fuente Canónica**:
+   - Cuando el usuario indique que está estudiando un texto específico (ej. *Cálculo de James Stewart*, *Sistemas Operativos de Tanenbaum*, *Algoritmos de Sedgewick/CLRS*, o manuales de arquitectura Linux/Btrfs), `ada-davinci` razona y responde **estrictamente anclado al texto primario**.
+2. **Cita Canónica Obligatoria**:
+   - Cada definición, teorema, algoritmo o afirmación debe incluir su localización:  
+     `[Texto: Stewart 9na Ed. | Cap. 2.3 | Teorema 1: Leyes de los Límites, pág. 99]`.
+3. **Cero Conjeturas No Documentadas**:
+   - Si una pregunta no está cubierta por la fuente primaria especificada, declarar explícitamente: *"La fuente canónica especificada no define X. De acuerdo con la literatura general..."*.
+
+---
+
+## 7. Procedimiento de Ejecución al Invocar la Skill
 
 1. **Identificar la Naturaleza de la Solicitud**:
    - ¿Es una nota para AFFiNE? ➔ Aplicar **Módulo 1** (BlockSuite, KaTeX, diagramas, persistencia en `$AFFINITE_NOTES_DIR`).
    - ¿Es redacción de tesis, ensayo o citación? ➔ Aplicar **Módulo 2** (APA 7 UNIMINUTO o IEEE con BibTeX).
    - ¿Es planificación, descomposición o roadmap? ➔ Aplicar **Módulo 3** (WBS 4 niveles, CPM, riesgos).
    - ¿Es dilema ético, legal o consulta espiritual? ➔ Aplicar **Módulo 4** (Licencias, Habeas Data, Patrística).
+   - ¿Es una URL de YouTube o artículo web? ➔ Aplicar **Módulo 5** (Ingesta Antidistracción y compilación a BlockSuite).
+   - ¿Es estudio con libro guía o texto de referencia? ➔ Aplicar **Módulo 6** (Anclaje a fuentes primarias).
 2. **Generación con Cero Atajos**:
    - Aplicar el estándar estricto: fórmulas matemáticas completas sin omitir pasos, tablas con formato reglamentario, y rutas absolutas clicables.
 3. **Entrega y Notificación**:
    - Entregar el archivo generado mediante `write_to_file`.
    - Ofrecer la ruta con enlace clicable en formato `[archivo.md](file:///ruta/absoluta)`.
+

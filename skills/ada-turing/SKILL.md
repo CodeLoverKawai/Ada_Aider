@@ -784,6 +784,105 @@ def verify_hmac_constant_time(key: bytes, message: bytes, expected_mac: bytes) -
 
 ---
 
+## 7. Módulo de Diseño Combinatorio de Pruebas (PICT / Pairwise Testing)
+
+### 7.1 Fundamentación Matemática: Superación de la Explosión Combinatoria
+En sistemas con $k$ variables de entrada donde cada variable adopta $v$ valores de prueba, la cobertura exhaustiva demanda $v^k$ casos de prueba, un crecimiento exponencial que satura los recursos computacionales y temporales.
+
+Sin embargo, los estudios empíricos en ciencias de la computación (NIST, Kuhn et al.) demuestran que **entre el 70% y el 90% de los defectos en software se disparan por la interacción de a lo sumo 2 factores (pairwise interaction)**, y más del 95% por interacciones de 3 factores.
+
+El diseño combinatorio con **PICT (Pairwise Independent Combinatorial Testing)** modela el espacio de entradas como una matriz ortogonal de cobertura $N$-way, garantizando que todo par posible de valores entre dos parámetros cualesquiera sea evaluado al menos una vez, reduciendo la suite de pruebas entre un 80% y un 90% respecto a la fuerza bruta.
+
+### 7.2 Sintaxis Formal del Modelo PICT
+Un modelo de pruebas combinatorias consta de tres componentes:
+
+```text
+# 1. Parámetros y Partición en Clases de Equivalencia
+ParametroA: Valor1, Valor2, Valor3
+ParametroB: Activo, Inactivo
+ParametroC: Minimo, Nominal, Maximo, Invalido
+
+# 2. Submodelos (Opcional, para combinatoria de orden superior en módulos críticos)
+{ ParametroA, ParametroB } @ 2
+
+# 3. Restricciones Condicionales de Negocio (Constraints)
+IF [ParametroA] = "Valor1" THEN [ParametroB] = "Activo";
+IF [ParametroC] = "Invalido" THEN [ParametroA] <> "Valor3";
+```
+
+### 7.3 Generador Algorítmico Pairwise en Python Puro (Zero Dependencies)
+A continuación se presenta el motor de cobertura de pares de interacción para utilizar en entornos de desarrollo sin dependencias externas:
+
+```python
+import itertools
+from typing import Dict, List, Set, Tuple
+
+def generate_pairwise_tests(
+    parameters: Dict[str, List[str]], 
+    constraints: List[callable] = None
+) -> List[Dict[str, str]]:
+    """Genera una suite de pruebas con cobertura completa de pares (2-way).
+    
+    Aplica una heuristica voraz (Greedy) para cubrir todos los pares no satisfechos
+    en el menor numero de casos de prueba posible.
+    """
+    param_names = list(parameters.keys())
+    # 1. Construir el conjunto universal de todos los pares requeridos
+    all_pairs: Set[Tuple[Tuple[str, str], Tuple[str, str]]] = set()
+    for (p1, p2) in itertools.combinations(param_names, 2):
+        for v1 in parameters[p1]:
+            for v2 in parameters[p2]:
+                all_pairs.add(((p1, v1), (p2, v2)))
+
+    test_cases: List[Dict[str, str]] = []
+    uncovered_pairs = set(all_pairs)
+
+    while uncovered_pairs:
+        # Seleccionar el par prioritario que aun no ha sido cubierto
+        target_pair = next(iter(uncovered_pairs))
+        (tp1, tv1), (tp2, tv2) = target_pair
+        
+        # Candidato inicial
+        current_case = {tp1: tv1, tp2: tv2}
+        
+        # Asignar valores a los demas parametros maximizando pares cubiertos
+        for p in param_names:
+            if p in current_case:
+                continue
+            best_val = parameters[p][0]
+            max_covered = -1
+            for val in parameters[p]:
+                # Evaluar restricciones si aplican
+                tentative = dict(current_case)
+                tentative[p] = val
+                if constraints and not all(c(tentative) for c in constraints):
+                    continue
+                # Contar cuantos pares nuevos cubriria este valor
+                covered_count = sum(
+                    1 for existing_p, existing_v in current_case.items()
+                    if ((existing_p, existing_v), (p, val)) in uncovered_pairs or
+                       ((p, val), (existing_p, existing_v)) in uncovered_pairs
+                )
+                if covered_count > max_covered:
+                    max_covered = covered_count
+                    best_val = val
+            current_case[p] = best_val
+
+        # Verificar restricciones finales del caso generado
+        if constraints and not all(c(current_case) for c in constraints):
+            uncovered_pairs.remove(target_pair)
+            continue
+
+        test_cases.append(current_case)
+        # Eliminar todos los pares que este caso cubre
+        for (p1, p2) in itertools.combinations(param_names, 2):
+            uncovered_pairs.discard(((p1, current_case[p1]), (p2, current_case[p2])))
+
+    return test_cases
+```
+
+---
+
 ## 8. Checklist de Rigor Técnico para `ada-turing`
 
 Al diseñar algoritmos, arquitecturas de datos, gramáticas, modelos de IA o esquemas criptográficos, verificar:
@@ -791,6 +890,8 @@ Al diseñar algoritmos, arquitecturas de datos, gramáticas, modelos de IA o esq
 - [ ] **Complejidad Asintótica**: Cotas temporal y espacial expresadas con precisión asintótica formal ($\mathcal{O}, \Omega, \Theta$).
 - [ ] **Invariantes de Bucle**: Demostradas explícitamente las tres fases (Inicialización, Mantenimiento y Terminación).
 - [ ] **Manejo de Casos Borde**: Comprobados $n=0, n=1$, arrays con elementos repetidos, límites de recursión y desbordamientos de enteros.
+- [ ] **Diseño de Pruebas Combinatorias**: Cobertura de factores modelada con PICT (matrices ortogonales de pares) para evitar la explosión combinatoria.
 - [ ] **Gramáticas y Compilación**: Gramáticas libres de conflictos de ambigüedad; tokens con posiciones exactas; ASTs inmutables.
 - [ ] **Redes Neuronales**: Formas de tensores validadas en cada etapa; derivación analítica de la regla de la cadena documentada; protección contra división por cero y $\log(0)$ con $\epsilon$.
 - [ ] **Seguridad Criptográfica**: Claves y nonces generados exclusivamente mediante CSPRNG; nonces únicos garantizados; comparaciones de hashes en tiempo constante.
+

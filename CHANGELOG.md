@@ -15,7 +15,7 @@
 - **README.md Documentation**: Updated catalog tables, architecture diagrams, and repository structure reflecting the 38 unified skills and highlighting Socratic cognitive gym modes.
 
 ### Removed
-- **33 Legacy Fragmented Skills**: Safely pruned legacy directories (`ada-math`, `ada-discrete`, `ada-prob`, `ada-or`, `ada-algo`, `ada-os`, `ada-net`, `ada-compiler`, `ada-circuits`, `ada-distrib`, `ada-crypto`, `ada-engineer`, `ada-devops`, `ada-ai`, `ada-physics`, `ada-data`, `ada-econ`, `ada-portainer`, `ada-iot`, `ada-req`, `ada-qa`, `ada-hci`, `ada-research`, `ada-breakdown`, `ada-study`, `ada-feynman`, `ada-thesis`, `ada-career`, `ada-collab`, `ada-ethics`, `ada-orthodox`, `ada-affinite-note`), whose capabilities are fully unified and elevated within the 5 Polymath Archetypes.
+- **32 Legacy Fragmented Academic Skills**: Safely pruned 32 legacy directories (`ada-math`, `ada-discrete`, `ada-prob`, `ada-or`, `ada-algo`, `ada-os`, `ada-net`, `ada-compiler`, `ada-circuits`, `ada-distrib`, `ada-crypto`, `ada-engineer`, `ada-devops`, `ada-ai`, `ada-physics`, `ada-data`, `ada-econ`, `ada-portainer`, `ada-iot`, `ada-req`, `ada-qa`, `ada-hci`, `ada-research`, `ada-breakdown`, `ada-study`, `ada-feynman`, `ada-thesis`, `ada-career`, `ada-collab`, `ada-ethics`, `ada-orthodox`, `ada-affinite-note`), while retaining `ada-hardware` as a specialized domain tool; all capabilities are fully unified and elevated within the 5 Polymath Archetypes.
 
 ## [1.4.0] - 2026-08-03
 

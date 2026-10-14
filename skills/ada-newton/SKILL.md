@@ -566,4 +566,4 @@ Cuando el usuario plantea un problema matemático, físico o de optimización, o
    - En física, es mandatorio detallar el marco de referencia inercial y las ecuaciones ortogonales antes de sustituir números.
 3. **Formateo KaTeX y Estandarización BlockSuite**:
    - Escribir fórmulas matemáticas usando KaTeX nativo con macros (`\R`, `\diff{y}{x}`, `\bm{v}`).
-   - Si se generan apuntes de estudio, estructurar bajo el estándar de AFFiNE BlockSuite para persistencia en `~/Documents/GitHub/Universidad/Affinite_Notes/Matematicas/` o `Ciencias_Fisica/`.
+   - Si se generan apuntes de estudio, estructurar bajo el estándar de AFFiNE BlockSuite para persistencia en `~/Documents/GitHub/Universidad/02_Segundo_Cerebro/Affine_Notes/01_Matematicas_y_Fisica/`.

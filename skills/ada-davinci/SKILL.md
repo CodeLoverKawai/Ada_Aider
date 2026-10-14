@@ -36,20 +36,23 @@ Generación de apuntes y notas maestras optimizadas para el motor de bloques **B
 
 ### 1.1 Resolución Multiplataforma de Directorio Destino
 Al persistir notas maestras, resolver la ruta base siguiendo esta prioridad estricta:
-1. **Variable de Entorno**: `$AFFINITE_NOTES_DIR` (si está definida).
+1. **Variable de Entorno**: `$AFFINITE_NOTES_DIR` o `$AFFINE_NOTES_DIR` (si está definida).
 2. **Espacio Universitario Predeterminado**:
-   - **Linux / macOS**: `~/Documents/GitHub/Universidad/Affinite_Notes/` (expandiendo `$HOME`).
-   - **Windows**: `%USERPROFILE%\Documents\GitHub\Universidad\Affinite_Notes\`.
-3. **Fallback Local**: `~/Documents/Affinite_Notes/` (si el repositorio de notas no existe).
+   - **Linux / macOS**: `~/Documents/GitHub/Universidad/02_Segundo_Cerebro/Affine_Notes/` (expandiendo `$HOME`).
+   - **Windows**: `%USERPROFILE%\Documents\GitHub\Universidad\02_Segundo_Cerebro\Affine_Notes\`.
+3. **Fallback Local**: `~/Documents/Affine_Notes/` o `~/Documents/Affinite_Notes/` (si el repositorio de notas no existe).
 
-#### Jerarquía de Categorías:
+#### Jerarquía de Categorías (Las 7 Forjas del Polímata):
 ```
-~/Documents/GitHub/Universidad/Affinite_Notes/
-├── Matematicas/            # Precálculo Stewart, Álgebra Lineal, Lógica, Probabilidad
-├── Ciencias_Fisica/        # Cinemática, Dinámica, Termodinámica, Circuitos
-├── Ingenieria_Software/    # Sistemas Operativos, Redes, Docker, Btrfs, Arquitectura
-├── Investigacion/          # Proyectos de Grado, Estado del Arte, Tesis, Papers
-└── General/                # Deontología, Ética, Notas Espirituales, Productividad
+~/Documents/GitHub/Universidad/02_Segundo_Cerebro/Affine_Notes/
+├── 00_INDEX_POLYMATH_MASTER.md          # Dashboard central interactivo de navegación
+├── 01_Matematicas_y_Fisica/             # Stewart (Cálculo 00-11), Álgebra Lineal, Lógica, Física DCL
+├── 02_Ciencias_de_la_Computacion/       # Algoritmia formal (PSeInt/Python/Go), Big-O, Estructuras
+├── 03_Sistemas_Operativos_y_Redes/      # Linux Kernel (Arch/CachyOS, Btrfs, cgroups), Redes (TCP, WireGuard)
+├── 04_Ingenieria_Software_y_DevOps/     # Arquitectura, CRDTs BlockSuite, IoT, Docker, Portainer, IA
+├── 05_Investigacion_y_Academia/         # Normas APA 7ma UNIMINUTO, Tesis, Papers, Metodología
+├── 06_Autodominio_y_Humanismo/          # Nepsis, Deep Work, Pomodoro, Teología/Patrística, Journaling
+└── 07_Proyectos_y_Bitacoras/            # Noctalia, Cortideco, Bitácoras de Exámenes Socráticos
 ```
 - **Convención de Nomenclatura**: `<nombre-en-kebab-case> (YYYY-MM-DD).md`.
 
@@ -76,7 +79,28 @@ Utilizar siempre las macros precargadas en AFFiNE para un código fuente elegant
 - **Conjuntos**: `\R` ($\mathbb{R}$), `\N` ($\mathbb{N}$), `\Z` ($\mathbb{Z}$), `\Q` ($\mathbb{Q}$), `\C` ($\mathbb{C}$), `\K` ($\mathbb{K}$).
 - **Vectores y Operadores**: `\bm{v}` (vector en negrita), `\grad` ($\nabla$), `\curl` ($\nabla \times$), `\div` ($\nabla \cdot$), `\laplacian` ($\nabla^2$).
 - **Cálculo & Derivadas**: `\diff{y}{x}` ($\frac{\mathrm{d}y}{\mathrm{d}x}$), `\pdiff{f}{x}` ($\frac{\partial f}{\partial x}$), `\d` ($\mathrm{d}$ diferencial), `\norm{x}` ($\left\|x\right\|$), `\abs{x}` ($\left|x\right|$).
-- **Atajos de Interfaz en AFFiNE**: Recordar al usuario el Visual Equation Builder (`/greq` o `/vmath`) y el Code Mode directo (`/eq` o `$$$$`).
+### 1.4 Protocolo de 6 Capas Enciclopédicas ("Cero Superficialidad")
+Para que una nota maestra entregue dominio conceptual absoluto (sin importar cuán extensa deba ser), se exige construirla bajo las siguientes 6 capas de profundidad:
+
+1. **Capa 1: Intuición de Primeros Principios & El "Por Qué" Histórico/Filosófico**:
+   - ¿Qué contradicción matemática, crisis física o problema real de cómputo obligó a inventar este concepto?
+   - Modelo mental visual y analogías cotidianas accesibles (estilo Feynman / 3Blue1Brown). Cero lenguaje formal en esta fase.
+2. **Capa 2: Fundamentación Teórica y Deducción Rigurosa (Cero Pasos Mágicos)**:
+   - Enunciado axiomático formal (definición matemática, teorema, modelo de estados o complejidad $\mathcal{O}$).
+   - **Demostración paso a paso renglón por renglón**, justificando cada propiedad algebraica o arquitectónica utilizada al margen.
+3. **Capa 3: "Untarse las Manos" (Resolución y Casos Prácticos Reales)**:
+   - Si es matemática: Mínimo 3 problemas resueltos paso a paso:
+     - *Nivel 1 (Base)*: Aplicación directa de la mecánica.
+     - *Nivel 2 (Trampa / Patológico)*: Donde la intuición rápida falla o se requiere acotación de vecindarios.
+     - *Nivel 3 (Ingeniería / Aplicado)*: Vinculación con física, computación o datos reales.
+   - Si es software / sistemas: **Código fuente completo, autónomo y funcional** (Python, C, Rust o Bash) implementando la lógica desde los fundamentos (sin depender de bibliotecas opacas de alto nivel que oculten el algoritmo).
+4. **Capa 4: Cartografía Visual y Arquitectura (Mermaid & Tablas GFM)**:
+   - Diagrama de flujo del algoritmo, mapa conceptual de relaciones o máquina de estados en bloques `mermaid`.
+   - Tablas comparativas de casos de borde y trampas comunes.
+5. **Capa 5: Laboratorio Interactivo / Verificación Empírica**:
+   - Un script reproducible ejecutable en local (p. ej. simulador numérico, graficador de vecindarios con Matplotlib, o script de inspección de sistema con `strace`/`curl`) para que el estudiante interactúe directamente con el concepto.
+6. **Capa 6: Gimnasio Cognitivo & Active Recall Socrático (Mayéutica)**:
+   - 3 a 5 preguntas de provocación profunda para autoevaluación activa: *"¿Por qué falla el enfoque ingenuo?", "¿Qué pasa si se invierte el orden de las premisas?"*.
 
 ---
 
@@ -240,7 +264,7 @@ En el ritmo acelerado del desarrollo técnico, la formación polímata exige un 
 ## 5. Micro-Ejemplos Canónicos
 
 ### Ejemplo 1: Nota de Estudio para AFFiNE BlockSuite
-Ruta: `~/Documents/GitHub/Universidad/Affinite_Notes/Matematicas/diagonalizacion-matrices (2026-10-06).md`
+Ruta: `~/Documents/GitHub/Universidad/02_Segundo_Cerebro/Affine_Notes/01_Matematicas_y_Fisica/diagonalizacion-matrices (2026-10-06).md`
 
 ```markdown
 # Diagonalización de Matrices y Teorema Espectral

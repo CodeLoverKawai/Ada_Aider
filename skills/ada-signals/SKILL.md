@@ -66,7 +66,7 @@ graph LR
 
 ## 📝 Plantilla para Notas de Señales y Sistemas en AFFiNE
 
-Al generar apuntes para `~/Documents/GitHub/Universidad/Affinite_Notes/Ingenieria_Software/<tema> (YYYY-MM-DD).md`:
+Al generar apuntes para `~/Documents/GitHub/Universidad/02_Segundo_Cerebro/Affine_Notes/01_Matematicas_y_Fisica/<tema> (YYYY-MM-DD).md`:
 
 ```markdown
 # [Tema de Señales y Sistemas] (YYYY-MM-DD)

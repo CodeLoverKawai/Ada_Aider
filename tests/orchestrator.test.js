@@ -79,3 +79,40 @@ test('ada-agent/SKILL.md tool mapping and guardrails', () => {
   // Permitted read-only diagnostics/audits
   assert.match(content, /read-only/i);
 });
+
+test('All skills in skills/ directory have standalone content (no unresolved stubs)', () => {
+  const skillsDir = path.join(rootDir, 'skills');
+  const entries = fs.readdirSync(skillsDir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      const skillPath = path.join(skillsDir, entry.name, 'SKILL.md');
+      assert.strictEqual(
+        fs.existsSync(skillPath),
+        true,
+        `Missing SKILL.md in skills/${entry.name}`
+      );
+      const content = fs.readFileSync(skillPath, 'utf8');
+
+      // Check that it has valid frontmatter
+      assert.match(content, /^---\s*\nname:\s*[\w.-]+\ndescription:/, `Invalid frontmatter in ${entry.name}`);
+
+      // Must not contain unresolved delegating @ lines
+      const lines = content.split('\n');
+      const stubLines = lines.filter(l => l.trim().startsWith('@./skills/'));
+      assert.deepStrictEqual(
+        stubLines,
+        [],
+        `Skill ${entry.name} is an unresolved stub containing: ${stubLines.join(', ')}`
+      );
+
+      // Must contain actual instructions (> 15 lines of content)
+      assert.strictEqual(
+        lines.length >= 15,
+        true,
+        `Skill ${entry.name} is too short (${lines.length} lines) to be a functioning skill`
+      );
+    }
+  }
+});
+

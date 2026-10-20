@@ -46,6 +46,9 @@ These thoughts mean STOP—you're rationalizing:
 | "This feels productive" | Undisciplined action wastes time. Skills prevent this. |
 | "I know what that means" | Knowing the concept ≠ using the skill. Invoke it. |
 
+> [!NOTE] Permitted Read-Only Diagnostics & Audits
+> Read-only codebase diagnostics, audits, or architecture inspections when answering meta-queries or inspecting system state are permitted without triggering procedural locks. Full process discipline (`brainstorming`, `writing-plans`, `test-driven-development`) activates as soon as active task execution, modification, or refactoring begins.
+
 ## Antigravity CLI Tool Mapping
 
 On Google Antigravity / AGY, skills resolve to:
@@ -54,10 +57,10 @@ On Google Antigravity / AGY, skills resolve to:
 |---|---|
 | Read file | `view_file` |
 | Create file / artifact | `write_to_file` |
-| Edit file | `replace_file_content` / `multi_replace_file_content` |
+| Edit file | `replace_file_content` |
 | Execute command | `run_command` |
 | Dispatch subagent | `invoke_subagent` (`TypeName`: `"self"` for full capability, `"research"` for read-only) |
-| Task tracking | Markdown task artifact (`write_to_file` with `IsArtifact: true`, `ArtifactMetadata.ArtifactType: "task"`). **Not** `manage_task`, which manages background daemon processes. |
+| Task tracking | Markdown task artifact (`write_to_file` with `ArtifactMetadata: { RequestFeedback: false, Summary: "...", UserFacing: true }`). **Not** `manage_task`, which manages background daemon processes. |
 | Ask user choices | `ask_question` |
 
 ## Mandatory Execution Pipeline
@@ -73,13 +76,13 @@ On Google Antigravity / AGY, skills resolve to:
 ## Token Efficiency & Context Protection Directives
 
 1. **Zero Code Duplication in Chat**:
-   - When creating or modifying files using `write_to_file`, `replace_file_content`, or `multi_replace_file_content`, NEVER print full code blocks or file contents back in the chat response.
+   - When creating or modifying files using `write_to_file` or `replace_file_content`, NEVER print full code blocks or file contents back in the chat response.
    - Provide ONLY a 1-sentence summary of what changed and a clickable markdown file link (`[filename](file:///path/to/file)`).
 2. **Zero Artifact Re-Summarization**:
    - When creating or editing artifacts (`implementation_plan.md`, `walkthrough.md`, `task.md`, design specs), NEVER re-summarize or duplicate the artifact text in the chat response.
    - Point the user directly to the artifact link and highlight only open questions requiring user input.
 3. **Subagent Delegation for Broad Searches**:
-   - Whenever a task involves searching, grepping, or reading >3 files across the codebase, MUST delegate to a `research` subagent via `invoke_subagent` (`TypeName: "research"`).
+   - Whenever a task involves searching, grepping, or reading across >3 separate modules or directories, delegate to a `research` subagent via `invoke_subagent` (`TypeName: "research"`). Do not delegate for reading a small handful of known files in the same area.
    - This keeps large file read payloads out of the main context window, saving up to 85% of input tokens.
 
 ## Communication Protocol (Caveman Mode Option)

@@ -49,3 +49,33 @@ test('GEMINI.md router integrity', () => {
   }
   assert.ok(matchCount > 0, 'Must have matched skill paths in table');
 });
+
+test('ada-agent/SKILL.md tool mapping and guardrails', () => {
+  const skillFile = path.join(rootDir, 'skills', 'ada-agent', 'SKILL.md');
+  const content = fs.readFileSync(skillFile, 'utf8');
+
+  // Must not hallucinate multi_replace_file_content
+  assert.strictEqual(
+    content.includes('multi_replace_file_content'),
+    false,
+    'Hallucinated tool multi_replace_file_content still present'
+  );
+
+  // Must not have invalid ArtifactMetadata fields
+  assert.strictEqual(
+    content.includes('IsArtifact: true'),
+    false,
+    'Invalid parameter IsArtifact: true still present'
+  );
+  assert.strictEqual(
+    content.includes('ArtifactType: "task"'),
+    false,
+    'Invalid parameter ArtifactType still present'
+  );
+
+  // Must contain valid replace_file_content
+  assert.match(content, /`replace_file_content`/);
+
+  // Permitted read-only diagnostics/audits
+  assert.match(content, /read-only/i);
+});

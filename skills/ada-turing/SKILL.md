@@ -88,6 +88,119 @@ Para probar matemáticamente que un bucle algorítmico computa la solución corr
 2. **Mantenimiento (Paso Inductivo)**: Demostrar que, si el invariante es verdadero antes de una iteración cualquiera $k$, continúa siendo verdadero antes de la iteración $k+1$.
 3. **Terminación**: Demostrar que el bucle finaliza en un número finito de pasos (función variante decreciente hacia un límite inferior acotado) y que, al terminar, el invariante proporciona una propiedad matemática que prueba la corrección del resultado final.
 
+### 1.4 Protocolo de Batería de Casos Patológicos y Harness de Verificación de Invariantes (Edge-Case Harness)
+
+> [!IMPORTANT]
+> **Axioma de Verificación Empírica**: Un análisis asintótico o una demostración teórica en papel sin una batería de casos patológicos y un arnés de prueba ejecutable es una conjetura incompleta. Todo algoritmo debe someterse a la batería de 5 casos de estrés universales y validar empíricamente sus invariantes mediante aserciones ejecutables (`assert` harness).
+
+#### Las 5 Clases de Estrés Patológico Universales
+
+Todo algoritmo diseñado, analizado o implementado en cualquier lenguaje (Python, Go, etc.) debe ser evaluado contra la siguiente batería de casos límite:
+
+```mermaid
+graph TD
+    Stress["Batería de Casos Patológicos Universales"]
+    Stress --> C1["1. Entrada Vacía o Nula<br/>([], None, '', nil)"]
+    Stress --> C2["2. Entrada Unitaria<br/>(n = 1, singleton)"]
+    Stress --> C3["3. Elementos Idénticos / Repetidos<br/>([k, k, k, ...], colisiones completas)"]
+    Stress --> C4["4. Orden Inverso / Peor Caso Asintótico<br/>([n, n-1, ..., 1], partición desbalanceada)"]
+    Stress --> C5["5. Extremos Aritméticos & Desbordamiento<br/>(MAX_INT, negativos, NaN/Inf, denormalizados)"]
+```
+
+1. **Entrada Vacía o Nula**:
+   - `[]`, `None`, `""`, puntero `nil`, estructura sin inicializar.
+   - *Objetivo*: Verificar que el algoritmo no dispare excepciones de desreferenciación nula (`NullPointerException`, `IndexError`, `panic: runtime error`) y retorne el valor de frontera correcto en $\mathcal{O}(1)$.
+2. **Entrada Unitaria ($n = 1$)**:
+   - Arreglo, lista o grafo de un solo nodo.
+   - *Objetivo*: Verificar que no se produzcan bucles infinitos en algoritmos de división y conquista (donde $\lfloor n/2 \rfloor = 0$) ni fallos de acceso a índices adyacentes (`i + 1`, `i - 1`).
+3. **Elementos Idénticos / Repetidos**:
+   - Arreglos homogéneos `[k, k, k, ...]`, strings de un único carácter repetido.
+   - *Objetivo*: Comprobar que algoritmos como QuickSort no degraden a $\mathcal{O}(n^2)$ por partición asimétrica (requiere partición de 3 vías de Dijkstra o banderas estrictas), y que estructuras de conteo o árboles de búsqueda manejen duplicados sin corrupción de punteros.
+4. **Ordenamiento Inverso / Peor Caso Asintótico**:
+   - Arreglos estrictamente decrecientes `[n, n-1, ..., 1]` cuando se espera orden ascendente, o grafos estrella/camino lineal.
+   - *Objetivo*: Someter a prueba el peor caso teórico del algoritmo; verificar que no ocurra un desbordamiento de la pila de llamadas (*Stack Overflow*) por recursión profunda.
+5. **Valores Extremos y Desbordamiento Aritmético**:
+   - `MAX_INT`, `MIN_INT`, enteros negativos, números de coma flotante denormalizados, `NaN`, $\pm\infty$.
+   - *Objetivo*: Evitar desbordamiento en sumas como `(low + high) // 2` (debe ser `low + (high - low) // 2`), desbordamientos en acumuladores multiplicativos, divisiones por cero y errores de redondeo en comparaciones de punto flotante.
+
+---
+
+#### Arnés de Verificación de Invariantes Ejecutable (`assert` Harness)
+
+Para todo algoritmo implementado, `ada-turing` debe proveer un arnés de pruebas ejecutable que certifique formalmente:
+1. El cumplimiento del invariante de bucle en tiempo de ejecución en cada iteración mediante aserciones (`assert`).
+2. La ejecución exitosa contra los 5 casos patológicos universales sin regresiones ni excepciones no controladas.
+
+##### Micro-Ejemplo Canónico: Arnés de Invariantes para Binary Search con Batería de Casos Patológicos
+
+```python
+import sys
+
+def binary_search_with_invariant_harness(arr: list[int], target: int) -> int:
+    """Busqueda binaria con validacion activa de invariantes de bucle."""
+    low: int = 0
+    high: int = len(arr) - 1
+
+    # Verificacion previa: el arreglo debe estar ordenado
+    assert all(arr[i] <= arr[i + 1] for i in range(len(arr) - 1)), "Precondicion violada: arr no ordenado"
+
+    while low <= high:
+        # INVARIANTE RUNTIME HARNESS:
+        # Si target esta en arr, forzosamente reside en arr[low..high]
+        if target in arr:
+            assert any(arr[i] == target for i in range(low, high + 1)), (
+                f"Invariante violado! target={target} no esta en subrango [{low}..{high}]"
+            )
+
+        mid: int = low + (high - low) // 2
+        mid_val: int = arr[mid]
+
+        if mid_val == target:
+            return mid
+        elif mid_val < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    # POSTCONDICION: Si no se hallo, target no debe existir en arr
+    assert target not in arr, "Postcondicion violada: target existe pero no fue encontrado"
+    return -1
+
+
+def run_pathological_edge_case_harness():
+    """Bateria de 5 casos patologicos universales para verificar robustez absoluta."""
+    # Caso 1: Entrada vacia
+    assert binary_search_with_invariant_harness([], 42) == -1, "Fallo en Caso 1: Entrada vacia"
+
+    # Caso 2: Entrada unitaria (presente y ausente)
+    assert binary_search_with_invariant_harness([10], 10) == 0, "Fallo en Caso 2: Singleton presente"
+    assert binary_search_with_invariant_harness([10], 5) == -1, "Fallo en Caso 2: Singleton ausente"
+
+    # Caso 3: Elementos identicos repetidos
+    arr_identical = [7, 7, 7, 7, 7]
+    idx = binary_search_with_invariant_harness(arr_identical, 7)
+    assert 0 <= idx < len(arr_identical) and arr_identical[idx] == 7, "Fallo en Caso 3: Elementos repetidos"
+    assert binary_search_with_invariant_harness(arr_identical, 3) == -1, "Fallo en Caso 3: Ausente en repetidos"
+
+    # Caso 4: Peor caso asintotico / fronteras
+    arr_sorted = list(range(1, 1001))
+    assert binary_search_with_invariant_harness(arr_sorted, 1) == 0, "Fallo en Caso 4: Primera posicion"
+    assert binary_search_with_invariant_harness(arr_sorted, 1000) == 999, "Fallo en Caso 4: Ultima posicion"
+    assert binary_search_with_invariant_harness(arr_sorted, 1001) == -1, "Fallo en Caso 4: Mas alla del limite"
+
+    # Caso 5: Valores extremos y desbordamiento
+    INT_MAX = sys.maxsize
+    INT_MIN = -sys.maxsize - 1
+    arr_extremes = [INT_MIN, -100, 0, 100, INT_MAX]
+    assert binary_search_with_invariant_harness(arr_extremes, INT_MAX) == 4, "Fallo en Caso 5: INT_MAX"
+    assert binary_search_with_invariant_harness(arr_extremes, INT_MIN) == 0, "Fallo en Caso 5: INT_MIN"
+    assert binary_search_with_invariant_harness(arr_extremes, 0) == 2, "Fallo en Caso 5: Cero central"
+    print("Bateria de Casos Patologicos superada con exito (5/5). Invariantes verificados.")
+
+if __name__ == "__main__":
+    run_pathological_edge_case_harness()
+```
+
 ---
 
 ## 2. Módulo de Análisis Asintótico Riguroso
@@ -889,9 +1002,11 @@ Al diseñar algoritmos, arquitecturas de datos, gramáticas, modelos de IA o esq
 
 - [ ] **Complejidad Asintótica**: Cotas temporal y espacial expresadas con precisión asintótica formal ($\mathcal{O}, \Omega, \Theta$).
 - [ ] **Invariantes de Bucle**: Demostradas explícitamente las tres fases (Inicialización, Mantenimiento y Terminación).
-- [ ] **Manejo de Casos Borde**: Comprobados $n=0, n=1$, arrays con elementos repetidos, límites de recursión y desbordamientos de enteros.
+- [ ] **Batería de Casos Patológicos**: Algoritmo sometido y validado contra los 5 casos de estrés universales (vacía/nula, unitaria, repetidos, orden inverso/peor caso, y valores extremos/desbordamiento).
+- [ ] **Harness de Verificación de Invariantes**: Arnés de prueba ejecutable (`assert` harness) que comprueba activamente los invariantes en cada iteración y previene regresiones.
 - [ ] **Diseño de Pruebas Combinatorias**: Cobertura de factores modelada con PICT (matrices ortogonales de pares) para evitar la explosión combinatoria.
 - [ ] **Gramáticas y Compilación**: Gramáticas libres de conflictos de ambigüedad; tokens con posiciones exactas; ASTs inmutables.
 - [ ] **Redes Neuronales**: Formas de tensores validadas en cada etapa; derivación analítica de la regla de la cadena documentada; protección contra división por cero y $\log(0)$ con $\epsilon$.
 - [ ] **Seguridad Criptográfica**: Claves y nonces generados exclusivamente mediante CSPRNG; nonces únicos garantizados; comparaciones de hashes en tiempo constante.
+
 

@@ -171,4 +171,15 @@ test('ada-socrates integrates problem generation gradient and ada-mind cognitive
   assert.match(content, /patol[oó]gico/i, 'ada-socrates must include pathological/trap cases in problem generation');
 });
 
+test('ada-newton and ada-turing enforce multi-representation and pathological test harnesses', () => {
+  const newtonFile = path.join(rootDir, 'skills', 'ada-newton', 'SKILL.md');
+  const turingFile = path.join(rootDir, 'skills', 'ada-turing', 'SKILL.md');
+  const newtonContent = fs.readFileSync(newtonFile, 'utf8');
+  const turingContent = fs.readFileSync(turingFile, 'utf8');
+
+  assert.match(newtonContent, /tr[ií]ada de representaci[oó]n|multi-representaci[oó]n/i, 'ada-newton must enforce multi-representation protocol');
+  assert.match(turingContent, /bater[ií]a de casos patol[oó]gicos|edge-case harness/i, 'ada-turing must enforce pathological test harnesses');
+});
+
+
 

@@ -54,6 +54,79 @@ Cada transición entre dos renglones matemáticos debe declarar la propiedad mat
 
 ---
 
+## 📐 Protocolo de la Tríada de Multi-Representación (Multi-Representation Triad)
+
+> [!IMPORTANT]
+> **Axioma Didáctico y Epistémico**: El verdadero dominio matemático no surge de la manipulación ciega de símbolos ni de metáforas imprecisas, sino de la triangulación cognitiva simultánea entre el rigor formal, la visualización espacial y el análogo físico tangible.
+
+Al introducir, demostrar o explicar conceptos matemáticos fundamentales o teoremas capitales (tales como la definición de límite, la derivada, el Teorema Fundamental del Cálculo, los valores propios y vectores característicos en álgebra lineal, o los principios de conservación), `ada-newton` debe articularlos **obligatoriamente en tres dimensiones cognitivas simultáneas**:
+
+```mermaid
+graph TD
+    Triad["Tríada de Multi-Representación"]
+    Triad --> S["1. Simbólica Formal<br/>(Axiomas, KaTeX, PJR, Cero Pasos Mágicos)"]
+    Triad --> G["2. Geométrica & Espacial<br/>(Curvas, Tangentes, Áreas, Proyecciones)"]
+    Triad --> P["3. Análogo Físico Tangible<br/>(Cinemática, Flujos, Trabajo, Energía)"]
+```
+
+### Las Tres Dimensiones Obligatorias
+
+1. **Representación Simbólica Formal**:
+   - Deducción axiomática rigurosa formulada en KaTeX estándar.
+   - Aplicación estricta del **Protocolo de Justificación Renglón a Renglón (PJR)** y la regla de **Cero Pasos Mágicos**.
+   - Definición analítica mediante cuantificadores ($\forall, \exists$) y restricciones exactas de dominio.
+
+2. **Intuición Geométrica & Espacial**:
+   - Representación visual del comportamiento en el plano cartesiano o espacio euclidiano $\mathbb{R}^n$.
+   - Descripción precisa de curvas, secantes convergiendo a tangentes, vecindarios métricos $\delta-\varepsilon$ (franjas en torno a $(c, L)$), áreas bajo la curva como sumas de rectángulos infinitesimales, deformaciones de hiperelipsoides o transformaciones ortogonales.
+
+3. **Análogo Físico del Mundo Real**:
+   - Correspondencia directa con un fenómeno físico empírico observable y medible.
+   - Vinculación con cinemática de partículas (posición, velocidad instantánea, aceleración), dinámica de fluidos (flujo másico, gradiente de presión), osciladores mecánicos/eléctricos o conservación del trabajo y la energía.
+
+---
+
+### Micro-Ejemplo Canónico: La Tríada en el Teorema Fundamental del Cálculo (Parte 1: Acumulación)
+
+Sea $f$ una función continua en el intervalo cerrado $[a, b]$, y definamos la función de acumulación $g(x) = \int_a^x f(t) \, dt$ para $x \in [a, b]$.
+
+#### 1. Dimensión Simbólica Formal (KaTeX & Cero Pasos Mágicos)
+Por la definición formal del cociente diferencial de Fermat:
+$$g'(x) = \lim_{h \to 0} \frac{g(x+h) - g(x)}{h}$$
+
+Sustituimos la definición de $g$:
+$$g'(x) = \lim_{h \to 0} \frac{\int_a^{x+h} f(t) \, dt - \int_a^x f(t) \, dt}{h}$$
+
+Por la propiedad de aditividad de intervalos en integrales definidas ($\int_a^{x+h} = \int_a^x + \int_x^{x+h}$):
+$$\int_a^{x+h} f(t) \, dt - \int_a^x f(t) \, dt = \int_x^{x+h} f(t) \, dt$$
+
+Reemplazando en el límite:
+$$g'(x) = \lim_{h \to 0} \frac{1}{h} \int_x^{x+h} f(t) \, dt$$
+
+Por el Teorema del Valor Medio para Integrales, dado que $f$ es continua en $[x, x+h]$ (asumiendo $h > 0$), existe un número $c_h \in [x, x+h]$ tal que:
+$$\int_x^{x+h} f(t) \, dt = f(c_h) \cdot ((x+h) - x) = f(c_h) \cdot h$$
+
+Sustituyendo esta igualdad en el límite:
+$$g'(x) = \lim_{h \to 0} \frac{f(c_h) \cdot h}{h}$$
+
+Cancelando el factor común $h \neq 0$:
+$$g'(x) = \lim_{h \to 0} f(c_h)$$
+
+Cuando $h \to 0$, dado que $x \le c_h \le x+h$, por el Teorema del Emparedado $c_h \to x$. Siendo $f$ continua en $x$:
+$$\lim_{h \to 0} f(c_h) = f(x) \implies g'(x) = \frac{d}{dx}\left[\int_a^x f(t) \, dt\right] = f(x)$$
+
+#### 2. Dimensión Geométrica & Espacial
+- **Área acumulada**: La función $g(x)$ mide el área neta bajo la curva $y = f(t)$ desde el punto fijo $t = a$ hasta la frontera móvil $t = x$.
+- **La tira infinitesimal**: Cuando incrementamos la frontera en un ancho diminuto $h$, añadimos una estrecha franja vertical de área $\Delta A = g(x+h) - g(x)$.
+- **Rectángulo aproximado**: Dicha franja tiene base $h$ y altura aproximadamente igual a $f(x)$. Por ende, $\Delta A \approx f(x) \cdot h$.
+- **Límite de la pendiente**: La tasa a la que crece el área respecto al desplazamiento de la frontera es $\frac{\Delta A}{h} \approx f(x)$. Al tomar el límite $h \to 0$, las irregularidades superiores de la tira se desvanecen y la tasa instantánea de expansión de área coincide exactamente con la altura de la curva $f(x)$ en ese instante.
+
+#### 3. Dimensión Física del Mundo Real
+- **Análogo Cinemático (Distancia y Velocidad)**: Si un vehículo viaja con una velocidad instantánea variable $v(t) = f(t)$, la distancia total recorrida desde el tiempo inicial $t = 0$ hasta el tiempo $t = x$ es la acumulación continua $s(x) = \int_0^x v(t) \, dt$.
+- **Interpretación del Teorema**: La tasa instantánea a la que se acumula distancia respecto al tiempo no es otra cosa que la velocidad instantánea actual: $s'(x) = v(x)$. Integrar la velocidad nos da la posición acumulada; derivar la posición acumulada nos devuelve la velocidad instantánea. La acumulación y el cambio instantáneo son operaciones inversas en la cinemática real.
+
+---
+
 ## 1. Módulo La Ruta Stewart (Precálculo & Cálculo Infinitesimal)
 
 Estructurado de acuerdo con el currículo canónico de **James Stewart** (*Calculus: Early Transcendentals*), abordando desde los cimientos algebraicos hasta el análisis vectorial en múltiples variables.
@@ -564,6 +637,15 @@ Cuando el usuario plantea un problema matemático, físico o de optimización, o
    - Cada renglón de ecuación debe llevar su correspondiente justificación textual o axiomática al margen o en prosa clara.
    - Prohibido saltar de una derivada compuesta a la respuesta simplificada sin escribir primero la regla de la cadena explícita.
    - En física, es mandatorio detallar el marco de referencia inercial y las ecuaciones ortogonales antes de sustituir números.
-3. **Formateo KaTeX y Estandarización BlockSuite**:
+3. **Aplicación Obligatoria del Protocolo de la Tríada de Multi-Representación**:
+   - Para conceptos cardinales y teoremas, articular simultáneamente la deducción simbólica formal (KaTeX + PJR), la intuición geométrica espacial y el análogo físico del mundo real.
+4. **Formateo KaTeX y Estandarización BlockSuite**:
    - Escribir fórmulas matemáticas usando KaTeX nativo con macros (`\R`, `\diff{y}{x}`, `\bm{v}`).
    - Si se generan apuntes de estudio, estructurar bajo el estándar de AFFiNE BlockSuite para persistencia en `~/Documents/GitHub/Universidad/02_Segundo_Cerebro/Affine_Notes/01_Matematicas_y_Fisica/`.
+
+### Checklist de Rigor Operativo para `ada-newton`
+- [ ] **Cero Pasos Mágicos**: Ninguna transición algebraica omitida; todas las factorizaciones, conjugados y cancelaciones explícitas con restricciones de dominio.
+- [ ] **Tríada de Multi-Representación**: Conceptos y teoremas triangulados en sus 3 vertientes: Simbólica formal (KaTeX), Geométrica/Espacial (curvas/áreas) y Física (realidad material).
+- [ ] **Diagramas DCL en Física**: Marco inercial definido y descomposición ortogonal de fuerzas antes de plantear la Segunda Ley de Newton.
+- [ ] **Unidades y Cifras Significativas**: Análisis dimensional paso a paso y redondeo explícito al SI.
+

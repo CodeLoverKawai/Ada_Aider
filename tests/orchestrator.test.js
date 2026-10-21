@@ -162,4 +162,13 @@ test('ada-mind skill defines cognitive profiling and reflection protocols', () =
   assert.match(content, /Bloom/i, 'Must reference Bloom calibration');
 });
 
+test('ada-socrates integrates problem generation gradient and ada-mind cognitive profile', () => {
+  const socratesFile = path.join(rootDir, 'skills', 'ada-socrates', 'SKILL.md');
+  const content = fs.readFileSync(socratesFile, 'utf8');
+
+  assert.match(content, /ada-mind/i, 'ada-socrates must reference ada-mind for blind spot targeting');
+  assert.match(content, /gradiente de dificultad|problem generation/i, 'ada-socrates must define problem generation gradient');
+  assert.match(content, /patol[oó]gico/i, 'ada-socrates must include pathological/trap cases in problem generation');
+});
+
 

@@ -152,3 +152,14 @@ test('ada-docs enforces GLOSSARY.md domain modeling standard', () => {
   assert.match(content, /ubiquitous language|domain model/i, 'ada-docs must enforce ubiquitous language');
 });
 
+test('ada-mind skill defines cognitive profiling and reflection protocols', () => {
+  const skillFile = path.join(rootDir, 'skills', 'ada-mind', 'SKILL.md');
+  assert.strictEqual(fs.existsSync(skillFile), true, 'skills/ada-mind/SKILL.md must exist');
+  const content = fs.readFileSync(skillFile, 'utf8');
+
+  assert.match(content, /00_PERFIL_COGNITIVO_Y_ESQUEMA_MENTAL\.md/, 'Must reference persistent cognitive profile file');
+  assert.match(content, /\/mind reflect|\/mind debrief/i, 'Must specify metacognitive debrief commands');
+  assert.match(content, /Bloom/i, 'Must reference Bloom calibration');
+});
+
+

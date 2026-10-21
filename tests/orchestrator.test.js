@@ -116,3 +116,15 @@ test('All skills in skills/ directory have standalone content (no unresolved stu
   }
 });
 
+test('ada-brainstorm encodes decision tree frontier and recommended answer grilling', () => {
+  const skillFile = path.join(rootDir, 'skills', 'ada-brainstorm', 'SKILL.md');
+  const content = fs.readFileSync(skillFile, 'utf8');
+
+  // Must mention decision tree / frontier
+  assert.match(content, /frontier/i, 'ada-brainstorm must mention decision tree frontier');
+
+  // Must mention recommended answer pattern allowing 1-word yes confirmation
+  assert.match(content, /recommended/i, 'ada-brainstorm must include recommended answer pattern');
+  assert.match(content, /fact/i, 'ada-brainstorm must distinguish autonomous facts vs user decisions');
+});
+

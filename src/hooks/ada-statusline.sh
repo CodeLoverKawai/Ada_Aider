@@ -1,9 +1,15 @@
 #!/bin/bash
 # ada-agent — statusline badge script for Claude Code
 
-BASE_DIR="${CLAUDE_CONFIG_DIR:-$HOME}"
+BASE_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 FLAG="$BASE_DIR/.ada-agent-active"
 SAVINGS_FILE="$BASE_DIR/.ada-stats-savings"
+
+# Fallback to $HOME/.ada-agent-active if $FLAG does not exist for backwards compatibility
+if [ -z "$CLAUDE_CONFIG_DIR" ] && [ ! -f "$FLAG" ] && [ -f "$HOME/.ada-agent-active" ]; then
+  FLAG="$HOME/.ada-agent-active"
+  [ -f "$HOME/.ada-stats-savings" ] && SAVINGS_FILE="$HOME/.ada-stats-savings"
+fi
 
 # Securely checks that neither file is a symlink (refuses/aborts if [ -L "$file" ])
 [ -L "$FLAG" ] && exit 0

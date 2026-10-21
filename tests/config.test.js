@@ -47,7 +47,7 @@ test('ada-config getFlagPath', (t) => {
 
   // Test when CLAUDE_CONFIG_DIR is NOT set
   delete process.env.CLAUDE_CONFIG_DIR;
-  const expectedPath = path.resolve(os.homedir(), '.ada-agent-active');
+  const expectedPath = path.resolve(os.homedir(), '.claude', '.ada-agent-active');
   assert.strictEqual(getFlagPath(), expectedPath);
 });
 

@@ -15,7 +15,7 @@ function getDefaultMode() {
  * @returns {string} The resolved file path.
  */
 function getFlagPath() {
-  const baseDir = process.env.CLAUDE_CONFIG_DIR || os.homedir();
+  const baseDir = process.env.CLAUDE_CONFIG_DIR || path.join(os.homedir(), '.claude');
   return path.resolve(baseDir, '.ada-agent-active');
 }
 

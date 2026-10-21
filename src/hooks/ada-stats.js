@@ -19,7 +19,7 @@ function calculateSavings(inputText, outputText) {
  * @returns {string} The resolved file path.
  */
 function getSavingsPath() {
-  const baseDir = process.env.CLAUDE_CONFIG_DIR || os.homedir();
+  const baseDir = process.env.CLAUDE_CONFIG_DIR || path.join(os.homedir(), '.claude');
   return path.resolve(baseDir, '.ada-stats-savings');
 }
 
@@ -93,7 +93,7 @@ function getAccumulatedSavings() {
 }
 
 function getLastParsedPath() {
-  const baseDir = process.env.CLAUDE_CONFIG_DIR || os.homedir();
+  const baseDir = process.env.CLAUDE_CONFIG_DIR || path.join(os.homedir(), '.claude');
   return path.resolve(baseDir, '.ada-stats-last');
 }
 
@@ -132,6 +132,54 @@ function findMostRecentJsonl(dir) {
 
   traverse(dir);
   return mostRecentFile;
+}
+
+/**
+ * Parses a transcript file (.jsonl) from either Claude Code or Google Antigravity,
+ * returning the total assistant/model turn count and character count.
+ * @param {string} filePath Path to the .jsonl file.
+ * @returns {{ turns: number, chars: number }}
+ */
+function parseTranscriptFile(filePath) {
+  let turns = 0;
+  let chars = 0;
+
+  try {
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const lines = fileContent.split('\n');
+    for (const line of lines) {
+      if (!line.trim()) continue;
+      try {
+        const obj = JSON.parse(line);
+        const isClaude = obj.type === 'assistant';
+        const isAntigravity = obj.type === 'PLANNER_RESPONSE' && obj.source === 'MODEL';
+
+        if (isClaude || isAntigravity) {
+          let outputText = '';
+          const content = (obj.content !== undefined && obj.content !== null)
+            ? obj.content
+            : (obj.message && obj.message.content);
+
+          if (typeof content === 'string') {
+            outputText = content;
+          } else if (Array.isArray(content)) {
+            outputText = content
+              .map(block => (typeof block === 'string' ? block : (block && block.text ? block.text : '')))
+              .join('');
+          }
+
+          if (outputText) {
+            turns++;
+            chars += outputText.length;
+          }
+        }
+      } catch (e) {}
+    }
+  } catch (err) {
+    return { turns: 0, chars: 0 };
+  }
+
+  return { turns, chars };
 }
 
 function processMostRecentLog() {
@@ -179,50 +227,7 @@ function processMostRecentLog() {
     };
   }
 
-  let totalCharCount = 0;
-  let turnsCount = 0;
-  try {
-    const fileContent = fs.readFileSync(mostRecentFile, 'utf8');
-    const lines = fileContent.split('\n');
-    for (const line of lines) {
-      if (!line.trim()) continue;
-      try {
-        const obj = JSON.parse(line);
-        if (obj.type === 'assistant') {
-          let outputText = '';
-          if (obj.content) {
-            if (typeof obj.content === 'string') {
-              outputText = obj.content;
-            } else if (Array.isArray(obj.content)) {
-              outputText = obj.content
-                .map(block => (typeof block === 'string' ? block : (block.text || '')))
-                .join('');
-            }
-          } else if (obj.message && obj.message.content) {
-            if (typeof obj.message.content === 'string') {
-              outputText = obj.message.content;
-            } else if (Array.isArray(obj.message.content)) {
-              outputText = obj.message.content
-                .map(block => (typeof block === 'string' ? block : (block.text || '')))
-                .join('');
-            }
-          }
-
-          if (outputText) {
-            turnsCount++;
-            totalCharCount += outputText.length;
-          }
-        }
-      } catch (e) {}
-    }
-  } catch (err) {
-    return {
-      turns: 0,
-      chars: 0,
-      sessionSavings: 0,
-      totalSavings: getAccumulatedSavings()
-    };
-  }
+  const { turns: turnsCount, chars: totalCharCount } = parseTranscriptFile(mostRecentFile);
 
   const sessionSavings = calculateSavings('', 'a'.repeat(totalCharCount));
 
@@ -273,5 +278,6 @@ function processMostRecentLog() {
 module.exports = {
   calculateSavings,
   updateSavings,
-  processMostRecentLog
+  processMostRecentLog,
+  parseTranscriptFile
 };

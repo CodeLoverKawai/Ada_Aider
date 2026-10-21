@@ -75,3 +75,29 @@ test('ada-stats updateSavings', (t) => {
 
   fs.rmSync(tempDirSymlink, { recursive: true, force: true });
 });
+
+test('ada-stats processes Antigravity transcript format (PLANNER_RESPONSE / MODEL)', (t) => {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ada-stats-antigravity-test-'));
+  const brainDir = path.join(tempDir, 'brain', 'conv-123', '.system_generated', 'logs');
+  fs.mkdirSync(brainDir, { recursive: true });
+
+  const transcriptFile = path.join(brainDir, 'transcript.jsonl');
+  const logEntries = [
+    JSON.stringify({ step_index: 0, source: 'USER_EXPLICIT', type: 'USER_INPUT', content: 'hello' }),
+    JSON.stringify({ step_index: 1, source: 'MODEL', type: 'PLANNER_RESPONSE', content: 'Short compressed response.' }),
+    JSON.stringify({ step_index: 2, source: 'USER_EXPLICIT', type: 'USER_INPUT', content: 'next task' }),
+    JSON.stringify({ step_index: 3, source: 'MODEL', type: 'PLANNER_RESPONSE', content: 'Another terse reply.' })
+  ].join('\n') + '\n';
+
+  fs.writeFileSync(transcriptFile, logEntries, 'utf8');
+
+  // We test the parsing logic with our temp directory passed or mock
+  const { parseTranscriptFile } = require('../src/hooks/ada-stats.js');
+  const result = parseTranscriptFile(transcriptFile);
+
+  assert.strictEqual(result.turns, 2);
+  assert.strictEqual(result.chars, 'Short compressed response.'.length + 'Another terse reply.'.length);
+
+  fs.rmSync(tempDir, { recursive: true, force: true });
+});
+

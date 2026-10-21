@@ -22,10 +22,12 @@ This is not negotiable. You cannot rationalize your way out of this.
 
 - **Process Skills First**: `using-superpowers`, `brainstorming`, `writing-plans`, `executing-plans`, `subagent-driven-development`, `test-driven-development`, `systematic-debugging`, `verification-before-completion`.
 - **Domain Skills Second**: `ada-taste`, `ada-db`, `ada-security`, `ada-hardware`, `ada-mcp`, `ada-telemetry`, `ada-docs`, `ada-release`.
+- **Academic & Polymath Skills**: `ada-socrates`, `ada-davinci`, `ada-newton`, `ada-turing`, `ada-neumann`, `ada-signals`.
 
 When starting work:
 - "Let's build X" → `brainstorming` first, then `writing-plans`, then implementation skills.
 - "Fix this bug" → `systematic-debugging` first, then domain skills.
+- "Study / Exam / Proof" → `ada-socrates`, `ada-newton`, `ada-turing`, `ada-davinci`, `ada-neumann` or `ada-signals`.
 
 ## Red Flags (Anti-Rationalization Guardrails)
 

@@ -143,3 +143,12 @@ test('ada-arch and ada-code enforce deep modules doctrine', () => {
   assert.match(codeContent, /interface is the test surface|test surface/i, 'ada-code must enforce testing through module interfaces');
 });
 
+test('ada-docs enforces GLOSSARY.md domain modeling standard', () => {
+  const docsFile = path.join(rootDir, 'skills', 'ada-docs', 'SKILL.md');
+  const content = fs.readFileSync(docsFile, 'utf8');
+
+  // Must enforce GLOSSARY.md living domain model
+  assert.match(content, /GLOSSARY\.md/, 'ada-docs must reference GLOSSARY.md');
+  assert.match(content, /ubiquitous language|domain model/i, 'ada-docs must enforce ubiquitous language');
+});
+

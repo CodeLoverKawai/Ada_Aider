@@ -33,6 +33,8 @@ flowchart LR
 
 ### 3. REFACTOR (Clean & Harden)
 - Clean up duplication and improve readability while maintaining passing tests.
+- **The Interface is the Test Surface**: Verify behavior through public module interfaces. Do not expose private state or break encapsulation just to unit test an internal intermediate step.
+- **Ban Premature Shallow Extractions**: Resist creating 2-line helper files or micro-abstractions purely for vanity testing. Maintain locality and deep implementations.
 - Re-run test commands after every refactoring edit to ensure zero regressions.
 
 ## Implementation Guardrails
@@ -44,3 +46,7 @@ flowchart LR
    - Make localized changes with `replace_file_content`. Avoid replacing entire files when modifying specific methods.
 3. **Zero Speculative Code (YAGNI)**:
    - Implement only what is strictly mandated by the test and the plan.
+4. **The Interface is the Test Surface**:
+   - Write tests against public entry points and user-observable behavior. Module interfaces are the stable contract; internal helpers are implementation details.
+5. **Locality over Fragmented Abstraction**:
+   - Do not scatter cohesive logic into shallow 2-line utilities across separate files. Abstractions must pass the Deletion Test.

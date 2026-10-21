@@ -128,3 +128,18 @@ test('ada-brainstorm encodes decision tree frontier and recommended answer grill
   assert.match(content, /fact/i, 'ada-brainstorm must distinguish autonomous facts vs user decisions');
 });
 
+test('ada-arch and ada-code enforce deep modules doctrine', () => {
+  const archFile = path.join(rootDir, 'skills', 'ada-arch', 'SKILL.md');
+  const codeFile = path.join(rootDir, 'skills', 'ada-code', 'SKILL.md');
+  const archContent = fs.readFileSync(archFile, 'utf8');
+  const codeContent = fs.readFileSync(codeFile, 'utf8');
+
+  // ada-arch must define Deep Modules vs Shallow Modules
+  assert.match(archContent, /deep module/i, 'ada-arch must define Deep Modules');
+  assert.match(archContent, /shallow module/i, 'ada-arch must define Shallow Modules');
+  assert.match(archContent, /deletion test/i, 'ada-arch must include the Deletion Test');
+
+  // ada-code must enforce interface as test surface
+  assert.match(codeContent, /interface is the test surface|test surface/i, 'ada-code must enforce testing through module interfaces');
+});
+

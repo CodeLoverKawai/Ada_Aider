@@ -181,5 +181,15 @@ test('ada-newton and ada-turing enforce multi-representation and pathological te
   assert.match(turingContent, /bater[ií]a de casos patol[oó]gicos|edge-case harness/i, 'ada-turing must enforce pathological test harnesses');
 });
 
+test('ada-davinci embeds Feynman self-explanation and GEMINI.md indexes ada-mind', () => {
+  const davinciFile = path.join(rootDir, 'skills', 'ada-davinci', 'SKILL.md');
+  const davinciContent = fs.readFileSync(davinciFile, 'utf8');
+  const geminiContent = fs.readFileSync(geminiMdPath, 'utf8');
+
+  assert.match(davinciContent, /Feynman/i, 'ada-davinci must embed Feynman self-explanation');
+  assert.match(geminiContent, /ada-mind/, 'GEMINI.md must index ada-mind');
+});
+
+
 
 

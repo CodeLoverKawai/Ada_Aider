@@ -81,6 +81,7 @@ When handling specific domains or workflows, read the corresponding skill file v
 | Dominio / Arquetipo | Skill File Path |
 | :--- | :--- |
 | **Gimnasio Cognitivo, Mayéutica & Exámenes** | `./skills/ada-socrates/SKILL.md` |
+| **Perfil Cognitivo & Esquema Mental** | `./skills/ada-mind/SKILL.md` |
 | **Investigación, Notas AFFiNE & APA 7** | `./skills/ada-davinci/SKILL.md` |
 | **Cálculo Stewart, Matemáticas & Física** | `./skills/ada-newton/SKILL.md` |
 | **Algoritmia, Complejidad & Computación** | `./skills/ada-turing/SKILL.md` |

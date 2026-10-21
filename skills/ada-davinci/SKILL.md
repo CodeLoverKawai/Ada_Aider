@@ -99,8 +99,12 @@ Para que una nota maestra entregue dominio conceptual absoluto (sin importar cu�
    - Tablas comparativas de casos de borde y trampas comunes.
 5. **Capa 5: Laboratorio Interactivo / Verificación Empírica**:
    - Un script reproducible ejecutable en local (p. ej. simulador numérico, graficador de vecindarios con Matplotlib, o script de inspección de sistema con `strace`/`curl`) para que el estudiante interactúe directamente con el concepto.
-6. **Capa 6: Gimnasio Cognitivo & Active Recall Socrático (Mayéutica)**:
-   - 3 a 5 preguntas de provocación profunda para autoevaluación activa: *"¿Por qué falla el enfoque ingenuo?", "¿Qué pasa si se invierte el orden de las premisas?"*.
+6. **Capa 6: Gimnasio Cognitivo & Active Recall Socrático (Protocolo Feynman & Mayéutica)**:
+   - Toda nota maestra debe concluir con un bloque de autoevaluación estructurada bajo el **Protocolo de Tarjetas de Autoexplicación Feynman**:
+     1. *Pregunta de Ruptura de Intuición*: "¿Por qué este algoritmo o teorema fallaría si elimináramos el supuesto o axioma X?".
+     2. *Desafío de Explicación a un Lego*: "Explica este concepto en 3 oraciones evitando términos técnicos de alta abstracción".
+     3. *Sondeo de Casos Límite*: "¿Qué ocurre cuando las variables tienden a sus cotas extremas?".
+     4. *Conexión con ada-mind*: Si la autoevaluación revela un sesgo o trampa recurrente (p. ej. ilusión de competencia, omisión de casos base o salto axiomático), instruir explícitamente el uso de `ada-mind` para actualizar `06_Autodominio_y_Humanismo/00_PERFIL_COGNITIVO_Y_ESQUEMA_MENTAL.md` y recalibrar el mapa de trampas epistémicas.
 
 ---
 
@@ -300,10 +304,11 @@ graph TD
     C -->|No| F[Matriz Defectiva: Forma Canónica de Jordan]
 ```
 
-## 4. Checklist de Repaso Activo
-- [ ] ¿Puedo explicar por qué los vectores propios con valores propios distintos son linealmente independientes?
-- [ ] ¿Sé calcular la inversa de una matriz ortogonal $Q$ en un solo paso ($Q^T$)?
-- [ ] ¿Recuerdo el atajo en AFFiNE para abrir el Visual Equation Builder (`/greq`)?
+## 4. Checklist de Repaso Activo (Tarjetas de Autoexplicación Feynman)
+- [ ] **Ruptura de Intuición**: ¿Por qué falla la diagonalización $A = P D P^{-1}$ si la multiplicidad geométrica de algún autovalor es estrictamente menor que su multiplicidad algebraica?
+- [ ] **Explicación a un Lego**: En 3 oraciones y sin usar la palabra "matriz" ni "subespacio", ¿qué significa diagonalizar una transformación lineal geométrica?
+- [ ] **Caso Límite**: ¿Qué ocurre con los valores y vectores propios si multiplicamos la matriz $A$ por un escalar $\alpha \to 0$ o si consideramos la matriz identidad $I_n$?
+- [ ] **Registro de Puntos Ciegos (`ada-mind`)**: Si la autoevaluación revela vacíos al justificar la independencia lineal o las hipótesis del Teorema Espectral, registrar la trampa cognitiva en `06_Autodominio_y_Humanismo/00_PERFIL_COGNITIVO_Y_ESQUEMA_MENTAL.md`.
 ```
 
 ---
@@ -440,7 +445,9 @@ Inspirado en la arquitectura de verificación estricta de NotebookLM. Su objetiv
    - ¿Es estudio con libro guía o texto de referencia? ➔ Aplicar **Módulo 6** (Anclaje a fuentes primarias).
 2. **Generación con Cero Atajos**:
    - Aplicar el estándar estricto: fórmulas matemáticas completas sin omitir pasos, tablas con formato reglamentario, y rutas absolutas clicables.
-3. **Entrega y Notificación**:
+3. **Verificación de Tarjetas Feynman & Conexión con `ada-mind`**:
+   - Comprobar que la nota contiene la Capa 6 completa con las Tarjetas de Autoexplicación Feynman (ruptura de intuición, explicación a legos, sondeo de casos límite e instrucción explícita de conectar con `ada-mind` ante sesgos o puntos ciegos).
+4. **Entrega y Notificación**:
    - Entregar el archivo generado mediante `write_to_file`.
    - Ofrecer la ruta con enlace clicable en formato `[archivo.md](file:///ruta/absoluta)`.
 

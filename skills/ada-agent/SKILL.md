@@ -22,6 +22,7 @@ This is not negotiable. You cannot rationalize your way out of this.
 
 - **Process Skills First**: `using-superpowers`, `brainstorming`, `writing-plans`, `executing-plans`, `subagent-driven-development`, `test-driven-development`, `systematic-debugging`, `verification-before-completion`.
 - **Domain Skills Second**: `ada-taste`, `ada-db`, `ada-security`, `ada-hardware`, `ada-mcp`, `ada-telemetry`, `ada-docs`, `ada-release`.
+- **Platform Synergies**: `generative_ui` (con `ada-taste`), `automation` (con `ada-proactive`), `google-antigravity-sdk` (con `ada-arch`), `modern-web-guidance` (con `ada-taste`), `firebase-*` (con `ada-db`).
 - **Academic & Polymath Skills**: `ada-socrates`, `ada-davinci`, `ada-newton`, `ada-turing`, `ada-neumann`, `ada-signals`.
 
 When starting work:
@@ -64,6 +65,23 @@ On Google Antigravity / AGY, skills resolve to:
 | Dispatch subagent | `invoke_subagent` (`TypeName`: `"self"` for full capability, `"research"` for read-only) |
 | Task tracking | Markdown task artifact (`write_to_file` with `ArtifactMetadata: { RequestFeedback: false, Summary: "...", UserFacing: true }`). **Not** `manage_task`, which manages background daemon processes. |
 | Ask user choices | `ask_question` |
+| Scheduled loops & cron | `schedule` |
+
+## Antigravity Native & Ecosystem Interoperability
+
+When operating within Google Antigravity, Ada-Aider seamlessly synergizes with native skills and platform plugins:
+
+1. **Interactive UI Artifacts (`generative_ui`)**:
+   - For UI prototypes, design system demos, or rich data visualizations, produce self-contained HTML artifacts with Tailwind and embed via `<agent-embed src="file:///<artifact_path>/widget.html"></agent-embed>`.
+2. **Modern Web Standards (`modern-web-guidance`)**:
+   - Comply with official web standards for all frontend code (dialogs, popovers, container queries, Core Web Vitals).
+3. **Autonomous Agents (`google-antigravity-sdk`)**:
+   - When designing or building Python agent systems, leverage `google-antigravity` SDK architectures (`LocalAgentConfig`, `LiteRTAgentConfig`).
+4. **Automations & Scheduled Tasks (`automation`)**:
+   - Utilize native `schedule` tool for recurring background tasks and cron jobs in synergy with `ada-proactive`.
+5. **Cloud Backend & Rules (`firebase-*`)**:
+   - Automatically delegate Firestore security rules authoring to `firestore-rules-author` subagent.
+
 
 ## Mandatory Execution Pipeline
 

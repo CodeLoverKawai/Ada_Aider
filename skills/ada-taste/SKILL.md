@@ -24,6 +24,12 @@ Default LLM UI designs are unacceptable. Never produce generic blue/red buttons,
 5. **Zero Placeholders Rule**:
    - NEVER insert empty `<img>` tags or dummy `via.placeholder.com` URLs.
    - **MANDATORY**: Use the `generate_image` tool to produce high-quality, working image assets for UI mockups, logos, avatars, and hero banners.
+6. **Antigravity Interactive Widgets (`generative_ui`)**:
+   - When communicating UI concepts, mockups, or data visualizations to the user, render rich interactive widgets directly in chat using the `generative_ui` skill.
+   - Save self-contained HTML artifacts (using Tailwind CSS `https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js` and host semantic CSS tokens like `var(--card)`, `var(--foreground)`, `var(--primary)`) with `write_to_file`.
+   - Embed inline in chat responses via `<agent-embed src="file:///<artifact_path>/widget.html"></agent-embed>`.
+7. **Modern Web Standards (`modern-web-guidance`)**:
+   - Adhere strictly to the `modern-web-guidance` skill for all frontend code: native `<dialog>`, HTML Popover API, CSS container queries, CSS View Transitions, and Core Web Vitals (CWV).
 
 ## Red Flags (Anti-Rationalization)
 
@@ -33,6 +39,7 @@ Default LLM UI designs are unacceptable. Never produce generic blue/red buttons,
 | "I'll add custom fonts later" | Import Google Fonts upfront in `index.html` or `styles.css`. |
 | "A generic blue button works" | Use curated HSL palette with hover state and shadow. |
 | "I'll use placeholder images" | Use `generate_image` tool to create real visual assets. |
+| "Static markdown table is enough for UI mockups" | Use `generative_ui` with `<agent-embed>` to render interactive live widgets. |
 
 ## Checklist for UI Verification
 
@@ -42,4 +49,7 @@ Default LLM UI designs are unacceptable. Never produce generic blue/red buttons,
 - [ ] Glassmorphism or elevated card shadows applied to containers.
 - [ ] Contrast ratio meets WCAG 2.2 AA (minimum 4.5:1 for normal text).
 - [ ] All image tags point to generated image assets or valid assets (zero placeholders).
+- [ ] Modern web standards checked via `modern-web-guidance` (popovers, native dialogs, container queries).
+- [ ] Rich chat UI rendered via `generative_ui` (`<agent-embed>`) when presenting interactive mockups.
+
 

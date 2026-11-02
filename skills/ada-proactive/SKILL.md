@@ -19,10 +19,13 @@ Execute background tasks responsibly. Always define explicit termination conditi
    - Offload long-running builds, compilation jobs, or container deployments using async `run_command`.
    - Never block the interactive session on slow support tasks that can run concurrently.
 
-3. **Scheduled Telemetry & Monitoring**:
-   - Utilize `schedule` timers or cron expressions for periodic health checks, build verification, or metric polling.
-   - Avoid infinite busy-wait polling loops; rely on event notifications and timer triggers.
+3. **Scheduled Telemetry, Cron & Automations (`automation`)**:
+   - Synergize with the native Antigravity `automation` skill when designing recurring background automations or cron jobs.
+   - Utilize native `schedule` tool timers (`DurationSeconds` for one-shot) or standard 5-field cron expressions (`CronExpression: "*/5 * * * *"`, `MaxIterations`) for periodic health checks, build verification, or metric polling.
+   - Never busy-wait or run background `sleep` processes; rely exclusively on `schedule` notifications and timer triggers.
+   - Declare `IsDaemon: true` only for standing maintenance jobs that should outlive the task; keep `IsDaemon: false` for task-monitoring loops.
 
 4. **Safety & Resource Constraints**:
    - Specify deterministic stop conditions, maximum iteration limits, and timeout boundaries for all background loops.
    - Terminate orphan or runaway tasks immediately using `manage_task` when work is done.
+

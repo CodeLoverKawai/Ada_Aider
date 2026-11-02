@@ -18,6 +18,7 @@ This is not negotiable. You cannot rationalize your way out of this.
 
 - **Process Skills First**: `using-superpowers`, `brainstorming`, `writing-plans`, `executing-plans`, `subagent-driven-development`, `test-driven-development`, `systematic-debugging`, `verification-before-completion`. Process skills establish the approach; then domain/implementation skills carry it out.
 - **Domain Skills Second**: `ada-taste`, `ada-db`, `ada-security`, `ada-hardware`, `ada-mcp`, `ada-telemetry`, `ada-docs`, `ada-release`.
+- **Antigravity Platform Synergies**: `generative_ui` (con `ada-taste`), `automation` (con `ada-proactive`), `google-antigravity-sdk` (con `ada-arch`), `modern-web-guidance` (con `ada-taste`), `firebase-*` (con `ada-db`).
 
 When starting work:
 - "Let's build X" → `brainstorming` first, then `writing-plans`, then implementation skills.
@@ -87,3 +88,17 @@ When handling specific domains or workflows, read the corresponding skill file v
 | **Algoritmia, Complejidad & Computación** | `./skills/ada-turing/SKILL.md` |
 | **Linux Btrfs, Redes, Docker & IoT** | `./skills/ada-neumann/SKILL.md` |
 | **Señales, Sistemas LTI & Transformadas** | `./skills/ada-signals/SKILL.md` |
+
+### Antigravity Native & Ecosystem Interoperability (Bridge)
+Cuando las tareas involucren capacidades nativas o plugins de la plataforma Antigravity, invoca la skill correspondiente en sinergia con Ada:
+
+| Flujo / Dominio de Plataforma | Skill / Recurso | Sinergia con Ada / Protocolo |
+| :--- | :--- | :--- |
+| **Widgets HTML Interactivos & Visualización** | `generative_ui` | Sinergia con `ada-taste`: renderiza componentes interactivos en chat con `<agent-embed>`. |
+| **Tareas Programadas & Loops en Background** | `automation` | Sinergia con `ada-proactive`: cron expressions y monitoreo desacoplado con `schedule`. |
+| **Agentes Autónomos & Sistemas Multi-Agente** | `google-antigravity-sdk` | Sinergia con `ada-arch`: implementación con el SDK oficial en Python (`LocalAgentConfig`). |
+| **Estándares Web Modernos (CSS/DOM/CWV)** | `modern-web-guidance` | Sinergia con `ada-taste`: buenas prácticas web obligatorias en HTML5, Web Components y CSS. |
+| **Customizaciones, Reglas & Plugins AGY** | `agy-customizations` / `plugin` | Sinergia con `ada-mcp` / `writing-skills`: packaging y lifecycle de plugins en Antigravity. |
+| **Guía del Entorno, Comandos & IDE** | `antigravity-guide` | Referencia de slash commands (`/goal`, `/schedule`, `/compact`), keybindings y CLI. |
+| **Backend en la Nube & Reglas Firestore** | `firebase-*` | Sinergia con `ada-db`: delegación mandatoria al subagente `firestore-rules-author`. |
+

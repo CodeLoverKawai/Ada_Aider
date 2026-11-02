@@ -190,6 +190,62 @@ test('ada-davinci embeds Feynman self-explanation and GEMINI.md indexes ada-mind
   assert.match(geminiContent, /ada-mind/, 'GEMINI.md must index ada-mind');
 });
 
+test('antigravity-tools.md tool mapping integrity', () => {
+  const toolsRefPath = path.join(rootDir, 'skills', 'using-superpowers', 'references', 'antigravity-tools.md');
+  assert.strictEqual(fs.existsSync(toolsRefPath), true);
+  const content = fs.readFileSync(toolsRefPath, 'utf8');
+
+  // Must not contain hallucinated parameters or tools
+  assert.strictEqual(
+    content.includes('multi_replace_file_content'),
+    false,
+    'antigravity-tools.md must not include hallucinated multi_replace_file_content'
+  );
+  assert.strictEqual(
+    content.includes('IsArtifact: true'),
+    false,
+    'antigravity-tools.md must not include invalid IsArtifact: true'
+  );
+  assert.strictEqual(
+    content.includes('ArtifactType: "task"'),
+    false,
+    'antigravity-tools.md must not include invalid ArtifactType: "task"'
+  );
+
+  // Must reference valid replace_file_content and ArtifactMetadata
+  assert.match(content, /`replace_file_content`/);
+  assert.match(content, /ArtifactMetadata/);
+});
+
+test('Antigravity native and ecosystem skills integration in GEMINI.md and ada-agent', () => {
+  const geminiContent = fs.readFileSync(geminiMdPath, 'utf8');
+  const adaAgentPath = path.join(rootDir, 'skills', 'ada-agent', 'SKILL.md');
+  const adaAgentContent = fs.readFileSync(adaAgentPath, 'utf8');
+
+  // GEMINI.md must index Antigravity interoperability
+  assert.match(geminiContent, /generative_ui/i, 'GEMINI.md must index generative_ui');
+  assert.match(geminiContent, /automation/i, 'GEMINI.md must index automation');
+  assert.match(geminiContent, /google-antigravity-sdk/i, 'GEMINI.md must index google-antigravity-sdk');
+  assert.match(geminiContent, /modern-web-guidance/i, 'GEMINI.md must index modern-web-guidance');
+
+  // ada-agent must define Antigravity interoperability
+  assert.match(adaAgentContent, /generative_ui/i, 'ada-agent must reference generative_ui');
+  assert.match(adaAgentContent, /google-antigravity-sdk/i, 'ada-agent must reference google-antigravity-sdk');
+  assert.match(adaAgentContent, /modern-web-guidance/i, 'ada-agent must reference modern-web-guidance');
+});
+
+test('Cross-skill synergies with Antigravity skills (ada-taste and ada-proactive)', () => {
+  const tastePath = path.join(rootDir, 'skills', 'ada-taste', 'SKILL.md');
+  const tasteContent = fs.readFileSync(tastePath, 'utf8');
+  assert.match(tasteContent, /generative_ui/i, 'ada-taste must integrate with generative_ui');
+  assert.match(tasteContent, /modern-web-guidance/i, 'ada-taste must integrate with modern-web-guidance');
+
+  const proactivePath = path.join(rootDir, 'skills', 'ada-proactive', 'SKILL.md');
+  const proactiveContent = fs.readFileSync(proactivePath, 'utf8');
+  assert.match(proactiveContent, /automation/i, 'ada-proactive must integrate with automation');
+  assert.match(proactiveContent, /schedule/i, 'ada-proactive must reference schedule tool');
+});
+
 
 
 

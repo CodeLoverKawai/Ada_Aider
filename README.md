@@ -20,6 +20,7 @@ El sistema fusiona la **disciplina procedimental estricta de Superpowers** (dise
    - [Mapeo de Herramientas CLI (Antigravity & Claude Code)](#2-mapeo-de-herramientas-cli-antigravity--claude-code)
    - [Aislamiento por Subagentes Dedicados](#3-aislamiento-por-subagentes-dedicados)
    - [Directivas de Eficiencia y Guardrails Anti-Relleno](#4-directivas-de-eficiencia-y-guardrails-anti-relleno)
+   - [Interoperabilidad con Habilidades Nativas y Plugins de Antigravity](#5-interoperabilidad-con-habilidades-nativas-y-plugins-de-antigravity)
 3. [Catálogo Exhaustivo de Habilidades (38 Skills)](#-catálogo-exhaustivo-de-habilidades-38-skills)
    - [A. Habilidades de Proceso Central (Superpowers Engine - 14 Skills)](#a-habilidades-de-proceso-central-superpowers-engine---14-skills)
    - [B. Habilidades Puente y Enrutamiento Maestro (Ada Bridges - 8 Skills)](#b-habilidades-puente-y-enrutamiento-maestro-ada-bridges---8-skills)
@@ -96,12 +97,13 @@ Cada acción descrita en los protocolos de las habilidades se ejecuta utilizando
 | :--- | :--- | :--- | :--- |
 | **Leer archivos o guías** | `view_file` | `View` / `Read` | Cargar código fuente o instrucciones `SKILL.md`. |
 | **Crear nuevos archivos o artefactos** | `write_to_file` | `Write` | Generar módulos, planes (`implementation_plan.md`) o especificaciones. |
-| **Modificar código existente** | `replace_file_content` / `multi_replace_file_content` | `Edit` | Ediciones atómicas quirúrgicas sin reescribir archivos enteros. |
+| **Modificar código existente** | `replace_file_content` | `Edit` | Ediciones atómicas quirúrgicas sin reescribir archivos enteros. |
 | **Ejecutar comandos en terminal** | `run_command` | `Bash` | Ejecutar suites de pruebas (`npm test`, `pytest`), linters y compiladores. |
 | **Búsqueda exacta de patrones / secretos** | `grep_search` | `Grep` | Localizar funciones, variables o auditar fugas de credenciales. |
 | **Desplegar subagentes aislados** | `invoke_subagent` (`self` / `research`) | `Agent` | Delegar tareas en sub-contextos independientes. |
 | **Formular preguntas interactivas** | `ask_question` | `AskUserQuestion` | Presentar menús de opciones múltiples para decisiones de diseño. |
 | **Generar imágenes / activos UI** | `generate_image` | N/A | Crear mockups, logotipos e imágenes reales para interfaces. |
+| **Tareas programadas y loops cron** | `schedule` | N/A | Cron jobs en background y temporizadores periódicos asíncronos. |
 
 ### 3. Aislamiento por Subagentes Dedicados
 
@@ -118,7 +120,21 @@ Para tareas complejas de múltiples pasos (como la ejecución de un plan de 10 t
 - **Prohibición de Afirmaciones Especulativas**: Queda estrictamente prohibido decir *"debería funcionar"*, *"el cambio está listo"* o *"la prueba pasará"* sin haber ejecutado la prueba en terminal y verificado su código de salida.
 - **Red Flags Anti-Racionalización**: Pensamientos como *"es un cambio muy simple, no necesito hacer pruebas"* o *"primero escribiré el código y luego el test"* disparan un alto inmediato en el flujo del agente.
 
+### 5. Interoperabilidad con Habilidades Nativas y Plugins de Antigravity
+
+Ada-Aider no opera como un silo aislado; se conecta de forma sinérgica con las capacidades de la plataforma Google Antigravity y su ecosistema de plugins:
+
+| Capacidad de Plataforma | Skill / Recurso | Sinergia con Ada-Aider |
+| :--- | :--- | :--- |
+| **Renderizado de UI Interactiva** | `generative_ui` | Sinergia con `ada-taste`: genera artefactos HTML interactivos con Tailwind y variables de tema Antigravity, incrustándolos directamente en el chat con `<agent-embed>`. |
+| **Automatización & Tareas Recurrentes** | `automation` | Sinergia con `ada-proactive`: diseña y ejecuta tareas en segundo plano mediante cron expressions y la herramienta `schedule`. |
+| **Desarrollo de Agentes Autónomos** | `google-antigravity-sdk` | Sinergia con `ada-arch`: diseña e implementa arquitecturas de agentes autónomos y multi-agente usando el SDK oficial en Python. |
+| **Estándares Web Modernos** | `modern-web-guidance` | Sinergia con `ada-taste`: audita e implementa estándares modernos HTML5/CSS (Dialog, Popovers, Container Queries, CWV). |
+| **Customizaciones y Plugins AGY** | `agy-customizations` / `plugin` | Sinergia con `writing-skills` y `ada-mcp`: crea, empaqueta y mantiene plugins, reglas y hooks según la especificación oficial. |
+| **Especialistas en la Nube** | `firebase-*` | Sinergia con `ada-db`: delega automáticamente la auditoría y diseño de reglas de seguridad al subagente mandatorio `firestore-rules-author`. |
+
 ---
+
 
 ## 📚 Catálogo Exhaustivo de Habilidades (38 Skills)
 

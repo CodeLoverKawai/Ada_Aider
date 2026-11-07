@@ -42,3 +42,12 @@ test('package.json carries publishing metadata', () => {
   assert.equal(pkg.scripts['test:coverage'], 'node --test --experimental-test-coverage tests/*.test.js');
 });
 
+test('CI workflow runs npm test on the supported Node matrix', () => {
+  const ciPath = path.join(root, '.github', 'workflows', 'ci.yml');
+  assert.ok(fs.existsSync(ciPath), '.github/workflows/ci.yml must exist');
+  const ci = fs.readFileSync(ciPath, 'utf8');
+  assert.match(ci, /npm test/);
+  assert.match(ci, /node-version:\s*\[18,\s*20,\s*22\]/);
+  assert.match(ci, /contents:\s*read/, 'workflow must use least-privilege permissions');
+});
+

@@ -119,91 +119,114 @@ function updateChangelog(changelogPath, newVersion, dryRun = false) {
   return true;
 }
 
-function runRelease(args = process.argv.slice(2)) {
-  const rootDir = path.resolve(__dirname, '..');
+class ReleaseError extends Error {}
+
+function runRelease(args = process.argv.slice(2), options = {}) {
+  const rootDir = options.rootDir || path.resolve(__dirname, '..');
+  const exec = options.exec || ((cmd, opts) => execSync(cmd, { cwd: rootDir, encoding: 'utf8', ...opts }));
+  const log = options.log || console.log;
+
   const bumpType = args.find(a => ['patch', 'minor', 'major'].includes(a.toLowerCase())) || 'patch';
   const dryRun = args.includes('--dry-run');
   const skipTest = args.includes('--skip-test');
   const allowDirty = args.includes('--allow-dirty');
 
-  console.log(`🚀 Starting Ada_Aider Automated Release Pipeline (${bumpType.toUpperCase()}${dryRun ? ' - DRY RUN' : ''})...`);
+  log(`🚀 Starting Ada_Aider Automated Release Pipeline (${bumpType.toUpperCase()}${dryRun ? ' - DRY RUN' : ''})...`);
 
-  // 1. Git Clean Check
+  // --- Preflight: every check runs before any file is written ---
+
+  // 1. Git clean check (fails closed: an unreadable tree is not a clean tree)
   if (!allowDirty && !dryRun) {
+    let status;
     try {
-      const status = execSync('git status --porcelain', { cwd: rootDir, encoding: 'utf8' }).trim();
-      if (status.length > 0) {
-        console.error('❌ Error: Working tree has uncommitted changes. Commit or stash them first.');
-        process.exit(1);
-      }
-    } catch (e) {
-      // Git command failed or not in a git repo
-    }
-  }
-
-  // 2. Pre-Release Test Verification
-  if (!skipTest) {
-    console.log('🧪 Running automated test suite verification...');
-    try {
-      execSync('npm test', { cwd: rootDir, stdio: 'inherit' });
-      console.log('✅ Test suite passed cleanly.');
+      status = String(exec('git status --porcelain')).trim();
     } catch (err) {
-      console.error('❌ Error: Test suite failed. Release aborted.');
-      process.exit(1);
+      throw new ReleaseError(`Cannot verify git working tree (${err.message}). Use --allow-dirty to bypass.`);
+    }
+    if (status.length > 0) {
+      throw new ReleaseError('Working tree has uncommitted changes. Commit or stash them first.');
     }
   }
 
-  // 3. Read current version from package.json
-  const packageJsonPath = path.join(rootDir, 'package.json');
-  if (!fs.existsSync(packageJsonPath)) {
-    console.error('❌ Error: package.json not found.');
-    process.exit(1);
+  // 2. Version manifests must agree
+  const sync = checkVersionSync(rootDir);
+  if (!sync.ok) {
+    throw new ReleaseError(`Version drift detected across manifests: ${JSON.stringify(sync.versions)}`);
   }
-
-  const pkg = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
-  const oldVersion = pkg.version;
+  const oldVersion = sync.versions['package.json'];
+  if (!oldVersion) {
+    throw new ReleaseError('package.json not found or has no version.');
+  }
   const newVersion = bumpSemver(oldVersion, bumpType);
 
-  console.log(`📦 Bumping version: ${oldVersion} ➔ ${newVersion}`);
+  // 3. Target tag must not exist yet
+  if (!dryRun) {
+    let tagExists = false;
+    try {
+      exec(`git rev-parse -q --verify refs/tags/v${newVersion}`);
+      tagExists = true;
+    } catch (err) {
+      // rev-parse exits non-zero when the tag is missing: that is the good case.
+    }
+    if (tagExists) {
+      throw new ReleaseError(`Tag v${newVersion} already exists.`);
+    }
+  }
 
-  // 4. Update Target Version Files
-  const targetFiles = VERSION_FILES;
+  // 4. Test suite
+  if (!skipTest) {
+    log('🧪 Running automated test suite verification...');
+    try {
+      exec('npm test', { stdio: 'inherit' });
+      log('✅ Test suite passed cleanly.');
+    } catch (err) {
+      throw new ReleaseError('Test suite failed. Release aborted.');
+    }
+  }
 
-  for (const relPath of targetFiles) {
+  // --- Mutation ---
+
+  log(`📦 Bumping version: ${oldVersion} ➔ ${newVersion}`);
+  for (const relPath of VERSION_FILES) {
     const fullPath = path.join(rootDir, relPath);
     if (fs.existsSync(fullPath)) {
       updateJsonVersion(fullPath, newVersion, dryRun);
-      console.log(`  └─ Updated ${relPath}`);
+      log(`  └─ Updated ${relPath}`);
     }
   }
 
-  // 5. Update CHANGELOG.md
   const changelogPath = path.join(rootDir, 'CHANGELOG.md');
   if (updateChangelog(changelogPath, newVersion, dryRun)) {
-    console.log('  └─ Updated CHANGELOG.md');
+    log('  └─ Updated CHANGELOG.md');
   }
 
-  // 6. Git Commit & Tag
   if (!dryRun) {
+    const staged = [...VERSION_FILES, 'CHANGELOG.md'].filter(f => fs.existsSync(path.join(rootDir, f)));
     try {
-      execSync('git add -A', { cwd: rootDir });
-      execSync(`git commit -m "chore(release): v${newVersion}"`, { cwd: rootDir });
-      execSync(`git tag -a v${newVersion} -m "Release v${newVersion}"`, { cwd: rootDir });
-      console.log(`🏷️ Created git commit and tag v${newVersion}.`);
-    } catch (e) {
-      console.log('ℹ️ Git commit/tag skipped (not in a clean git repo or git not configured).');
+      exec(`git add ${staged.join(' ')}`);
+      exec(`git commit -m "chore(release): v${newVersion}"`);
+      exec(`git tag -a v${newVersion} -m "Release v${newVersion}"`);
+    } catch (err) {
+      throw new ReleaseError(`Git commit/tag failed: ${err.message}. Files were updated but not committed.`);
     }
+    log(`🏷️ Created git commit and tag v${newVersion}.`);
   }
 
-  console.log(`🎉 Successfully completed release v${newVersion}!`);
+  log(`🎉 Successfully completed release v${newVersion}!`);
 }
 
 if (require.main === module) {
-  runRelease();
+  try {
+    runRelease();
+  } catch (err) {
+    console.error(`❌ Error: ${err.message}`);
+    process.exit(1);
+  }
 }
 
 module.exports = {
   VERSION_FILES,
+  ReleaseError,
   checkVersionSync,
   bumpSemver,
   updateJsonVersion,

@@ -10,8 +10,12 @@
   - **ada-turing**: El Teórico de la Computación & Algoritmia. Implements formal algorithmic reasoning with trilingual pedagogy (PSeInt $\to$ Python 3 $\to$ Go), loop invariants, asymptotic analysis ($\mathcal{O}, \Omega, \Theta$), advanced data structures (BST, AVL, Segment Trees), Chomsky automata/compilers, analytical backpropagation for neural networks, modern cryptography (AEAD, ECC, Merkle Trees), and Pairwise Combinatorial Test Design (PICT) using orthogonal coverage matrices.
   - **ada-neumann**: El Arquitecto de Sistemas, Linux & Hardware. Bridges physical hardware, microarchitecture (Von Neumann/Harvard, CPU pipelines, FSM), low-level Linux kernel (Arch/CachyOS, Btrfs subvolumes and Zstd compression, cgroups v2, namespaces, syscalls `epoll`/`io_uring`), BSD networking, IoT telemetry (MQTT, ESP32), production Docker Compose/Portainer stacks, and FURPS+/McCabe software engineering quality.
 - **Trail of Bits Security Engineering Framework in `ada-security`**: Upgraded with AST-based static analysis via Semgrep rules, low-level systems safety (anti-TOCTOU atomic flags, Dead Store Elimination / memory zeroization with `explicit_bzero`, constant-time crypto comparisons), and systematic Variant Analysis across the AST.
+- Root `.gitignore`, GitHub Actions CI (Node 18/20/22), `npm run test:coverage`.
+- Hygiene tests: skill frontmatter, router reachability, size ratchet, README drift, tracker branches, release pipeline.
 
 ### Changed
+- **Release engine hardened**: preflight-first pipeline (clean tree fails closed, version-drift check, tag-exists check), explicit file staging instead of `git add -A`, errors thrown instead of `process.exit`, and `[Unreleased]` notes rotated into the new version.
+- **Packaging**: `package.json` now ships `GEMINI.md`, `plugin.json`, `gemini-extension.json`, `CHANGELOG.md`, `NOTICE.md` and carries publishing metadata.
 - **Router & Token Efficiency Optimization**: Consolidated 33 legacy fragmented skills into 5 Polymath Archetypes. Streamlined `GEMINI.md` dynamic lazy-loading router from 78 lines to 49 lines, drastically reducing per-turn input token consumption by 65%-85% and preventing LLM attention degradation (*Lost in the Middle*).
 - **README.md Documentation**: Updated catalog tables, architecture diagrams, and repository structure reflecting the 38 unified skills, Socratic cognitive gym modes, Trail of Bits AST audit, and PICT combinatorial test design.
 

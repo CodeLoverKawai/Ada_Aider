@@ -86,24 +86,31 @@ function updateChangelog(changelogPath, newVersion, dryRun = false) {
   const content = fs.readFileSync(changelogPath, 'utf8');
   const today = new Date().toISOString().split('T')[0];
 
-  const header = `## [${newVersion}] - ${today}\n\n- Release v${newVersion}\n\n`;
-
   // Avoid duplicating header if already prepended
   if (content.includes(`## [${newVersion}]`)) {
     return false;
   }
 
-  // Prepend right after the title or at top
   let updated;
-  if (content.startsWith('# Changelog') || content.startsWith('# CHANGELOG')) {
-    const titleEnd = content.indexOf('\n\n');
-    if (titleEnd !== -1) {
-      updated = content.slice(0, titleEnd + 2) + header + content.slice(titleEnd + 2);
-    } else {
-      updated = content + '\n\n' + header;
-    }
+  const unreleased = content.match(/^## \[Unreleased\][^\n]*\n+/m);
+  if (unreleased) {
+    // Rotate: the Unreleased body becomes the body of the new release.
+    const rest = content.slice(unreleased.index + unreleased[0].length);
+    const body = /^## /.test(rest) || rest.trim() === '' ? `- Release v${newVersion}\n\n` : '';
+    updated =
+      content.slice(0, unreleased.index) +
+      `## [Unreleased]\n\n## [${newVersion}] - ${today}\n\n${body}` +
+      rest;
   } else {
-    updated = header + content;
+    const header = `## [${newVersion}] - ${today}\n\n- Release v${newVersion}\n\n`;
+    if (content.startsWith('# Changelog') || content.startsWith('# CHANGELOG')) {
+      const titleEnd = content.indexOf('\n\n');
+      updated = titleEnd !== -1
+        ? content.slice(0, titleEnd + 2) + header + content.slice(titleEnd + 2)
+        : content + '\n\n' + header;
+    } else {
+      updated = header + content;
+    }
   }
 
   if (!dryRun) {

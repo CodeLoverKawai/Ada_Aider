@@ -81,3 +81,31 @@ test('checkVersionSync throws naming the file when JSON is invalid', () => {
   assert.throws(() => releaseModule.checkVersionSync(dir), /plugin\.json/);
   fs.rmSync(dir, { recursive: true, force: true });
 });
+
+test('updateChangelog rotates Unreleased notes into the new version', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ada-rotate-test-'));
+  const file = path.join(dir, 'CHANGELOG.md');
+  fs.writeFileSync(file, '# Changelog\n\n## [Unreleased]\n\n### Added\n- feature x\n\n## [1.0.0] - 2026-01-01\n\n- Initial\n');
+
+  assert.equal(releaseModule.updateChangelog(file, '1.1.0', false), true);
+
+  const content = fs.readFileSync(file, 'utf8');
+  const today = new Date().toISOString().split('T')[0];
+  assert.ok(content.includes(`## [Unreleased]\n\n## [1.1.0] - ${today}\n\n### Added\n- feature x`));
+  assert.ok(content.indexOf('## [Unreleased]') < content.indexOf('## [1.1.0]'));
+  assert.ok(content.indexOf('## [1.1.0]') < content.indexOf('## [1.0.0]'));
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('updateChangelog adds a bullet when Unreleased is empty', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ada-rotate-empty-'));
+  const file = path.join(dir, 'CHANGELOG.md');
+  fs.writeFileSync(file, '# Changelog\n\n## [Unreleased]\n\n## [1.0.0] - 2026-01-01\n\n- Initial\n');
+
+  assert.equal(releaseModule.updateChangelog(file, '1.0.1', false), true);
+
+  assert.ok(fs.readFileSync(file, 'utf8').includes('## [1.0.1]'));
+  assert.ok(fs.readFileSync(file, 'utf8').includes('- Release v1.0.1'));
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+

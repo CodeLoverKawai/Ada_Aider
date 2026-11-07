@@ -60,3 +60,14 @@ test('every skill is reachable from the GEMINI.md router', () => {
   const orphans = skillDirs.filter((name) => !linked.has(name));
   assert.deepEqual(orphans, [], `Skills missing from the router: ${orphans.join(', ')}`);
 });
+
+test('README catalog count and coverage match the skills directory', () => {
+  const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+  const heading = readme.match(/Cat[aá]logo Exhaustivo de Habilidades \((\d+) Skills\)/);
+  assert.ok(heading, 'README must declare a catalog count');
+  assert.equal(Number(heading[1]), skillDirs.length, 'README catalog count is stale');
+
+  const missing = skillDirs.filter((name) => !readme.includes('`' + name + '`'));
+  assert.deepEqual(missing, [], `README has no entry for: ${missing.join(', ')}`);
+});
+

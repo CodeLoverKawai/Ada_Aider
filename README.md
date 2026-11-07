@@ -21,11 +21,11 @@ El sistema fusiona la **disciplina procedimental estricta de Superpowers** (dise
    - [Aislamiento por Subagentes Dedicados](#3-aislamiento-por-subagentes-dedicados)
    - [Directivas de Eficiencia y Guardrails Anti-Relleno](#4-directivas-de-eficiencia-y-guardrails-anti-relleno)
    - [Interoperabilidad con Habilidades Nativas y Plugins de Antigravity](#5-interoperabilidad-con-habilidades-nativas-y-plugins-de-antigravity)
-3. [Catálogo Exhaustivo de Habilidades (38 Skills)](#-catálogo-exhaustivo-de-habilidades-38-skills)
+3. [Catálogo Exhaustivo de Habilidades (41 Skills)](#-catálogo-exhaustivo-de-habilidades-41-skills)
    - [A. Habilidades de Proceso Central (Superpowers Engine - 14 Skills)](#a-habilidades-de-proceso-central-superpowers-engine---14-skills)
    - [B. Habilidades Puente y Enrutamiento Maestro (Ada Bridges - 8 Skills)](#b-habilidades-puente-y-enrutamiento-maestro-ada-bridges---8-skills)
    - [C. Habilidades de Dominio y Automatización (Ada System - 11 Skills)](#c-habilidades-de-dominio-y-automatización-ada-system---11-skills)
-   - [D. Concilio de Polímatas & Forja Intelectual (Ada Polymath Council - 5 Skills)](#d-concilio-de-polímatas--forja-intelectual-ada-polymath-council---5-skills)
+   - [D. Concilio de Polímatas & Forja Intelectual (Ada Polymath Council - 7 Skills)](#d-concilio-de-polímatas--forja-intelectual-ada-polymath-council---7-skills)
 4. [Flujos de Trabajo Prácticos de Extremo a Extremo](#-flujos-de-trabajo-prácticos-de-extremo-a-extremo)
    - [Flujo 1: Desarrollo de Nueva Característica con TDD y Subagentes](#flujo-1-desarrollo-de-nueva-característica-con-tdd-y-subagentes)
    - [Flujo 2: Depuración Sistemática de un Error en Producción](#flujo-2-depuración-sistemática-de-un-error-en-producción)
@@ -136,9 +136,9 @@ Ada-Aider no opera como un silo aislado; se conecta de forma sinérgica con las 
 ---
 
 
-## 📚 Catálogo Exhaustivo de Habilidades (38 Skills)
+## 📚 Catálogo Exhaustivo de Habilidades (41 Skills)
 
-A continuación se detalla **cada una de las 38 habilidades del sistema**, especificando:
+A continuación se detalla **cada una de las 41 habilidades del sistema**, especificando:
 - **Propósito**: Qué problema resuelve y cuándo aplica.
 - **Cómo se Ejecuta**: Flujo paso a paso, herramientas involucradas y comandos.
 - **Entradas y Salidas**: Archivos leídos, artefactos generados y pruebas ejecutadas.
@@ -475,7 +475,7 @@ A continuación se detalla **cada una de las 38 habilidades del sistema**, espec
 
 ---
 
-### D. Concilio de Polímatas & Forja Intelectual (Ada Polymath Council - 5 Skills)
+### D. Concilio de Polímatas & Forja Intelectual (Ada Polymath Council - 7 Skills)
 
 El **Concilio de Polímatas** es la consolidación y evolución arquitectónica de las 33 habilidades académicas previas en 5 Grandes Arquetipos de élite. Diseñado para erradicar la trampa de la fluidez pasiva (*passive fluency*) y el andamiaje vacío (*empty scaffolding*), transforma el asistente en una **forja cognitiva rigurosa** que exige pensamiento crítico, deducción desde primeros principios y maestría técnica integral.
 
@@ -543,6 +543,21 @@ El **Concilio de Polímatas** es la consolidación y evolución arquitectónica 
   - **Homelab & Contenedores de Producción**: Stacks declarativos seguros de Docker Compose (rootless, redes privadas, healthchecks), orquestación con Portainer y webhooks de despliegue continuo.
   - **Ingeniería de Software & Calidad**: Requisitos bajo FURPS+, historias INVEST, BPMN 2.0, pruebas de carga k6, complejidad ciclomática de McCabe y análisis económico TCO (Homelab vs Cloud).
 - **Salida**: Stacks de Docker Compose reforzados, scripts de administración Linux Btrfs, especificaciones de firmware IoT y auditorías de arquitectura de sistemas.
+
+#### 39. `ada-arch` (Arquitectura de Software & ADRs)
+- **Ubicación**: [skills/ada-arch/SKILL.md](skills/ada-arch/SKILL.md)
+- **Propósito**: Diseño de arquitectura de software, diagramas C4, modelado de sistemas distribuidos, evaluación de patrones de diseño y redacción de Architectural Decision Records (ADRs) con doctrina de módulos profundos.
+- **Salida**: Diagramas C4, ADRs fechados y evaluaciones de trade-offs arquitectónicos.
+
+#### 40. `ada-mind` (Perfil Cognitivo & Esquema Mental)
+- **Ubicación**: [skills/ada-mind/SKILL.md](skills/ada-mind/SKILL.md)
+- **Propósito**: Perfilado cognitivo, esquemas de modelos mentales, debriefing metacognitivo (`/mind reflect`), detección de sesgos cognitivos y calibración epistémica.
+- **Salida**: Perfil cognitivo actualizado y reflexiones metacognitivas estructuradas.
+
+#### 41. `ada-signals` (Señales, Sistemas LTI & Transformadas)
+- **Ubicación**: [skills/ada-signals/SKILL.md](skills/ada-signals/SKILL.md)
+- **Propósito**: Análisis de señales continuas y discretas, sistemas LTI, convolución, respuesta al impulso, Transformada de Fourier/FFT, Laplace y Z, diagramas de Bode y filtrado digital.
+- **Salida**: Desarrollos analíticos de transformadas, respuestas de sistemas y diseños de filtros.
 
 ---
 
@@ -639,7 +654,7 @@ Ada-Aider/
 │   ├── install.js            # Instalador idempotente y seguro contra symlinks
 │   └── release.js            # CLI de release automatizado para SemVer, changelog y tagging
 │
-├── skills/                   # Catálogo completo de las 38 habilidades
+├── skills/                   # Catálogo completo de las 41 habilidades
 │   ├── using-superpowers/    # Regla maestra de invocación y tabla de 12 Red Flags
 │   ├── brainstorming/        # Fase de diseño obligatorio y aprobación de spec (<HARD-GATE>)
 │   ├── writing-plans/        # Redacción de planes atómicos con tareas TDD (2-5 min)
@@ -677,7 +692,10 @@ Ada-Aider/
 │   ├── ada-davinci/          # Síntesis polímata, notas AFFiNE BlockSuite, APA 7, WBS y ética
 │   ├── ada-newton/           # Rigor cuantitativo, cálculo Stewart, física clásica y cero pasos mágicos
 │   ├── ada-turing/           # Ciencias de la computación teóricas, algoritmia formal, autómatas e IA
-│   └── ada-neumann/          # Arquitectura de sistemas, Linux Btrfs/cgroups, redes, IoT y Docker
+│   ├── ada-neumann/          # Arquitectura de sistemas, Linux Btrfs/cgroups, redes, IoT y Docker
+│   ├── ada-arch/             # Arquitectura de software, diagramas C4 y ADRs con módulos profundos
+│   ├── ada-mind/             # Perfil cognitivo, modelos mentales y debriefing metacognitivo
+│   └── ada-signals/          # Señales continuas y discretas, sistemas LTI, Fourier, Laplace y Z
 │
 ├── src/
 │   └── hooks/                # Hooks nativos de integración para Claude Code y Antigravity
@@ -687,7 +705,7 @@ Ada-Aider/
 │       ├── ada-tracker.js    # Intercepta comandos slash e inyecta compresión inteligente
 │       └── ada-statusline.sh # Script Bash para renderizar la insignia [ADA:MODE] ⛏ SAVINGS
 │
-└── tests/                    # Suite de 25 pruebas unitarias e integrales con Node.js Test Runner
+└── tests/                    # Suite de 39 pruebas unitarias e integrales con Node.js Test Runner
 ```
 
 ---

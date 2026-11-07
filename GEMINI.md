@@ -61,6 +61,20 @@ When handling specific domains or workflows, read the corresponding skill file v
 | **Code Review (Requesting / Receiving)** | `./skills/requesting-code-review/SKILL.md` |
 | **Finishing Development Branch** | `./skills/finishing-a-development-branch/SKILL.md` |
 | **Parallel Agent Dispatch** | `./skills/dispatching-parallel-agents/SKILL.md` |
+| **Receiving Code Review Feedback** | `./skills/receiving-code-review/SKILL.md` |
+| **Creating & Verifying Skills** | `./skills/writing-skills/SKILL.md` |
+
+### Ada Bridge Skills (Semantic Aliases)
+| Workflow / Trigger | Skill File Path |
+| :--- | :--- |
+| **Master Orchestrator & Caveman Mode** | `./skills/ada-agent/SKILL.md` |
+| **Requirement Discovery (alias of brainstorming)** | `./skills/ada-brainstorm/SKILL.md` |
+| **Multi-File Planning (alias of writing-plans)** | `./skills/ada-plan/SKILL.md` |
+| **Implementation with TDD (alias of test-driven-development)** | `./skills/ada-code/SKILL.md` |
+| **Evidence-Based Debugging (alias of systematic-debugging)** | `./skills/ada-debug/SKILL.md` |
+| **Completion Gate (alias of verification-before-completion)** | `./skills/ada-verify/SKILL.md` |
+| **Pull Request & Diff Review** | `./skills/ada-review/SKILL.md` |
+| **Software Architecture, C4 & ADRs** | `./skills/ada-arch/SKILL.md` |
 
 ### Specialized Domain & Automation Skills (Ada System)
 | Domain / Trigger | Skill File Path |

@@ -14,6 +14,7 @@
 - Hygiene tests: skill frontmatter, router reachability, size ratchet, README drift, tracker branches, release pipeline.
 
 ### Changed
+- **Modularized large skills**: Extracted extended code examples from ada-neumann and ada-turing into dedicated references/ directories, lowering the SKILL.md size ceiling to 800 lines.
 - **Release engine hardened**: preflight-first pipeline (clean tree fails closed, version-drift check, tag-exists check), explicit file staging instead of `git add -A`, errors thrown instead of `process.exit`, and `[Unreleased]` notes rotated into the new version.
 - **Packaging**: `package.json` now ships `GEMINI.md`, `plugin.json`, `gemini-extension.json`, `CHANGELOG.md`, `NOTICE.md` and carries publishing metadata.
 - **Router & Token Efficiency Optimization**: Consolidated 33 legacy fragmented skills into 5 Polymath Archetypes. Streamlined `GEMINI.md` dynamic lazy-loading router from 78 lines to 49 lines, drastically reducing per-turn input token consumption by 65%-85% and preventing LLM attention degradation (*Lost in the Middle*).

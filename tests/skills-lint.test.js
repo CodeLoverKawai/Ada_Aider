@@ -10,7 +10,7 @@ const skillDirs = fs.readdirSync(skillsRoot, { withFileTypes: true })
   .map((d) => d.name)
   .sort();
 
-const MAX_SKILL_LINES = 1300;
+const MAX_SKILL_LINES = 800;
 
 function readSkill(name) {
   return fs.readFileSync(path.join(skillsRoot, name, 'SKILL.md'), 'utf8').replace(/\r\n/g, '\n');
@@ -42,6 +42,13 @@ test('no SKILL.md grows past the size ratchet', () => {
   for (const dir of skillDirs) {
     const lines = readSkill(dir).split('\n').length;
     assert.ok(lines <= MAX_SKILL_LINES, `${dir}/SKILL.md has ${lines} lines (max ${MAX_SKILL_LINES})`);
+  }
+});
+
+test('modularized skills carry references/examples.md', () => {
+  for (const dir of ['ada-neumann', 'ada-turing']) {
+    const refPath = path.join(skillsRoot, dir, 'references', 'examples.md');
+    assert.ok(fs.existsSync(refPath), `${dir} must have references/examples.md`);
   }
 });
 

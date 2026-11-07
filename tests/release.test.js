@@ -48,3 +48,36 @@ test('updateChangelog prepends version section without duplicating', () => {
   // Clean up
   fs.rmSync(tmpDir, { recursive: true, force: true });
 });
+
+const releaseModule = require('../bin/release.js');
+
+function makeRelRoot(versions) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ada-sync-test-'));
+  for (const [file, version] of Object.entries(versions)) {
+    fs.writeFileSync(path.join(dir, file), JSON.stringify({ name: 'x', version }, null, 2) + '\n');
+  }
+  return dir;
+}
+
+test('checkVersionSync passes when all manifests share a version', () => {
+  const dir = makeRelRoot({ 'package.json': '1.4.0', 'plugin.json': '1.4.0' });
+  const result = releaseModule.checkVersionSync(dir);
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.versions, { 'package.json': '1.4.0', 'plugin.json': '1.4.0' });
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('checkVersionSync reports drift between manifests', () => {
+  const dir = makeRelRoot({ 'package.json': '1.4.0', 'plugin.json': '1.3.9' });
+  const result = releaseModule.checkVersionSync(dir);
+  assert.equal(result.ok, false);
+  assert.equal(result.versions['plugin.json'], '1.3.9');
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('checkVersionSync throws naming the file when JSON is invalid', () => {
+  const dir = makeRelRoot({ 'package.json': '1.4.0' });
+  fs.writeFileSync(path.join(dir, 'plugin.json'), '{ not json');
+  assert.throws(() => releaseModule.checkVersionSync(dir), /plugin\.json/);
+  fs.rmSync(dir, { recursive: true, force: true });
+});

@@ -4,6 +4,30 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+const VERSION_FILES = [
+  'package.json',
+  'plugin.json',
+  'gemini-extension.json',
+  'installed_version.json'
+];
+
+/**
+ * Reads the version of every manifest present in rootDir and reports drift.
+ */
+function checkVersionSync(rootDir, files = VERSION_FILES) {
+  const versions = {};
+  for (const rel of files) {
+    const full = path.join(rootDir, rel);
+    if (!fs.existsSync(full)) continue;
+    try {
+      versions[rel] = JSON.parse(fs.readFileSync(full, 'utf8')).version;
+    } catch (err) {
+      throw new Error(`Failed to parse JSON file "${rel}": ${err.message}`);
+    }
+  }
+  return { ok: new Set(Object.values(versions)).size <= 1, versions };
+}
+
 /**
  * Bumps a semver string (X.Y.Z) based on type ('patch' | 'minor' | 'major').
  */
@@ -136,12 +160,7 @@ function runRelease(args = process.argv.slice(2)) {
   console.log(`📦 Bumping version: ${oldVersion} ➔ ${newVersion}`);
 
   // 4. Update Target Version Files
-  const targetFiles = [
-    'package.json',
-    'plugin.json',
-    'gemini-extension.json',
-    'installed_version.json'
-  ];
+  const targetFiles = VERSION_FILES;
 
   for (const relPath of targetFiles) {
     const fullPath = path.join(rootDir, relPath);
@@ -177,6 +196,8 @@ if (require.main === module) {
 }
 
 module.exports = {
+  VERSION_FILES,
+  checkVersionSync,
   bumpSemver,
   updateJsonVersion,
   updateChangelog,
